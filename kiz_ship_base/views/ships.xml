@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="view_ship_kanban" model="ir.ui.view">
+        <field name="name">ships.ship.kanban</field>
+        <field name="model">ships.ship</field>
+
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column" sample="1">
+                    <field name="name" string="Name"/>
+                    <field name="sno" string="sno"/>
+                    <field name="note" string="note"/>
+                    <field name="ship_image" widget="image" class="oe_avatar"/>
+                    <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_global_image">
+                                 <field name="ship_image" widget="image" class="oe_avatar"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li><field name="name"/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                    </templates>
+                </kanban>
+        </field>
+    </record>
     <record id="ship_form" model="ir.ui.view">
             <field name="name">ships.ship.form</field>
             <field name="model">ships.ship</field>
             <field name="arch" type="xml">
-
                 <form>
                     <header>
                        <button string="Create Lead" name="create_lead" type="object" class="oe_highlight"/>
