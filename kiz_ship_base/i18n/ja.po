@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kiz_ship
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20210809\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-14 07:37+0000\n"
+"PO-Revision-Date: 2021-09-14 07:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: kiz_ship
+#: model:ir.model.fields,field_description:kiz_ship.field_ships_ship__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: kiz_ship
+#: model:ir.model.fields,field_description:kiz_ship.field_ships_ship__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: kiz_ship
+#: model:ir.model.fields,field_description:kiz_ship.field_ships_ship__note
+msgid "Description"
+msgstr "説明"
+
+#. module: kiz_ship
+#: model:ir.model.fields,field_description:kiz_ship.field_crm_lead__display_name
+#: model:ir.model.fields,field_description:kiz_ship.field_ships_ship__display_name
+msgid "Display Name"
+msgstr "表示名"
+
+#. module: kiz_ship
+#: model:ir.model.fields,field_description:kiz_ship.field_crm_lead__id
+#: model:ir.model.fields,field_description:kiz_ship.field_ships_ship__id
+msgid "ID"
+msgstr ""
+
+#. module: kiz_ship
+#: model:ir.model.fields,field_description:kiz_ship.field_crm_lead____last_update
+#: model:ir.model.fields,field_description:kiz_ship.field_ships_ship____last_update
+msgid "Last Modified on"
+msgstr "最終更新日"
+
+#. module: kiz_ship
+#: model:ir.model.fields,field_description:kiz_ship.field_ships_ship__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: kiz_ship
+#: model:ir.model.fields,field_description:kiz_ship.field_ships_ship__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: kiz_ship
+#: model:ir.model,name:kiz_ship.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "リード / 案件"
+
+#. module: kiz_ship
+#: model_terms:ir.ui.view,arch_db:kiz_ship.ship_form
+#: model_terms:ir.ui.view,arch_db:kiz_ship.ship_tree
+msgid "Name"
+msgstr "名称"
+
+#. module: kiz_ship
+#: model:ir.model.fields,field_description:kiz_ship.field_ships_ship__ship_image
+msgid "Ship Image"
+msgstr "船舶画像"
+
+#. module: kiz_ship
+#: model:ir.ui.menu,name:kiz_ship.ships_ship_root
+msgid "Ships"
+msgstr "船舶"
+
+#. module: kiz_ship
+#: model_terms:ir.ui.view,arch_db:kiz_ship.ship_form
+#: model_terms:ir.ui.view,arch_db:kiz_ship.ship_tree
+msgid "note"
+msgstr "備考"
+
+#. module: kiz_ship
+#: model:ir.model,name:kiz_ship.model_ships_ship
+#: model:ir.model.fields,field_description:kiz_ship.field_crm_lead__ship_id
+#: model:ir.model.fields,field_description:kiz_ship.field_ships_ship__name
+msgid "ship"
+msgstr "船舶"
+
+#. module: kiz_ship
+#: model_terms:ir.ui.view,arch_db:kiz_ship.crm_lead_view_form_inherit
+msgid "shipid"
+msgstr "ID"
+
+#. module: kiz_ship
+#: model:ir.actions.act_window,name:kiz_ship.ship_action
+#: model:ir.ui.menu,name:kiz_ship.ships_root
+#: model:ir.ui.menu,name:kiz_ship.ships_ship
+msgid "ships"
+msgstr "船舶"
+
+#. module: kiz_ship
+#: model:ir.model.fields,field_description:kiz_ship.field_ships_ship__sno
+#: model_terms:ir.ui.view,arch_db:kiz_ship.ship_form
+#: model_terms:ir.ui.view,arch_db:kiz_ship.ship_tree
+msgid "sno"
+msgstr "船番"

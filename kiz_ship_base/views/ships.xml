@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ship_form" model="ir.ui.view">
+            <field name="name">ships.ship.form</field>
+            <field name="model">ships.ship</field>
+            <field name="arch" type="xml">
+
+                <form>
+                    <header>
+                       <button string="Create Lead" name="create_lead" type="object" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                        <button name="action_open_lead" class="oe_stat_button" type="object" icon="fa-handshake-o">
+                            <div class="o_stat_info">
+                                <field name="lead_count" class="o_stat_value"/>
+                                <span class="o_stat_text">Lead</span>
+                            </div>
+                        </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name" string="Name"/>
+                                <field name="sno" string="sno"/>
+                            </group>
+                            <group>
+                                <field name="note" string="note"/>
+                                <field name="ship_image" widget="image" class="oe_avatar"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field
+                                name="ship_ids"
+                                readonly="True"
+                                attrs="{'invisible': ('ship_ids', '=', False)}"
+                            />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+    </record>
+
+    <record id="ship_tree" model="ir.ui.view">
+            <field name="name">ships.ship.tree</field>
+            <field name="model">ships.ship</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Name"/>
+                    <field name="sno" string="sno"/>
+                    <field name="note" string="note"/>
+                </tree>
+            </field>
+    </record>
+
+    <record id="ship_action" model="ir.actions.act_window">
+      <field name="name">ships</field>
+      <field name="res_model">ships.ship</field>
+      <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <menuitem
+      id="ships_root"
+      name="ships"
+      sequence="10" web_icon="kiz_ship_base,static/description/icon.png"/>
+
+    <menuitem
+      id="ships_ship_root"
+      name="Ships"
+      parent="ships_root"
+      sequence="10"/>
+
+    <menuitem
+      id="ships_ship"
+      name="ships"
+      parent="ships_ship_root"
+      action="ship_action"
+      sequence="10"/>
+
+
+</odoo>

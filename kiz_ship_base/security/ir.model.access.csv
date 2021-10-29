@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ships_ship,access.ships.ship,model_ships_ship,,1,1,1,1

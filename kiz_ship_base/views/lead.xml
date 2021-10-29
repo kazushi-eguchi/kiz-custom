@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_lead_view_form_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form" />
+        <field name="arch" type="xml">
+            
+            <h2 position="after">
+                <h3>
+                    <div class="col">
+                        <div class="o_row d-flex">
+                            <label for="weight" string="weight"/>
+                            <field name="weight" class="oe_inline"/>
+                            <span class="oe_grey">Kg</span>
+                        </div>
+                        <div class="o_row d-flex">
+                            <label for="ship_id" string="ship_id"/>
+                            <field name="ship_id" class="ship_id"/>
+                        </div>
+                    </div>
+                </h3>
+            </h2>
+
+
+        </field>
+    </record>
+</odoo>
