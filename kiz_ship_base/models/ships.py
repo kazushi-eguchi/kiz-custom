@@ -2,7 +2,6 @@
 
 from odoo import api, fields, models
 
-
 class ShipsShip(models.Model):
     _name = "ships.ship"
     _description = "ship"
