@@ -10,6 +10,8 @@ class ShipsShip(models.Model):
     sno = fields.Char("sno", required=True)
     note = fields.Text(string="Description")
     ship_image = fields.Binary(string="Ship Image")
+
+    total_weight = fields.Integer(string="Total weight")
     ship_ids = fields.One2many(
         comodel_name="crm.lead",
         inverse_name="ship_id",

@@ -8,6 +8,8 @@
             <kanban class="o_kanban_small_column" sample="1">
                     <field name="name" string="Name"/>
                     <field name="sno" string="sno"/>
+
+
                     <field name="note" string="note"/>
                     <field name="ship_image" widget="image" class="oe_avatar"/>
                     <templates>
@@ -48,6 +50,7 @@
                             <group>
                                 <field name="name" string="Name"/>
                                 <field name="sno" string="sno"/>
+
                             </group>
                             <group>
                                 <field name="note" string="note"/>
@@ -55,11 +58,30 @@
                             </group>
                         </group>
                         <group>
-                            <field
+                            <notebook>
+                                <page string="lead info">
+                                    <field
                                 name="ship_ids"
                                 readonly="True"
                                 attrs="{'invisible': ('ship_ids', '=', False)}"
-                            />
+                                />
+                                </page>
+                                <page string="ship info">
+
+                                    <group>
+                                    <div class="o_row">
+                                        <label for="total_weight" string="Total weight"/>
+                                        <field name="total_weight" id="total_weight"/>
+                                        <span class="oe_grey p-2"> Kg </span>
+                                    </div>
+                                    </group>
+                                    <group>
+
+                                    </group>
+
+                                </page>
+                            </notebook>
+
                         </group>
                     </sheet>
                 </form>
