@@ -40,14 +40,27 @@
             </xpath>
         </field>
     </record>
+     <record id="project_project_view_form_simplified_inherit" model="ir.ui.view">
+        <field name="name">project.project.view.form.simplified</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.project_project_view_form_simplified" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="manage_no" class="manage_no"/>
+            </xpath>
+        </field>
+    </record>
 <!--over view-->
 <!--     <record id="project_view_overview_inherit" model="ir.ui.view">-->
-<!--        <field name="name">project.project.kanban</field>-->
+<!--        <field name="name">project.project.overview</field>-->
 <!--        <field name="model">sale_timesheet.timesheet_plan</field>-->
 <!--        <field name="inherit_id" ref="sale_timesheet.timesheet_plan" />-->
 <!--        <field name="arch" type="xml">-->
-<!--            <xpath expr="//div[contains(@class, 'o_title')]" position="after">-->
-<!--                <field name="manage_no" class="manage_no"/>-->
+<!--            <xpath expr="//div[hasclass('o_title')]" position="after">-->
+<!--&lt;!&ndash;                <field name="manage_no" class="manage_no"/>&ndash;&gt;-->
+<!--                <div>-->
+<!--                    test-->
+<!--                </div>-->
 <!--            </xpath>-->
 <!--        </field>-->
 <!--    </record>-->

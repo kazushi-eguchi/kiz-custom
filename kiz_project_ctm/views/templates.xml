@@ -1,5 +1,11 @@
 <odoo>
     <data>
+<!--        <template id="project_overview_inherit" inherit_id="sale_timesheet.timesheet_plan" primary="True">-->
+<!--            <xpath expr="//div[contains(@class, 'o_title')]" position="after">-->
+<!--                <field name="manage_no" class="manage_no"/>-->
+<!--                test-->
+<!--            </xpath>-->
+<!--        </template>-->
 <!--
         <template id="listing">
           <ul>
