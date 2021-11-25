@@ -10,13 +10,29 @@ class ShipsShip(models.Model):
     sno = fields.Char("sno", required=True)
     note = fields.Text(string="Description")
     ship_image = fields.Binary(string="Ship Image")
-
+    ship_class = fields.Char(string="Ship Class")
     total_weight = fields.Integer(string="Total weight")
     ship_ids = fields.One2many(
         comodel_name="crm.lead",
         inverse_name="ship_id",
         string="lead",
     )
+    ship_owner_id = fields.Many2one(
+        comodel_name="res.partner",
+        string="Ship owner",
+        required=False,
+        ondelete="set null",
+    )
+    client_id = fields.Many2one(
+        comodel_name="res.partner",
+        string="Client Name",
+        required=False,
+        ondelete="set null",
+    )
+    client_construction_site = fields.Char(string="Construction site")
+    publication_start_date = fields.Date(string="Publication start date")
+    launch_date = fields.Date(string="Launch date")
+    delivery_date = fields.Date(string="Delivery date")
     lead_count = fields.Integer(string="Lead Count", compute="_compute_lead_count")
 
     def _compute_lead_count(self):

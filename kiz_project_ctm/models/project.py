@@ -13,4 +13,4 @@ class CrmLead(models.Model):
         name="weight",
         help="Enter in Kg"
     )
-    manage_no = fields.Char("Manage No", required=True)
+    manage_no = fields.Char("Manage No")

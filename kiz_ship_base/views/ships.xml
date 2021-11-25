@@ -6,86 +6,92 @@
 
         <field name="arch" type="xml">
             <kanban class="o_kanban_small_column" sample="1">
-                    <field name="name" string="Name"/>
-                    <field name="sno" string="sno"/>
+                <field name="name" string="Name"/>
+                <field name="sno" string="sno"/>
+                <field name="note" string="note"/>
+                <field name="ship_image" widget="image" class="oe_avatar"/>
 
-
-                    <field name="note" string="note"/>
-                    <field name="ship_image" widget="image" class="oe_avatar"/>
-                    <templates>
+                <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
                             <div class="oe_kanban_global_image">
-                                 <field name="ship_image" widget="image" class="oe_avatar"/>
+                                <field name="ship_image" widget="image" class="oe_avatar"/>
                             </div>
                             <div class="oe_kanban_details">
                                 <ul>
-                                    <li><field name="name"/></li>
+                                    <li>
+                                        <field name="name"/>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </t>
-                    </templates>
-                </kanban>
+                </templates>
+            </kanban>
         </field>
     </record>
     <record id="ship_form" model="ir.ui.view">
-            <field name="name">ships.ship.form</field>
-            <field name="model">ships.ship</field>
-            <field name="arch" type="xml">
-                <form>
-                    <header>
-                       <button string="Create Lead" name="create_lead" type="object" class="oe_highlight"/>
-                    </header>
-                    <sheet>
-                        <div class="oe_button_box" name="button_box">
+        <field name="name">ships.ship.form</field>
+        <field name="model">ships.ship</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="Create Lead" name="create_lead" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
                         <button name="action_open_lead" class="oe_stat_button" type="object" icon="fa-handshake-o">
                             <div class="o_stat_info">
                                 <field name="lead_count" class="o_stat_value"/>
                                 <span class="o_stat_text">Lead</span>
                             </div>
                         </button>
-                        </div>
+                    </div>
+                    <group>
                         <group>
-                            <group>
-                                <field name="name" string="Name"/>
-                                <field name="sno" string="sno"/>
-
-                            </group>
-                            <group>
-                                <field name="note" string="note"/>
-                                <field name="ship_image" widget="image" class="oe_avatar"/>
-                            </group>
+                            <field name="name" string="Name"/>
+                            <field name="sno" string="sno"/>
+                            <field name="ship_owner_id" string="Ship owner id"/>
+                            <field name="client_id" string="client id"/>
                         </group>
                         <group>
-                            <notebook>
-                                <page string="lead info">
-                                    <field
-                                name="ship_ids"
-                                readonly="True"
-                                attrs="{'invisible': ('ship_ids', '=', False)}"
+                            <field name="note" string="note"/>
+                            <field name="ship_image" widget="image" class="oe_avatar"/>
+                        </group>
+                    </group>
+                    <group>
+                        <notebook>
+                            <page string="lead info">
+                                <field
+                                        name="ship_ids"
+                                        readonly="True"
+                                        attrs="{'invisible': ('ship_ids', '=', False)}"
                                 />
-                                </page>
-                                <page string="ship info">
-
+                            </page>
+                            <page string="ship info">
+                                <group>
                                     <group>
-                                    <div class="o_row">
                                         <label for="total_weight" string="Total weight"/>
-                                        <field name="total_weight" id="total_weight"/>
-                                        <span class="oe_grey p-2"> Kg </span>
-                                    </div>
+                                        <div class="o_row">
+                                            <field name="total_weight" id="total_weight"/>
+                                            <span class="oe_grey p-2">Kg</span>
+                                        </div>
+                                        <field name="client_construction_site" id="client_construction_site"/>
                                     </group>
                                     <group>
-
+                                        <field name="ship_class" id="ship_class"/>
+                                        <field name="publication_start_date" id="publication_start_date"/>
+                                        <field name="launch_date" id="launch_date"/>
+                                        <field name="delivery_date" id="delivery_date"/>
                                     </group>
+                                </group>
+                            </page>
+                        </notebook>
 
-                                </page>
-                            </notebook>
-
-                        </group>
-                    </sheet>
-                </form>
-            </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
     </record>
 
     <record id="ship_tree" model="ir.ui.view">
