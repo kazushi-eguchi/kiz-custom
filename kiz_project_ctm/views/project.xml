@@ -56,15 +56,15 @@
 <!--        <field name="model">sale_timesheet.timesheet_plan</field>-->
 <!--        <field name="inherit_id" ref="sale_timesheet.timesheet_plan" />-->
 <!--        <field name="arch" type="xml">-->
-<!--            <xpath expr="//div[hasclass('o_title')]" position="after">-->
-<!--&lt;!&ndash;                <field name="manage_no" class="manage_no"/>&ndash;&gt;-->
+<!--            <xpath expr="//div[hasclass('o_profitability_wrapper')]" position="after">-->
+<!--                <field name="manage_no" class="manage_no"/>-->
 <!--                <div>-->
 <!--                    test-->
 <!--                </div>-->
 <!--            </xpath>-->
 <!--        </field>-->
 <!--    </record>-->
-    <!-- explicit list view definition -->
+<!--    &lt;!&ndash; explicit list view definition &ndash;&gt;-->
 <!--
     <record model="ir.ui.view" id="kiz_project_ctm.list">
       <field name="name">kiz_project_ctm list</field>
