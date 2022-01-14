@@ -1,0 +1,72 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kiz_project_ctm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-14 00:33+0000\n"
+"PO-Revision-Date: 2022-01-14 00:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: kiz_project_ctm
+#: model_terms:ir.ui.view,arch_db:kiz_project_ctm.project_view_form_inherit
+msgid "<span class=\"oe_grey\">Kg</span>"
+msgstr ""
+
+#. module: kiz_project_ctm
+#: model:ir.model.fields,field_description:kiz_project_ctm.field_project_project__display_name
+msgid "Display Name"
+msgstr "表示名"
+
+#. module: kiz_project_ctm
+#: model:ir.model.fields,help:kiz_project_ctm.field_project_project__weight
+msgid "Enter in Kg"
+msgstr "Kgで入力してください。"
+
+#. module: kiz_project_ctm
+#: model:ir.model.fields,field_description:kiz_project_ctm.field_project_project__id
+msgid "ID"
+msgstr ""
+
+#. module: kiz_project_ctm
+#: model:ir.model.fields,field_description:kiz_project_ctm.field_project_project____last_update
+msgid "Last Modified on"
+msgstr "最終更新日"
+
+#. module: kiz_project_ctm
+#: model:ir.model.fields,field_description:kiz_project_ctm.field_project_project__manage_no
+#: model_terms:ir.ui.view,arch_db:kiz_project_ctm.project_view_form_inherit
+msgid "Manage No"
+msgstr "管理番号"
+
+#. module: kiz_project_ctm
+#: model:ir.model,name:kiz_project_ctm.model_project_project
+msgid "Project"
+msgstr "プロジェクト"
+
+#. module: kiz_project_ctm
+#: model:ir.model.fields,field_description:kiz_project_ctm.field_project_project__weight
+msgid "Weight"
+msgstr "重量"
+
+#. module: kiz_project_ctm
+#: model:ir.model.fields,field_description:kiz_project_ctm.field_project_project__ship_id
+msgid "ship"
+msgstr "船"
+
+#. module: kiz_project_ctm
+#: model_terms:ir.ui.view,arch_db:kiz_project_ctm.project_view_form_inherit
+msgid "ship_id"
+msgstr "S番"
+
+#. module: kiz_project_ctm
+#: model_terms:ir.ui.view,arch_db:kiz_project_ctm.project_view_form_inherit
+msgid "weight"
+msgstr ""

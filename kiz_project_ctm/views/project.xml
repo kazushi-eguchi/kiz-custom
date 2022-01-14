@@ -16,7 +16,7 @@
                         </div>
                         <div class="o_row d-flex">
                             <label for="ship_id" string="ship_id"/>
-                            <field name="ship_id" class="ship_id"/>
+                            <field name="ship_id" class="ship_id" widget="many2many_tags"/>
                         </div>
                       <div class="o_row d-flex">
                             <label for="manage_no" string="Manage No"/>

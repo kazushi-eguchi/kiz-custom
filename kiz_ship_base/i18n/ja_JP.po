@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 14.0-20211213\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-15 02:10+0000\n"
-"PO-Revision-Date: 2021-11-15 02:10+0000\n"
+"POT-Creation-Date: 2022-01-14 02:18+0000\n"
+"PO-Revision-Date: 2022-01-14 02:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,14 +21,29 @@ msgid "<span class=\"o_stat_text\">Lead</span>"
 msgstr ""
 
 #. module: kiz_ship_base
+#: model_terms:ir.ui.view,arch_db:kiz_ship_base.ship_form
+msgid "<span class=\"oe_grey p-2\">Kg</span>"
+msgstr ""
+
+#. module: kiz_ship_base
 #: model_terms:ir.ui.view,arch_db:kiz_ship_base.crm_lead_view_form_inherit
 msgid "<span class=\"oe_grey\">Kg</span>"
 msgstr ""
 
 #. module: kiz_ship_base
+#: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__client_id
+msgid "Client Name"
+msgstr "客先名"
+
+#. module: kiz_ship_base
+#: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__client_construction_site
+msgid "Construction site"
+msgstr "建造場所"
+
+#. module: kiz_ship_base
 #: model_terms:ir.ui.view,arch_db:kiz_ship_base.ship_form
 msgid "Create Lead"
-msgstr ""
+msgstr "案件作成"
 
 #. module: kiz_ship_base
 #: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__create_uid
@@ -39,6 +54,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__create_date
 msgid "Created on"
 msgstr ""
+
+#. module: kiz_ship_base
+#: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__delivery_date
+msgid "Delivery date"
+msgstr "引渡日"
 
 #. module: kiz_ship_base
 #: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__note
@@ -54,7 +74,7 @@ msgstr "表示名"
 #. module: kiz_ship_base
 #: model:ir.model.fields,help:kiz_ship_base.field_crm_lead__weight
 msgid "Enter in Kg"
-msgstr ""
+msgstr "Kgで入力してください。"
 
 #. module: kiz_ship_base
 #: model:ir.model.fields,field_description:kiz_ship_base.field_crm_lead__id
@@ -71,12 +91,17 @@ msgstr "最終更新日"
 #. module: kiz_ship_base
 #: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "最終更新者"
 
 #. module: kiz_ship_base
 #: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__write_date
 msgid "Last Updated on"
 msgstr ""
+
+#. module: kiz_ship_base
+#: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__launch_date
+msgid "Launch date"
+msgstr "進水日"
 
 #. module: kiz_ship_base
 #: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__lead_count
@@ -93,7 +118,17 @@ msgstr "リード / 案件"
 #: model_terms:ir.ui.view,arch_db:kiz_ship_base.ship_tree
 #: model_terms:ir.ui.view,arch_db:kiz_ship_base.view_ship_kanban
 msgid "Name"
-msgstr ""
+msgstr "型式／名称"
+
+#. module: kiz_ship_base
+#: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__publication_start_date
+msgid "Publication start date"
+msgstr "搭載開始日"
+
+#. module: kiz_ship_base
+#: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__ship_class
+msgid "Ship Class"
+msgstr "船級"
 
 #. module: kiz_ship_base
 #: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__ship_image
@@ -101,9 +136,25 @@ msgid "Ship Image"
 msgstr "船舶画像"
 
 #. module: kiz_ship_base
+#: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__ship_owner_id
+msgid "Ship owner"
+msgstr "船主"
+
+#. module: kiz_ship_base
+#: model_terms:ir.ui.view,arch_db:kiz_ship_base.ship_form
+msgid "Ship owner id"
+msgstr "船主"
+
+#. module: kiz_ship_base
 #: model:ir.ui.menu,name:kiz_ship_base.ships_ship_root
 msgid "Ships"
 msgstr ""
+
+#. module: kiz_ship_base
+#: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__total_weight
+#: model_terms:ir.ui.view,arch_db:kiz_ship_base.ship_form
+msgid "Total weight"
+msgstr "総重量"
 
 #. module: kiz_ship_base
 #: model:ir.model.fields,field_description:kiz_ship_base.field_crm_lead__weight
@@ -111,16 +162,19 @@ msgid "Weight"
 msgstr "重量"
 
 #. module: kiz_ship_base
+#: model_terms:ir.ui.view,arch_db:kiz_ship_base.ship_form
+msgid "client id"
+msgstr "客先名"
+
+#. module: kiz_ship_base
 #: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__ship_ids
 msgid "lead"
 msgstr ""
 
 #. module: kiz_ship_base
-#: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__manage_no
 #: model_terms:ir.ui.view,arch_db:kiz_ship_base.ship_form
-#: model_terms:ir.ui.view,arch_db:kiz_ship_base.view_ship_kanban
-msgid "manage_no"
-msgstr "管理番号"
+msgid "lead info"
+msgstr "案件情報"
 
 #. module: kiz_ship_base
 #: model_terms:ir.ui.view,arch_db:kiz_ship_base.ship_form
@@ -135,6 +189,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:kiz_ship_base.field_ships_ship__name
 msgid "ship"
 msgstr "船舶"
+
+#. module: kiz_ship_base
+#: model_terms:ir.ui.view,arch_db:kiz_ship_base.ship_form
+msgid "ship info"
+msgstr "船情報"
 
 #. module: kiz_ship_base
 #: model_terms:ir.ui.view,arch_db:kiz_ship_base.crm_lead_view_form_inherit

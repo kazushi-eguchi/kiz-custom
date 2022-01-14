@@ -5,7 +5,8 @@ from odoo import _, api, fields, models
 
 class CrmLead(models.Model):
     _inherit = "project.project"
-    ship_id = fields.Many2one(
+
+    ship_id = fields.Many2many(
         "ships.ship",
         string="ship"
     )

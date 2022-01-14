@@ -5,9 +5,9 @@ from odoo import api, fields, models
 class ShipsShip(models.Model):
     _name = "ships.ship"
     _description = "ship"
-
+    _rec_name = "combination"
     name = fields.Char("ship", required=True)
-    sno = fields.Char("sno", required=True)
+    sno = fields.Char("sno")
     note = fields.Text(string="Description")
     ship_image = fields.Binary(string="Ship Image")
     ship_class = fields.Char(string="Ship Class")
@@ -34,6 +34,16 @@ class ShipsShip(models.Model):
     launch_date = fields.Date(string="Launch date")
     delivery_date = fields.Date(string="Delivery date")
     lead_count = fields.Integer(string="Lead Count", compute="_compute_lead_count")
+
+    combination = fields.Char(string='Combination', compute='_compute_fields_combination')
+
+    @api.depends('sno', 'name')
+    def _compute_fields_combination(self):
+        for ship in self:
+            if ship.sno == False:
+                ship.combination = ship.name
+            else:
+                ship.combination = ship.sno + ' ' + ship.name
 
     def _compute_lead_count(self):
         for rec in self:
