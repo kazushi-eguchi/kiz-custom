@@ -1,26 +1,38 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-    <record id="kiz_pr_form" model="ir.ui.view">
+    <data>
+        <!-- explicit list view definition -->
+        <record id="kiz_pr_form" model="ir.ui.view">
             <field name="name">purchase.request.form</field>
             <field name="model">purchase.request</field>
             <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
-            <field name="arch" type="xml">
-              <xpath expr="//field[@name='group_id']" position="after">
-                    <field name="account_id" string="production management slip no" />
-               </xpath>
 
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='group_id']" position="after">
+                    <field name="account_id" string="production management slip no" context="{'default_analytic_account_id': '222'}"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']" position="attributes">
+                    <attribute name="context">{'default_analytic_account_id':account_id}</attribute>
+                </xpath>
+<!--                <xpath expr="//group[@name='main']/group/field[@name='analytic_account_id']" position="replace">-->
+<!--                    <field-->
+<!--                            name="analytic_account_id"-->
+<!--                            groups="analytic.group_analytic_accounting"-->
+<!--                            attrs="{'readonly': [('is_editable','=', False)]}"-->
+
+<!--                    />-->
+<!--                </xpath>-->
             </field>
-    </record>
-    <record id="purchase_request_line_form" model="ir.ui.view">
-        <field name="name">purchase.request.line.form</field>
-        <field name="model">purchase.request.line</field>
-        <field name="inherit_id" ref="purchase_request.purchase_request_line_form" />
-        <field name="arch" type="xml">
-            <xpath expr="//group[@name='specifications']" position="inside">
-                test
-            </xpath>
-        </field>
-    </record>
-  </data>
+        </record>
+<!--        <record id="purchase_request_line_form_account" model="ir.ui.view">-->
+<!--            <field name="name">purchase.request.line.form</field>-->
+<!--            <field name="model">purchase.request.line</field>-->
+<!--            <field name="inherit_id" ref="purchase_request.purchase_request_line_form"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//group[@name='info']" position="inside">-->
+<!--                    <div>test</div>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+    </data>
 </odoo>

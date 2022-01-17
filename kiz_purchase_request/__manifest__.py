@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'kiz_purchase_ctm', 'purchase_request'],
+    'depends': ['base', 'purchase_request'],
 
     # always loaded
     'data': [
