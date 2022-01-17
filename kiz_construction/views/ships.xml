@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+    <record id="ships_view_form_inherit" model="ir.ui.view">
+        <field name="name">ships.ship.form</field>
+        <field name="model">ships.ship</field>
+        <field name="inherit_id" ref="kiz_ship_base.ship_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[contains(@name, 'ship_image')]" position="after">
+                <field name="construction_ids" class="construction id"/>
+            </xpath>
+        </field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,360 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kiz_construction
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-17 03:15+0000\n"
+"PO-Revision-Date: 2022-01-17 03:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__approved_drawing
+msgid "Approved drawing"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__attachment_id
+msgid "Attachment"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__branch
+msgid "Branch"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__china_arrival_date
+msgid "China arrival date"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__trading_company
+msgid "Company"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__construction_drawing
+msgid "Construction drawing"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__consultation_drawing
+msgid "Consultation drawing"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__departure_date
+msgid "Departure date"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__design_note
+msgid "Design note"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__designer
+msgid "Designer"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__expected_gross_weight
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "Expected gross weight"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__first_category
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "First category"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__gross_weight
+msgid "Gross weight"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__id
+msgid "ID"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__in_house_construction_drawing
+msgid "In-house construction drawing"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__isomorphism
+msgid "Isomorphism"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.ui.menu,name:kiz_construction.menu_1_list
+msgid "List"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__machining_drawing
+msgid "Machining drawing"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__material_input_person
+msgid "Material input person"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.ui.menu,name:kiz_construction.menu_1
+msgid "Menu 1"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__procurement_date
+msgid "Procurement date"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__production_place
+msgid "Production place"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields.selection,name:kiz_construction.selection__kiz_construction_kiz_construction__status__promising
+msgid "Promising"
+msgstr ""
+
+#. module: kiz_construction
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "S No."
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__second_category
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "Second category"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__ship_class
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "Ship class"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__shipyard_full
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "Shipyard Full"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__shipyard_short
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "Shipyard short"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__status
+msgid "Status"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__steel_material_arrangement_date
+msgid "Steel material arrangement date"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__steel_material_order_date
+msgid "Steel material order date"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__account_executive
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "account executive"
+msgstr ""
+
+#. module: kiz_construction
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "branch"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__building
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "building"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__china_date
+msgid "china date"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__china_days
+msgid "china days"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.ui.menu,name:kiz_construction.menu_root
+msgid "construction"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__construction_slip_number
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "construction slip number"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields.selection,name:kiz_construction.selection__kiz_construction_kiz_construction__status__contract
+msgid "contract"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__date_of_issue
+msgid "date of issue"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__deadline
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "deadline"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__drawing_number
+msgid "drawing number"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__in_date
+msgid "in date"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__in_days
+msgid "in days"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__items
+msgid "items"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.actions.act_window,name:kiz_construction.action_window
+msgid "kiz_construction window"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model,name:kiz_construction.model_kiz_construction_kiz_construction
+msgid "kiz_construction.kiz_construction"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields.selection,name:kiz_construction.selection__kiz_construction_kiz_construction__status__lead
+msgid "lead"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__name
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "name"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__note
+msgid "note"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__paint_arrangement_date
+msgid "paint arrangement date"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__paint_order_date
+msgid "paint order date"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__painting
+msgid "painting"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__product_number
+msgid "product number"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__no
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "production management slip no"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__production_management_ticket_period
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "production management ticket period"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__s_no
+msgid "ship"
+msgstr ""
+
+#. module: kiz_construction
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "ship info"
+msgstr ""
+
+#. module: kiz_construction
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "trading company"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__trading_company_short_name
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "trading company short name"
+msgstr ""

@@ -4,8 +4,10 @@ from odoo import models, fields, api
 
 
 class KizPurchaseRequest(models.Model):
-    _inherit = "purchase.request.line"
-    request_img = fields.Binary(string="image")
+    _inherit = "purchase.request"
+    account_id = fields.Many2one(
+        comodel_name="account.analytic.account", string="production management slip no"
+    )
 #     _description = 'kiz_purchase_request.kiz_purchase_request'
 
 #     name = fields.Char()

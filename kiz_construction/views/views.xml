@@ -6,12 +6,16 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
+                        <button string="Create Purchase Request" name="create_pr" type="object" class="oe_highlight"/>
                         <field name="status" widget="statusbar" options="{'clickable':'1}"/>
                     </header>
                     <sheet>
                         <group>
                             <group>
-                                <field name="no" string="sno"/>
+<!--                                <field name="analytic_account_id" string="Analytic Account"/>-->
+                                <field name="construction_slip_number" string="construction slip number"/>
+                                <field name="production_management_ticket_period" string="production management ticket period"/>
+                                <field name="no" string="production management slip no"/>
                                 <field name="deadline" string="deadline"/>
 
                                 <field name="s_no" string="S No."/>
@@ -35,6 +39,7 @@
                             <page string="ship info">
                                 <group>
                                     <field name="ship_class" string="Ship class"/>
+                                    <field name="expected_gross_weight" string="Expected gross weight"/>
                                 </group>
                             </page>
                             </notebook>

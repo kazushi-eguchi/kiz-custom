@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record id="kiz_pr_form" model="ir.ui.view">
+            <field name="name">purchase.request.form</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+            <field name="arch" type="xml">
+              <xpath expr="//field[@name='group_id']" position="after">
+                    <field name="account_id" string="production management slip no" />
+               </xpath>
+
+            </field>
+    </record>
+    <record id="purchase_request_line_form" model="ir.ui.view">
+        <field name="name">purchase.request.line.form</field>
+        <field name="model">purchase.request.line</field>
+        <field name="inherit_id" ref="purchase_request.purchase_request_line_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='specifications']" position="inside">
+                test
+            </xpath>
+        </field>
+    </record>
+  </data>
+</odoo>
