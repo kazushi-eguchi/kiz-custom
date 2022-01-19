@@ -1,0 +1,64 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="kiz_construction_slip.list">
+      <field name="name">kiz_construction_slip list</field>
+      <field name="model">kiz_construction_slip.kiz_construction_slip</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="analytic_account_id"/>
+
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="kiz_construction_slip.action_window">
+      <field name="name">kiz_construction_slip window</field>
+      <field name="res_model">kiz_construction_slip.kiz_construction_slip</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="kiz_construction_slip.action_server">
+      <field name="name">kiz_construction_slip server</field>
+      <field name="model_id" ref="model_kiz_construction_slip_kiz_construction_slip"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem
+            name="kiz construction slip"
+            id="kiz_construction_slip.menu_root"
+            sequence="10"
+            web_icon="kiz_construction_slip,static/description/icon.png"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="kiz_construction_slip.menu_1" parent="kiz_construction_slip.menu_root"/>
+<!--    <menuitem name="Menu 2" id="kiz_construction_slip.menu_2" parent="kiz_construction_slip.menu_root"/>
+-->
+    <!-- actions -->
+
+
+    <menuitem name="List" id="kiz_construction_slip.menu_1_list" parent="kiz_construction_slip.menu_1"
+              action="kiz_construction_slip.action_window"/>
+ <!--   <menuitem name="Server to list" id="kiz_construction_slip" parent="kiz_construction_slip.menu_2"
+              action="kiz_construction_slip.action_server"/>
+-->
+  </data>
+</odoo>

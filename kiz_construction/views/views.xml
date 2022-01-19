@@ -87,7 +87,7 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="construction" id="kiz_construction.menu_root" sequence="10"
+    <menuitem name="production control" id="kiz_construction.menu_root" sequence="10"
      web_icon="kiz_construction,static/description/icon.png"/>
 
     <!-- menu categories -->
