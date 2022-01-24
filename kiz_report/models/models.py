@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+# from odoo import models, fields, api
 
 
-class KizPurchaseOrder(models.Model):
-    _inherit = 'purchase.order'
-    # _name = 'kiz_purchase_add.kiz_purchase_add'
-    # _description = 'kiz_purchase_addon'
+# class kiz_report(models.Model):
+#     _name = 'kiz_report.kiz_report'
+#     _description = 'kiz_report.kiz_report'
 
-
+#     name = fields.Char()
 #     value = fields.Integer()
 #     value2 = fields.Float(compute="_value_pc", store=True)
 #     description = fields.Text()

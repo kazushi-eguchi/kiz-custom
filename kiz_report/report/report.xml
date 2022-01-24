@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+
+
+    <report
+            string="purchase"
+            id="report_purchase_order_rtw"
+            model="purchase.order"
+            report_type="qweb-pdf"
+            name="kiz_report.purchase"
+            file="kiz_report.purchase"
+    />
+
+</odoo>
