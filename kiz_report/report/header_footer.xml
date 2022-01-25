@@ -58,6 +58,9 @@
                         平素より格別のお引き立てを賜り厚く御礼申し上げます。<br/>
                         下記の通り手配依頼いたします。ご査収の程よろしくお願いいたします<br/>
                             管理番号：
+                            <t t-foreach="o.account_id" t-as="item">
+                                <span t-field="item.name"/>
+                            </t>
                         </t>
 
 
@@ -66,13 +69,13 @@
                 <div class="col-4" name="company_address">
 
 
-<!--                    <img-->
-<!--                                    t-if="o.company_id.chop"-->
-<!--                                    t-attf-src="data:image/*;base64,{{o.company_id.chop}}"-->
-<!--                                    style="position: absolute;max-height: 100px;left:100px;top:50px"-->
-<!--                                    align="right"-->
+                    <img
+                                    t-if="o.company_id.chop"
+                                    t-attf-src="data:image/*;base64,{{o.company_id.chop}}"
+                                    style="position: absolute;max-height: 100px;left:120px;top:45px"
+                                    align="right"
 
-<!--                                />-->
+                                />
                     <div t-field="company.partner_id"
                          t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
                     />

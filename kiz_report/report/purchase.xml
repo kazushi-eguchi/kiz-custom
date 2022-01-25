@@ -14,6 +14,7 @@
                                 <span t-field="o.partner_id.vat"/>
                             </p>
                         </t>
+                        <t t-call="kiz_report.purchase_table" />
 <!--                        <table class="table table-condensed">-->
 <!--                            <tbody class="invoice_tbody">-->
 <!--                                <thead style="background-color:#F8F9FA">-->
@@ -95,5 +96,30 @@
         </t>
     </template>
 
+    <template id="purchase_table">
+        <table class="table table-condensed">
+            <tbody class="sale_tbody">
+            <thead style="background-color:#F8F9FA">
+                <th>product</th>
+                <th>spec</th>
+                <th>qty</th>
+                <th>place</th>
+            </thead>
+        <t t-foreach="o.order_line" t-as="l">
+            <tr>
+                <td><span t-field="l.product_template_id.display_name"/></td>
 
+                <td><t t-foreach="l.product_id.product_template_attribute_value_ids" t-as="string_line">
+                    <span t-esc="string_line.display_name"/><br/></t></td>
+                <td><span t-esc="'{0:,.0f}'.format(l.product_uom_qty)"/></td>
+                <td></td>
+            </tr>
+            <t t-set="images" t-value="l.purchase_request_lines.mapped('item_image_ids')"/>
+                <t t-if="images">
+                    <t t-call="purchase_report_image.purchase_line_image" />
+                </t>
+        </t>
+            </tbody>
+        </table>
+    </template>
 </odoo>
