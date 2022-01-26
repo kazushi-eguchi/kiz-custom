@@ -6,7 +6,7 @@ class ShipsShip(models.Model):
     _name = "ships.ship"
     _description = "ship"
     _rec_name = "combination"
-    name = fields.Char("ship", required=True)
+    name = fields.Char("ship")
     sno = fields.Char("sno")
     note = fields.Text(string="Description")
     ship_image = fields.Binary(string="Ship Image")
@@ -30,6 +30,7 @@ class ShipsShip(models.Model):
         ondelete="set null",
     )
     client_construction_site = fields.Char(string="Construction site")
+    shipyard = fields.Char(string="shipyard")
     publication_start_date = fields.Date(string="Publication start date")
     launch_date = fields.Date(string="Launch date")
     delivery_date = fields.Date(string="Delivery date")

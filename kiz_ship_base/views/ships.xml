@@ -49,12 +49,15 @@
                     </div>
                     <group>
                         <group>
-                            <field name="name" string="Name"/>
+
                             <field name="sno" string="sno"/>
+                            <field name="shipyard" string="shipyard"/>
+                            <field name="client_construction_site" id="client_construction_site"/>
                             <field name="ship_owner_id" string="Ship owner id"/>
                             <field name="client_id" string="client id"/>
                         </group>
                         <group>
+                            <field name="name" string="Name"/>
                             <field name="note" string="note"/>
                             <field name="ship_image" widget="image" class="oe_avatar"/>
                         </group>
@@ -76,7 +79,7 @@
                                             <field name="total_weight" id="total_weight"/>
                                             <span class="oe_grey p-2">Kg</span>
                                         </div>
-                                        <field name="client_construction_site" id="client_construction_site"/>
+
                                     </group>
                                     <group>
                                         <field name="ship_class" id="ship_class"/>
