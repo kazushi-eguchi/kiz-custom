@@ -2,6 +2,7 @@
 
 from odoo import api, fields, models
 
+
 class ShipsShip(models.Model):
     _name = "ships.ship"
     _description = "ship"
@@ -44,7 +45,7 @@ class ShipsShip(models.Model):
             if ship.sno == False:
                 ship.combination = ship.name
             else:
-                ship.combination = ship.sno + ' ' + ship.name
+                ship.combination = ship.sno.__str__() + ' ' + ship.name.__str__()
 
     def _compute_lead_count(self):
         for rec in self:
