@@ -29,6 +29,7 @@
         'views/templates.xml',
         'views/ships.xml',
         'views/res_partner.xml',
+        'views/const_files.xml',
         "security/ir.model.access.csv"
     ],
     # only loaded in demonstration mode

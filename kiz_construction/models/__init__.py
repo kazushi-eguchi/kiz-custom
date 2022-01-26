@@ -3,5 +3,6 @@
 from . import models
 from . import ship
 from . import res_partner
+from . import cont_files
 
 

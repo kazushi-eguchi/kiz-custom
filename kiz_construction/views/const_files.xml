@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+        <record id="const_files_form" model="ir.ui.view">
+            <field name="name">const.files.form</field>
+            <field name="model">const.files</field>
+            <field name="arch" type="xml">
+            <form  string="Drawing Files">
+                 <sheet>
+                <group>
+                       <group>
+                                <field name="const_id" string="const id"/>
+                                <field name="name" string="name" invisible="1"/>
+                                <field filename="name" name="file" string="file" widget="pdf_viewer"/>
+                                <field name="type" string="type"/>
+
+                       </group>
+                       <group></group>
+                </group>
+
+                 </sheet>
+            </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="const_files_tree">
+            <field name="name">const files list</field>
+            <field name="model">const.files</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+    <record model="ir.actions.act_window" id="action_const_files">
+      <field name="name">action_const_files window</field>
+      <field name="res_model">const.files</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+        <menuitem name="const files" id="kiz_construction.menu_2_list" parent="kiz_construction.menu_1"
+                  action="action_const_files"/>
+    </data>
+</odoo>
