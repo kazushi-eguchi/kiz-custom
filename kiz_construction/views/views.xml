@@ -40,6 +40,8 @@
                                 <group>
                                     <field name="ship_class" string="Ship class"/>
                                     <field name="expected_gross_weight" string="Expected gross weight"/>
+                                    <field name="in_date" string="in date"/>
+                                    <field name="china_date" string="china date"/>
                                 </group>
                             </page>
                             </notebook>

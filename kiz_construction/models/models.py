@@ -16,7 +16,8 @@ class kiz_construction(models.Model):
     status = fields.Char(string="status")# 工事伝票ステータス
     deadline = fields.Date(string="deadline")  # 工事伝納期
     account_executive = fields.Char(string="account executive")  # 営業担当者
-    trading_company = fields.Many2one('res.company', string='Company')  # 商社
+    trading_company = fields.Many2one(
+        comodel_name='res.partner', string='trading_company')  # 商社
     trading_company_short_name = fields.Char(string="trading company short name")  # 商社略称
     branch = fields.Char(string="Branch")  # 支社
     shipyard_full = fields.Char(string="Shipyard Full")
@@ -34,7 +35,7 @@ class kiz_construction(models.Model):
     drawing_number = fields.Char(string="drawing number")
     painting = fields.Char(string="painting")
     product_number = fields.Char(string="product number")
-    date_of_issue = fields.Date(string="date of issue")
+    date_of_issue = fields.Datetime(string="date of issue")
     finished_making_the_day = fields.Date(string="Finished making the day")
     designer = fields.Char(string="Designer")
     machining_drawing = fields.Char(string="Machining drawing")
@@ -52,7 +53,7 @@ class kiz_construction(models.Model):
     procurement_date = fields.Date(string="Procurement date")
     departure_date = fields.Date(string="Departure date")
     in_days = fields.Integer(string="in days")
-    in_date = fields.Date(string="in date")
+    in_date = fields.Datetime(string="in date")
     china_days = fields.Integer(string="china days")
     china_date = fields.Date(string="china date")
     consultation_drawing = fields.Many2one('ir.attachment', string="Consultation drawing")
@@ -62,8 +63,8 @@ class kiz_construction(models.Model):
     steel_material_arrangement_date = fields.Date(string="Steel material arrangement date")
     paint_order_date = fields.Date(string="paint order date")
     paint_arrangement_date = fields.Date(string="paint arrangement date")
-    gross_weight = fields.Integer(string="Gross weight")
-    expected_gross_weight = fields.Integer(string="Expected gross weight", related='s_no.total_weight')
+    gross_weight = fields.Float(string="Gross weight")
+    expected_gross_weight = fields.Float(string="Expected gross weight", related='s_no.total_weight')
     #分析勘定
     # analytic_account_id = fields.Many2one(
     #     comodel_name="account.analytic.account", string="Analytic Account"

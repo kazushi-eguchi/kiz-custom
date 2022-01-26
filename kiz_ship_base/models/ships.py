@@ -11,7 +11,7 @@ class ShipsShip(models.Model):
     note = fields.Text(string="Description")
     ship_image = fields.Binary(string="Ship Image")
     ship_class = fields.Char(string="Ship Class")
-    total_weight = fields.Integer(string="Total weight")
+    total_weight = fields.Float(string="Total weight")
     ship_ids = fields.One2many(
         comodel_name="crm.lead",
         inverse_name="ship_id",
