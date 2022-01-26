@@ -44,6 +44,13 @@
                                     <field name="china_date" string="china date"/>
                                 </group>
                             </page>
+                            <page string="drawings">
+
+                            <field name="drawing4field" />
+<!--                                <field name="image_file_name" invisible="1"/>-->
+<!--                        <field name="drawing4field" filename="image_file_name"/>-->
+
+                            </page>
                             </notebook>
                     </sheet>
                 </form>

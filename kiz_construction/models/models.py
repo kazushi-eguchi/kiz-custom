@@ -65,6 +65,10 @@ class kiz_construction(models.Model):
     paint_arrangement_date = fields.Date(string="paint arrangement date")
     gross_weight = fields.Float(string="Gross weight")
     expected_gross_weight = fields.Float(string="Expected gross weight", related='s_no.total_weight')
+    drawing4field = fields.Binary(string="Drawing for the field")
+    # 添付ファイル
+
+
     #分析勘定
     # analytic_account_id = fields.Many2one(
     #     comodel_name="account.analytic.account", string="Analytic Account"
