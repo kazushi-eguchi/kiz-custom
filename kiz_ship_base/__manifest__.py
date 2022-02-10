@@ -26,6 +26,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         "views/ships.xml",
+        "views/ships_type.xml",
         "views/lead.xml",
         "security/ir.model.access.csv"
     ],

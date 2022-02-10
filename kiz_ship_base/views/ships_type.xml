@@ -1,138 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_ship_kanban" model="ir.ui.view">
-        <field name="name">ships.ship.kanban</field>
-        <field name="model">ships.ship</field>
 
-        <field name="arch" type="xml">
-            <kanban class="o_kanban_small_column" sample="1">
-                <field name="name" string="Name"/>
-                <field name="sno" string="sno"/>
-                <field name="note" string="note"/>
-                <field name="ship_image" widget="image" class="oe_avatar"/>
-
-                <templates>
-                    <t t-name="kanban-box">
-                        <div t-attf-class="oe_kanban_global_click">
-                            <div class="oe_kanban_global_image">
-                                <field name="ship_image" widget="image" class="oe_avatar"/>
-                            </div>
-                            <div class="oe_kanban_details">
-                                <ul>
-                                    <li>
-                                        <field name="name"/>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </t>
-                </templates>
-            </kanban>
-        </field>
-    </record>
-    <record id="ship_form" model="ir.ui.view">
-        <field name="name">ships.ship.form</field>
-        <field name="model">ships.ship</field>
+    <record id="ship_type_form" model="ir.ui.view">
+        <field name="name">ships.type.form</field>
+        <field name="model">ships.type</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-                    <button string="Create Lead" name="create_lead" type="object" class="oe_highlight"/>
-                </header>
+
                 <sheet>
-                    <div class="oe_button_box" name="button_box">
-                        <button name="action_open_lead" class="oe_stat_button" type="object" icon="fa-handshake-o">
-                            <div class="o_stat_info">
-                                <field name="lead_count" class="o_stat_value"/>
-                                <span class="o_stat_text">Lead</span>
-                            </div>
-                        </button>
-                    </div>
+
                     <group>
                         <group>
 
-                            <field name="sno" string="sno"/>
-                            <field name="shipyard" string="shipyard"/>
-                            <field name="client_construction_site" id="client_construction_site"/>
-                            <field name="ship_owner_id" string="Ship owner id"/>
-                            <field name="client_id" string="client id"/>
-                        </group>
-                        <group>
-                            <field name="name" string="Name"/>
-                            <field name="ship_type" string="ship type"/>
-                            <field name="note" string="note"/>
-                            <field name="ship_image" widget="image" class="oe_avatar"/>
+                            <field name="name" string="ship type"/>
                         </group>
                     </group>
-                    <group>
-                        <notebook>
-                            <page string="lead info">
-                                <field
-                                        name="ship_ids"
-                                        readonly="True"
-                                        attrs="{'invisible': ('ship_ids', '=', False)}"
-                                />
-                            </page>
-                            <page string="ship info">
-                                <group>
-                                    <group>
-                                        <label for="total_weight" string="Total weight"/>
-                                        <div class="o_row">
-                                            <field name="total_weight" id="total_weight"/>
-                                            <span class="oe_grey p-2">Kg</span>
-                                        </div>
 
-                                    </group>
-                                    <group>
-                                        <field name="ship_class" id="ship_class"/>
-                                        <field name="publication_start_date" id="publication_start_date"/>
-                                        <field name="launch_date" id="launch_date"/>
-                                        <field name="delivery_date" id="delivery_date"/>
-                                    </group>
-                                </group>
-                            </page>
-                        </notebook>
-
-                    </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <record id="ship_tree" model="ir.ui.view">
-            <field name="name">ships.ship.tree</field>
-            <field name="model">ships.ship</field>
+    <record id="ship_type_tree" model="ir.ui.view">
+            <field name="name">ships.type.tree</field>
+            <field name="model">ships.type</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="name" string="Name"/>
-                    <field name="sno" string="sno"/>
-                    <field name="note" string="note"/>
+                    <field name="name" string="ship type"/>
                 </tree>
             </field>
     </record>
 
-    <record id="ship_action" model="ir.actions.act_window">
-      <field name="name">ships</field>
-      <field name="res_model">ships.ship</field>
-      <field name="view_mode">tree,kanban,form</field>
+    <record id="ship_type_action" model="ir.actions.act_window">
+      <field name="name">ships type</field>
+      <field name="res_model">ships.type</field>
+      <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem
-      id="ships_root"
-      name="ships"
-      sequence="10" web_icon="kiz_ship_base,static/description/icon.png"/>
+
 
     <menuitem
-      id="ships_ship_root"
-      name="Ships"
-      parent="ships_root"
-      sequence="10"/>
-
-    <menuitem
-      id="ships_ship"
-      name="ships"
+      id="ships_type"
+      name="ships type"
       parent="ships_ship_root"
-      action="ship_action"
-      sequence="10"/>
+      action="ship_type_action"
+      sequence="20"/>
 
 
 </odoo>
