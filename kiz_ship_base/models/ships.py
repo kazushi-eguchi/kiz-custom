@@ -38,7 +38,12 @@ class ShipsShip(models.Model):
     lead_count = fields.Integer(string="Lead Count", compute="_compute_lead_count")
 
     combination = fields.Char(string='Combination', compute='_compute_fields_combination')
-
+    ship_type = fields.Many2one(
+        comodel_name="ships.type",
+        string="ship type",
+        required=False,
+        ondelete="set null",
+    )
     @api.depends('sno', 'name')
     def _compute_fields_combination(self):
         for ship in self:

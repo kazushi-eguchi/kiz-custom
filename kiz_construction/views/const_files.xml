@@ -8,7 +8,7 @@
                  <sheet>
                 <group>
                        <group>
-                                <field name="const_id" string="const id"/>
+                                <field name="const_id" string="const id" invisible="1"/>
                                 <field name="name" string="name" invisible="1"/>
                                 <field filename="name" name="file" string="file" widget="pdf_viewer"/>
                                 <field name="type" string="type"/>
@@ -26,7 +26,10 @@
             <field name="model">const.files</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="name"/>
+                    <field name="const_id" string="const id" />
+                                <field name="name" string="name" invisible="1"/>
+                                <field filename="name" name="file" string="file" widget="pdf_viewer"/>
+                                <field name="type" string="type"/>
                 </tree>
             </field>
         </record>

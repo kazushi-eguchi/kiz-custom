@@ -6,7 +6,7 @@ from odoo import models, fields, api
 class kiz_construction(models.Model):
     _name = 'kiz_construction.kiz_construction'
     _description = 'kiz_construction.kiz_construction'
-
+    _rec_name = "construction_slip_number"
     construction_slip_number = fields.Char(string="construction slip number", Transrate=True)  # 制作管理番号
     construction_slip_status = fields.Char(string="construction slip status")
     production_management_ticket_period = fields.Date(string="production management ticket period")  # 制作管理票納期

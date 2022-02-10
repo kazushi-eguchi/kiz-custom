@@ -46,7 +46,7 @@
                             </page>
                             <page string="drawings">
                             <group>
-                                <field name="const_files" />
+                                <field name="const_files" nolabel="1" context="{'default_const_id': no}"/>
                             </group>
 
 <!--                                <field name="image_file_name" invisible="1"/>-->
