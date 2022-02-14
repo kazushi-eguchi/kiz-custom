@@ -66,6 +66,15 @@
       <field name="arch" type="xml">
         <tree>
           <field name="no"/>
+          <field name="status"/>
+          <field name="deadline"/>
+          <field name="trading_company"/>
+          <field name="shipyard_full"/>
+          <field name="s_no"/>
+          <field name="production_name"/>
+          <field name="drawing_number"/>
+          <field name="production_management_ticket_period"/>
+
         </tree>
       </field>
     </record>
