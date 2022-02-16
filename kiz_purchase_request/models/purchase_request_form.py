@@ -19,3 +19,10 @@ class KizPurchaseRequest(models.Model):
 #     def _value_pc(self):
 #         for record in self:
 #             record.value2 = float(record.value) / 100
+
+    @api.model
+    def _prepare_purchase_order(self):
+        data = super()._prepare_purchase_order()
+        data['account_id'] = self.account_id
+        print(self.account_id)
+        return data
