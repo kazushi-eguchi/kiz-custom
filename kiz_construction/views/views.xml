@@ -48,10 +48,11 @@
                             <group>
                                 <field name="const_files" nolabel="1" context="{'default_const_id': no}"/>
                             </group>
-
-<!--                                <field name="image_file_name" invisible="1"/>-->
-<!--                        <field name="drawing4field" filename="image_file_name"/>-->
-
+                            </page>
+                            <page string="purchase">
+                                <group>
+                                <field name="purchase_line" nolabel="1" context="{'group_by':'order_id'}"/>
+                                </group>
                             </page>
                             </notebook>
                     </sheet>

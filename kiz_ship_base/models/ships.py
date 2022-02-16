@@ -38,6 +38,7 @@ class ShipsShip(models.Model):
     lead_count = fields.Integer(string="Lead Count", compute="_compute_lead_count")
 
     combination = fields.Char(string='Combination', compute='_compute_fields_combination')
+    size = fields.Char(tring="size")
     ship_type = fields.Many2one(
         comodel_name="ships.type",
         string="ship type",

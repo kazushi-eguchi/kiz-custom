@@ -69,6 +69,10 @@ class kiz_construction(models.Model):
         comodel_name="const.files",
         inverse_name="const_id",
         string="Drawing files",)
+    purchase_line = fields.One2many(
+        comodel_name="purchase.order.line",
+        compute='_compute_purchase_line'
+    )
     # 添付ファイル
 
 
@@ -97,3 +101,13 @@ class kiz_construction(models.Model):
                 'default_account_id': self.no.id,
             }
         }
+
+    def _compute_purchase_line(self):
+        a = self.env["purchase.order.line"].search_read([("account_analytic_id", "=", self.no.name)])
+        # b = self.purchase_lines
+        print(self.no.name)
+        print(a)
+        # self.purchase_line = self.env["purchase.order"].search([("account_id", "=", self.no.id)]).id
+        self.purchase_line = self.env["purchase.order.line"].search([("account_analytic_id", "=", self.no.name)])
+        # print(self.account_id)
+
