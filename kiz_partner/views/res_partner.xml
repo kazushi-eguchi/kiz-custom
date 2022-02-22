@@ -17,7 +17,7 @@
                     <field name="kana" string="kana"/>
                     <field name="allocated_code" string="allocated code 1"/>
                     <field name="allocated_code2" string="allocated code 2"/>
-                    <field name="supplier_code" string="supplier code"/>
+                    <field name="type" string="type"/>
                 </group>
             </xpath>
         </field>
