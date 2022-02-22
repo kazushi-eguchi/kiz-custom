@@ -24,6 +24,12 @@ class ShipsShip(models.Model):
         required=False,
         ondelete="set null",
     )
+    trading_company = fields.Many2one(
+        comodel_name="res.partner",
+        string="Trading Company",
+        required=False,
+        ondelete="set null",
+    )
     client_id = fields.Many2one(
         comodel_name="res.partner",
         string="Client Name",
@@ -82,3 +88,4 @@ class ShipsShip(models.Model):
                 'default_ship_id': self.id,
             }
         }
+

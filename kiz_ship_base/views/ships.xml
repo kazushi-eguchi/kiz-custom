@@ -53,6 +53,7 @@
                             <field name="sno" string="sno"/>
                             <field name="shipyard" string="shipyard"/>
                             <field name="client_construction_site" id="client_construction_site"/>
+                            <field name="trading_company" string="trading company" domain="[('custom_type','=','商社')]"/>
                             <field name="ship_owner_id" string="Ship owner id"/>
                             <field name="client_id" string="client id"/>
                         </group>

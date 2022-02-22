@@ -12,9 +12,9 @@ class kiz_partner(models.Model):
     allocated_code = fields.Char(string="allocated code 1", help="Enter the code assigned by your business partner.")
     allocated_code2 = fields.Char(string="allocated code 2")
     supplier_code = fields.Char(string="supplier code")
-    type = fields.Selection([
-        ('trading_company', 'trading company'), ('shipyard', 'shipyard')
-    ])
+    custom_type = fields.Many2many(
+        comodel_name="res.partner.custom_type",
+    )
 #     name = fields.Char()
 #     value = fields.Integer()
 #     value2 = fields.Float(compute="_value_pc", store=True)
