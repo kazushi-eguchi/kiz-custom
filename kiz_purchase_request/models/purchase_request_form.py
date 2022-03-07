@@ -8,6 +8,8 @@ class KizPurchaseRequest(models.Model):
     account_id = fields.Many2one(
         comodel_name="account.analytic.account", string="production management slip no"
     )
+    # s_no = fields.Many2one(comdel_name="ships.ship", compute='_compute_sno')
+    # s_no = fields.Char(compute='_compute_sno')
 #     _description = 'kiz_purchase_request.kiz_purchase_request'
 
 #     name = fields.Char()
@@ -26,3 +28,14 @@ class KizPurchaseRequest(models.Model):
         data['account_id'] = self.account_id
         print("test")
         return data
+
+    # @api.onchange("account_id")
+    # def _compute_sno(self):
+    #     self.ensure_one()
+    #     #a = self.env["kiz_construction.kiz_construction"].search_read([], [])
+    # # #     # b = self.purchase_lines
+    #
+    #     print(self.account_id)
+    #     self.s_no = self.env["ships.ship"].search([("construction_ids", "=", self.account_id.name)]).sno
+    #     print(self.env["kiz_construction.kiz_construction"].search([("no", "=", self.account_id.name)]).shipyard_full)
+    #     print(self.s_no)

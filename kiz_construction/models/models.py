@@ -13,7 +13,7 @@ class kiz_construction(models.Model):
     no = fields.Many2one(
         comodel_name="account.analytic.account", string="production management slip no"
     )
-    status = fields.Char(string="status")# 工事伝票ステータス
+    status = fields.Char(string="status")  # 工事伝票ステータス
     deadline = fields.Date(string="deadline")  # 工事伝納期
     account_executive = fields.Char(string="account executive")  # 営業担当者
     trading_company = fields.Many2one(
@@ -68,15 +68,15 @@ class kiz_construction(models.Model):
     const_files = fields.One2many(
         comodel_name="const.files",
         inverse_name="const_id",
-        string="Drawing files",)
+        string="Drawing files", )
     purchase_line = fields.One2many(
         comodel_name="purchase.order.line",
         compute='_compute_purchase_line'
     )
+
     # 添付ファイル
 
-
-    #分析勘定
+    # 分析勘定
     # analytic_account_id = fields.Many2one(
     #     comodel_name="account.analytic.account", string="Analytic Account"
     # )
@@ -102,6 +102,19 @@ class kiz_construction(models.Model):
             }
         }
 
+    def create_po(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'purchase.order',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {
+                'default_name': self.no.name,
+                'default_account_id': self.no.id,
+            }
+        }
+
     def _compute_purchase_line(self):
         a = self.env["purchase.order.line"].search_read([("account_analytic_id", "=", self.no.name)])
         # b = self.purchase_lines
@@ -110,4 +123,3 @@ class kiz_construction(models.Model):
         # self.purchase_line = self.env["purchase.order"].search([("account_id", "=", self.no.id)]).id
         self.purchase_line = self.env["purchase.order.line"].search([("account_analytic_id", "=", self.no.name)])
         # print(self.account_id)
-

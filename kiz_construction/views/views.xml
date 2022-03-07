@@ -7,6 +7,7 @@
                 <form>
                     <header>
                         <button string="Create Purchase Request" name="create_pr" type="object" class="oe_highlight"/>
+                        <button string="Create Purchase Order" name="create_po" type="object" class="oe_highlight"/>
                         <field name="status" widget="statusbar" options="{'clickable':'1}"/>
                     </header>
                     <sheet>
