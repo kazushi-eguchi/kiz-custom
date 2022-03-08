@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'kiz_ship_base', 'kiz_purchase_request'],
+    'depends': ['base', 'kiz_ship_base', 'kiz_purchase_request', 'purchase'],
 
     # always loaded
     'data': [
@@ -30,6 +30,7 @@
         'views/ships.xml',
         'views/res_partner.xml',
         'views/const_files.xml',
+        'views/purchase_order_line_view.xml',
         "security/ir.model.access.csv"
     ],
     # only loaded in demonstration mode
