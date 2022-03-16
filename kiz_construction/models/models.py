@@ -89,18 +89,7 @@ class kiz_construction(models.Model):
     #     def _value_pc(self):
     #         for record in self:
     #             record.value2 = float(record.value) / 100
-    def create_pr(self):
-        return {
-            'type': 'ir.actions.act_window',
-            'res_model': 'purchase.request',
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-            'context': {
-                'default_name': self.no.name,
-                'default_account_id': self.no.id,
-            }
-        }
+
 
     def create_po(self):
         return {
