@@ -114,7 +114,10 @@
                 <td><span t-esc="'{0:,.0f}'.format(l.product_uom_qty)"/></td>
                 <td></td>
             </tr>
-
+<!--            <t t-set="images" t-value="l.purchase_request_lines.mapped('item_image_ids')"/>-->
+<!--                <t t-if="images">-->
+<!--                    <t t-call="purchase_report_image.purchase_line_image" />-->
+<!--                </t>-->
         </t>
             </tbody>
         </table>
