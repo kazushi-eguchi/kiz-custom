@@ -13,6 +13,15 @@ class KizPurchaseOrder(models.Model):
     account_id = fields.Many2one(
         comodel_name="account.analytic.account", string="production management slip no"
     )
+    s_no = fields.Many2one(
+        comodel_name="ships.ship",
+        string="ship"
+    )  # S番
+
+    product_name = fields.Char(string="name")
+    trading_company = fields.Many2one(
+        comodel_name='res.partner', string='trading_company')  # 商社
+    shipyard_full = fields.Char(string="Shipyard Full")
 
     # def _compute_account_id(self):
     #

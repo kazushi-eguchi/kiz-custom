@@ -16,6 +16,7 @@
                                 <field name="construction_slip_number" string="construction slip number"/>
                                 <field name="production_management_ticket_period" string="production management ticket period"/>
                                 <field name="no" string="production management slip no"/>
+                                <field name="sub_number" string="sub_number"/>
                                 <field name="deadline" string="deadline"/>
 
                                 <field name="s_no" string="S No."/>

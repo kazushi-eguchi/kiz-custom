@@ -6,7 +6,8 @@ from odoo import models, fields, api
 class kiz_construction(models.Model):
     _name = 'kiz_construction.kiz_construction'
     _description = 'kiz_construction.kiz_construction'
-    _rec_name = "construction_slip_number"
+    _rec_name = "no"
+    sub_number = fields.Integer("sub number", tracking=True)
     construction_slip_number = fields.Char(string="construction slip number", Transrate=True)  # 制作管理番号
     construction_slip_status = fields.Char(string="construction slip status")
     production_management_ticket_period = fields.Date(string="production management ticket period")  # 制作管理票納期
@@ -97,10 +98,14 @@ class kiz_construction(models.Model):
             'res_model': 'purchase.order',
             'view_type': 'form',
             'view_mode': 'form',
-            'target': 'new',
+            'target': 'current',
             'context': {
                 'default_name': self.no.name,
                 'default_account_id': self.no.id,
+                'default_s_no': self.s_no.id,
+                'default_product_name': self.name,
+                'default_trading_company': self.trading_company.id,
+                'default_shipyard_full': self.shipyard_full,
             }
         }
 
