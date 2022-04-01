@@ -14,6 +14,7 @@
                             <group>
 <!--                                <field name="analytic_account_id" string="Analytic Account"/>-->
                                 <field name="construction_slip_number" string="construction slip number"/>
+                                <field name="date_of_issue" string="date of issue"/>
                                 <field name="production_management_ticket_period" string="production management ticket period"/>
                                 <field name="no" string="production management slip no"/>
                                 <field name="sub_number" string="sub_number"/>
