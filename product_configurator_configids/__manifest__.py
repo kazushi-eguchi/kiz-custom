@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "kiz_purchase_request",
+    'name': "product_configurator_configids",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -10,7 +10,7 @@
         Long description of module's purpose
     """,
 
-    'author': "Enzantrades inc",
+    'author': "My Company",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -20,14 +20,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', "product_configurator"],
+    'depends': ['base', 'product_configurator', 'purchase'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        # 'views/purchase_request_form.xml',
-        # 'views/purchase_order.xml',
-        # 'views/templates.xml',
+        'views/purchase_order.xml',
+        'views/templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

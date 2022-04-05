@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record id="kiz_po_form" model="ir.ui.view">
+            <field name="name">purchase_order_form_kiz</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+
+            <field name="arch" type="xml">
+                <xpath
+                        expr="//field[@name='order_line']/tree//field[@name='name']"
+                        position="after"
+                >
+                            <field name="config_session_id.custom_value_ids" />
+<!--                        <field name="custom_value_ids">-->
+<!--                            <tree>-->
+<!--                                <field name="attribute_id"/>-->
+<!--                                <field name="name"/>-->
+<!--                                <field name="attachment_ids" widget="many2many_tags"/>-->
+<!--                            </tree>-->
+<!--                        </field>-->
+
+                </xpath>
+                <xpath
+                        expr="//field[@name='order_line']/form//field[@name='product_id']"
+                        position="after"
+                >
+
+<!--                        <field name="custom_value_ids" widget="many2many_tags">-->
+<!--                            <tree>-->
+<!--                                <field name="attribute_id"/>-->
+<!--                                <field name="name"/>-->
+<!--                                <field name="attachment_ids" widget="many2many_tags"/>-->
+<!--                            </tree>-->
+<!--                        </field>-->
+
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
