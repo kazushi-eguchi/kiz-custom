@@ -1,6 +1,6 @@
 <odoo>
-  <data>
-    <record id="kiz_construction_form" model="ir.ui.view">
+    <data>
+        <record id="kiz_construction_form" model="ir.ui.view">
             <field name="name">kiz_construction.kiz_construction.form</field>
             <field name="model">kiz_construction.kiz_construction</field>
             <field name="arch" type="xml">
@@ -12,10 +12,11 @@
                     <sheet>
                         <group>
                             <group>
-<!--                                <field name="analytic_account_id" string="Analytic Account"/>-->
+                                <!--                                <field name="analytic_account_id" string="Analytic Account"/>-->
                                 <field name="construction_slip_number" string="construction slip number"/>
                                 <field name="date_of_issue" string="date of issue"/>
-                                <field name="production_management_ticket_period" string="production management ticket period"/>
+                                <field name="production_management_ticket_period"
+                                       string="production management ticket period"/>
                                 <field name="no" string="production management slip no"/>
                                 <field name="sub_number" string="sub_number"/>
                                 <field name="deadline" string="deadline"/>
@@ -28,6 +29,7 @@
                             <group>
 
                                 <field name="account_executive" string="account executive"/>
+                                <field name="designer"/>
                                 <field name="trading_company" string="trading company"/>
                                 <field name="trading_company_short_name" string="trading company short name"/>
                                 <field name="branch" string="branch"/>
@@ -47,84 +49,85 @@
                                 </group>
                             </page>
                             <page string="drawings">
-                            <group>
-                                <field name="const_files" nolabel="1" context="{'default_const_id': no}"/>
-                            </group>
+                                <group>
+                                    <field name="const_files" nolabel="1" context="{'default_const_id': no}"/>
+                                </group>
                             </page>
                             <page string="purchase">
                                 <group>
-                                <field name="purchase_line" nolabel="1" context="{'group_by':'order_id'}"/>
+                                    <field name="purchase_line" nolabel="1" context="{'group_by':'order_id'}"/>
                                 </group>
                             </page>
-                            </notebook>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
-    </record>
-    <!-- explicit list view definition -->
+        </record>
+        <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="kiz_construction.list">
-      <field name="name">kiz_construction list</field>
-      <field name="model">kiz_construction.kiz_construction</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="no"/>
-          <field name="status"/>
-          <field name="deadline"/>
-          <field name="trading_company"/>
-          <field name="shipyard_full"/>
-          <field name="s_no"/>
-          <field name="production_name"/>
-          <field name="drawing_number"/>
-          <field name="production_management_ticket_period"/>
+        <record model="ir.ui.view" id="kiz_construction.list">
+            <field name="name">kiz_construction list</field>
+            <field name="model">kiz_construction.kiz_construction</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="no"/>
+                    <field name="status"/>
+                    <field name="designer"/>
+                    <field name="deadline"/>
+                    <field name="trading_company"/>
+                    <field name="shipyard_full"/>
+                    <field name="s_no"/>
+                    <field name="production_name"/>
+                    <field name="drawing_number"/>
+                    <field name="production_management_ticket_period"/>
 
-        </tree>
-      </field>
-    </record>
-
-
-    <!-- actions opening views on models -->
-
-    <record model="ir.actions.act_window" id="kiz_construction.action_window">
-      <field name="name">kiz_construction window</field>
-      <field name="res_model">kiz_construction.kiz_construction</field>
-      <field name="view_mode">tree,form</field>
-    </record>
+                </tree>
+            </field>
+        </record>
 
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="kiz_construction.action_server">
-      <field name="name">kiz_construction server</field>
-      <field name="model_id" ref="model_kiz_construction_kiz_construction"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
+        <!-- actions opening views on models -->
 
-    <!-- Top menu item -->
+        <record model="ir.actions.act_window" id="kiz_construction.action_window">
+            <field name="name">kiz_construction window</field>
+            <field name="res_model">kiz_construction.kiz_construction</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
-    <menuitem name="production control" id="kiz_construction.menu_root" sequence="10"
-     web_icon="kiz_construction,static/description/icon.png"/>
 
-    <!-- menu categories -->
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="kiz_construction.action_server">
+              <field name="name">kiz_construction server</field>
+              <field name="model_id" ref="model_kiz_construction_kiz_construction"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
 
-    <menuitem name="Menu 1" id="kiz_construction.menu_1" parent="kiz_construction.menu_root" sequence="10"/>
-    <!--<menuitem name="Menu 2" id="kiz_construction.menu_2" parent="kiz_construction.menu_root"/>-->
+        <!-- Top menu item -->
 
-    <!-- actions -->
+        <menuitem name="production control" id="kiz_construction.menu_root" sequence="10"
+                  web_icon="kiz_construction,static/description/icon.png"/>
 
-    <menuitem name="List" id="kiz_construction.menu_1_list" parent="kiz_construction.menu_1"
-              action="kiz_construction.action_window"/>
+        <!-- menu categories -->
 
-    <!--<menuitem name="Server to list" id="kiz_construction" parent="kiz_construction.menu_2"
-              action="kiz_construction.action_server"/>-->
+        <menuitem name="Menu 1" id="kiz_construction.menu_1" parent="kiz_construction.menu_root" sequence="10"/>
+        <!--<menuitem name="Menu 2" id="kiz_construction.menu_2" parent="kiz_construction.menu_root"/>-->
 
-  </data>
+        <!-- actions -->
+
+        <menuitem name="List" id="kiz_construction.menu_1_list" parent="kiz_construction.menu_1"
+                  action="kiz_construction.action_window"/>
+
+        <!--<menuitem name="Server to list" id="kiz_construction" parent="kiz_construction.menu_2"
+                  action="kiz_construction.action_server"/>-->
+
+    </data>
 </odoo>

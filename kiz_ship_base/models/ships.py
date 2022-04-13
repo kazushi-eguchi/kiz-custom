@@ -56,6 +56,8 @@ class ShipsShip(models.Model):
         for ship in self:
             if ship.sno == False:
                 ship.combination = ship.name
+            if ship.name == False:
+                ship.combination = ship.sno
             else:
                 ship.combination = ship.sno.__str__() + ' ' + ship.name.__str__()
 
