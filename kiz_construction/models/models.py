@@ -7,73 +7,73 @@ class kiz_construction(models.Model):
     _name = 'kiz_construction.kiz_construction'
     _description = 'kiz_construction.kiz_construction'
     _rec_name = "no"
-    sub_number = fields.Integer("sub number", tracking=True)
-    construction_slip_number = fields.Char(string="construction slip number", Transrate=True)  # 制作管理番号
-    construction_slip_status = fields.Char(string="construction slip status")
-    production_management_ticket_period = fields.Date(string="production management ticket period")  # 制作管理票納期
+    sub_number = fields.Integer("sub number", tracking=True)  # 枝番 OK
+    construction_slip_number = fields.Char(string="construction slip number", Transrate=True)  # 制作管理番号 OK
+    construction_slip_status = fields.Char(string="construction slip status")  # ステータス OK
+    production_management_ticket_period = fields.Date(string="production management ticket period")  # 制作管理票納期 OK
     no = fields.Many2one(
         comodel_name="account.analytic.account", string="production management slip no"
-    )
-    status = fields.Char(string="status")  # 工事伝票ステータス
-    deadline = fields.Date(string="deadline")  # 工事伝納期
-    account_executive = fields.Char(string="account executive")  # 営業担当者
+    )  # 制作管理番号 OK
+    status = fields.Char(string="status")  # 工事伝票ステータス OK
+    deadline = fields.Date(string="deadline")  # 工事伝納期 OK
+    account_executive = fields.Char(string="account executive")  # 営業担当者 OK
     trading_company = fields.Many2one(
-        comodel_name='res.partner', string='trading_company')  # 商社
-    trading_company_short_name = fields.Char(string="trading company short name")  # 商社略称
-    branch = fields.Char(string="Branch")  # 支社
-    shipyard_full = fields.Char(string="Shipyard Full")
-    shipyard_short = fields.Char(string="Shipyard short")
-    building = fields.Char(string="building")
+        comodel_name='res.partner', string='trading_company')  # 商社 OK
+    trading_company_short_name = fields.Char(string="trading company short name")  # 商社略称 OK
+    branch = fields.Char(string="Branch")  # 支社 OK
+    shipyard_full = fields.Char(string="Shipyard Full")  # 造船所 OK
+    shipyard_short = fields.Char(string="Shipyard short")  # 造船所略称 OK
+    building = fields.Char(string="building")  # 建造所 OK
     s_no = fields.Many2one(
         "ships.ship",
         string="ship"
-    )  # S番
-    name = fields.Char(string="name")   # 品名
-    production_name = fields.Char(string="Production Name")     # 制作名称
-    first_category = fields.Char(string="First category")
-    second_category = fields.Char(string="Second category")
-    ship_class = fields.Char(string="Ship class")
-    drawing_number = fields.Char(string="drawing number")
-    painting = fields.Char(string="painting")  # 塗装
-    product_number = fields.Char(string="product number")
-    date_of_issue = fields.Datetime(string="date of issue")  # 製作管理票発行日
-    finished_making_the_day = fields.Date(string="Finished making the day")     # 製缶完了日
-    designer = fields.Char(string="Designer")   # 設計担当者
-    machining_drawing = fields.Char(string="Machining drawing") # 加工図
-    in_house_construction_drawing = fields.Char(string="In-house construction drawing")  # 社内工事図
-    attachment_id = fields.Many2one('ir.attachment', string="Attachment")
-    isomorphism = fields.Char(string="Isomorphism")  # 同型
-    items = fields.Char(string="items")  # 内訳
-    note = fields.Text(string="note")   # 備考
-    design_note = fields.Char(string="Design note")  # 設計備考
-    nesting_notes = fields.Char(string="Nesting Notes")  # ネスティング備考
-    material_input_person = fields.Char(string="Material input person")  # 資材入力者
-    production_place = fields.Char(string="Production place")   # 製作場所
-    correction_area = fields.Char(string="correction area")
-    china_arrival_date = fields.Date(string="China arrival date")
-    procurement_date = fields.Date(string="Procurement date")  # 調達日
-    departure_date = fields.Date(string="Departure date")  # 出港日
-    in_days = fields.Integer(string="in days")
-    in_date = fields.Datetime(string="in date")
-    china_days = fields.Integer(string="china days")
-    china_date = fields.Date(string="china date")
-    consultation_drawing = fields.Many2one('ir.attachment', string="Consultation drawing")  # 協議図
-    approved_drawing = fields.Many2one('ir.attachment', string="Approved drawing")
-    construction_drawing = fields.Many2one('ir.attachment', string="Construction drawing")
-    steel_material_order_date = fields.Date(string="Steel material order date")
-    steel_material_arrangement_date = fields.Date(string="Steel material arrangement date")
-    paint_order_date = fields.Date(string="paint order date")    # 塗装注文日
-    paint_arrangement_date = fields.Date(string="paint arrangement date")    # 塗装手配日
-    gross_weight = fields.Float(string="Gross weight")
-    expected_gross_weight = fields.Float(string="Expected gross weight", related='s_no.total_weight')
+    )  # S番 OK
+    name = fields.Char(string="name")   # 品名 OK
+    production_name = fields.Char(string="Production Name")     # 制作名称 OK
+    first_category = fields.Char(string="First category")  # 大項目 OK
+    second_category = fields.Char(string="Second category")  # 中項目 OK
+    ship_class = fields.Char(string="Ship class")  # 船級 OK
+    drawing_number = fields.Char(string="drawing number")  # 図面番号 OK
+    painting = fields.Char(string="painting")  # 塗装 OK
+    product_number = fields.Char(string="product number")  # 品番 OK
+    date_of_issue = fields.Datetime(string="date of issue")  # 製作管理票発行日 OK
+    finished_making_the_day = fields.Date(string="Finished making the day")     # 製缶完了日 OK
+    designer = fields.Char(string="Designer")   # 設計担当者 OK
+    machining_drawing = fields.Char(string="Machining drawing")  # 加工図 OK
+    in_house_construction_drawing = fields.Char(string="In-house construction drawing")  # 社内工事図 OK
+    attachment_id = fields.Many2one('ir.attachment', string="Attachment")  # 添付ファイル OK
+    isomorphism = fields.Char(string="Isomorphism")  # 同型 OK
+    items = fields.Text(string="items")  # 内訳 OK
+    note = fields.Text(string="note")   # 備考 OK
+    design_note = fields.Char(string="Design note")  # 設計備考 OK
+    nesting_notes = fields.Char(string="Nesting Notes")  # ネスティング備考 OK
+    material_input_person = fields.Char(string="Material input person")  # 資材入力者 OK
+    production_place = fields.Char(string="Production place")   # 製作場所 OK
+    correction_area = fields.Char(string="correction area")  # 手直し場所 OK
+    china_arrival_date = fields.Date(string="China arrival date")  # 中国入荷日 OK
+    procurement_date = fields.Date(string="Procurement date")  # 調達日 OK
+    departure_date = fields.Date(string="Departure date")  # 出港日 OK
+    in_days = fields.Integer(string="in days")  # 社内 日間 OK
+    in_date = fields.Datetime(string="in date")  # 社内 日付 OK
+    china_days = fields.Integer(string="china days")  # 中国 日間 OK
+    china_date = fields.Date(string="china date")  # 中国 日付 OK
+    consultation_drawing = fields.Binary(string="Consultation drawing")  # 協議図 OK
+    approved_drawing = fields.Binary(string="Approved drawing")  # 承認図 OK
+    construction_drawing = fields.Binary(string="Construction drawing")  # 工事図 OK
+    steel_material_order_date = fields.Date(string="Steel material order date")  # 鋼材注文日 OK
+    steel_material_arrangement_date = fields.Date(string="Steel material arrangement date")  # 鋼材手配日 OK
+    paint_order_date = fields.Date(string="paint order date")    # 塗装注文日 OK
+    paint_arrangement_date = fields.Date(string="paint arrangement date")    # 塗装手配日 OK
+    gross_weight = fields.Float(string="Gross weight")  # 予想総重量	OK
+    expected_gross_weight = fields.Float(string="Expected gross weight", related='s_no.total_weight')  # 実際重量
     const_files = fields.One2many(
         comodel_name="const.files",
         inverse_name="const_id",
-        string="Drawing files", )
+        string="Drawing files", )   # 図面
     purchase_line = fields.One2many(
         comodel_name="purchase.order.line",
         compute='_compute_purchase_line'
-    )
+    )   # 購買一覧
 
     # 添付ファイル
 

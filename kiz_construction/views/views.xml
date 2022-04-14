@@ -23,27 +23,77 @@
 
                                 <field name="s_no" string="S No."/>
                                 <field name="name" string="name"/>
+                                <field name="production_name" string="Production Name"/>
+                                <field name="drawing_number" string="drawing number"/>
                                 <field name="first_category" string="First category"/>
                                 <field name="second_category" string="Second category"/>
+                                <field name="china_arrival_date"/>
+                                <field name="procurement_date"/>
+                                <field name="departure_date"/>
                             </group>
                             <group>
 
                                 <field name="account_executive" string="account executive"/>
                                 <field name="designer"/>
+                                <field name="material_input_person"/>
                                 <field name="trading_company" string="trading company"/>
                                 <field name="trading_company_short_name" string="trading company short name"/>
                                 <field name="branch" string="branch"/>
                                 <field name="shipyard_full" string="Shipyard Full"/>
                                 <field name="shipyard_short" string="Shipyard short"/>
                                 <field name="building" string="building"/>
+                                <field name="production_place"/>
+                                <field name="correction_area"/>
+                                <field name="painting" string="painting"/>
+                                <field name="product_number" string="product number"/>
+                                <field name="finished_making_the_day" string="Finished making the day"/>
+                                <field name="machining_drawing" string="Machining drawing"/>
+                                <field name="in_house_construction_drawing" string="In-house construction drawing"/>
+                                <field name="attachment_id" string="Attachment"/>
+                                <field name="isomorphism" string="Isomorphism"/>
                             </group>
 
                         </group>
+                        <group>
+                            <group>
+                                <field name="items" string="items"/>
+                                <field name="note" string="note"/>
+                            </group>
+                            <group>
+                                <field name="design_note" string="Design note"/>
+                                <field name="nesting_notes" string="Nesting Notes"/>
+                            </group>
+                        </group>
                         <notebook>
+                            <page string="construction info">
+                                <group>
+                                    <span>In-House</span>
+                                    <field name="in_days"/>
+                                    <field name="in_date"/>
+                                    <span>China</span>
+                                    <field name="china_days"/>
+                                    <field name="china_date"/>
+                                    <span>Steel</span>
+                                    <field name="steel_material_order_date"/>
+                                    <field name="steel_material_arrangement_date"/>
+                                    <span>Steel</span>
+                                    <field name="steel_material_order_date"/>
+                                    <field name="steel_material_arrangement_date"/>
+                                    <span>Paint</span>
+                                    <field name="paint_order_date"/>
+                                    <field name="paint_arrangement_date"/>
+                                </group>
+                                <group>
+                                    <field name="consultation_drawing"/>
+                                    <field name="approved_drawing"/>
+                                    <field name="construction_drawing"/>
+                                </group>
+                            </page>
                             <page string="ship info">
                                 <group>
                                     <field name="ship_class" string="Ship class"/>
-                                    <field name="expected_gross_weight" string="Expected gross weight"/>
+                                    <field name="gross_weight" />
+                                    <field name="expected_gross_weight"/>
                                     <field name="in_date" string="in date"/>
                                     <field name="china_date" string="china date"/>
                                 </group>
