@@ -61,6 +61,8 @@
                             <t t-foreach="o.account_id" t-as="item">
                                 <span t-field="item.name"/>
                             </t>
+                            <br />SNo.<span t-field="o.s_no" />
+                            <br />品名.<span t-field="o.product_name" />
                         </t>
 
 

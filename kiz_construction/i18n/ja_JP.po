@@ -23,7 +23,7 @@ msgstr ""
 #. module: kiz_construction
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "<span>In-House</span>"
-msgstr "社内"
+msgstr ""
 
 #. module: kiz_construction
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form

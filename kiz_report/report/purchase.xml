@@ -58,9 +58,20 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div t-foreach="o.order_line" t-as="l">
+<!--                            <span t-field="l.item_purchase_image_ids.name"/>-->
+                            <t
+                                    t-set="images"
+                                    t-value="l.mapped('item_purchase_image_ids')"
+                            />
+<!--                            <t t-if="images">-->
+<!--                                <t t-call="purchase_report_image.purchase_line_image"/>-->
+<!--                            </t>-->
+                        </div>
                     </div>
                 </t>
             </t>
+
         </t>
     </template>
 

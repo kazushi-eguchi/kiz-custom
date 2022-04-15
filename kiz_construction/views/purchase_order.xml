@@ -15,6 +15,15 @@
                         <field name="trading_company"/>
                         <field name="shipyard_full"/>
                 </xpath>
+                <xpath
+                        expr="//field[@name='order_line']/tree//field[@name='price_subtotal']"
+                        position="after"
+                >
+                            <field name="note"/>
+                    <field name="delivery_spot"/>
+
+
+                </xpath>
             </field>
         </record>
 

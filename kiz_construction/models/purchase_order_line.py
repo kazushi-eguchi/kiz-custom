@@ -25,3 +25,6 @@ class KizPurchaseOrderLine(models.Model):
     shipyard_full = fields.Char(
         related='order_id.shipyard_full',
         string="Shipyard Full")
+
+    note = fields.Text("note")
+    delivery_spot = fields.Many2one("purchase.delivery_spot", string="Delivery Spot")
