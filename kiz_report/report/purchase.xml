@@ -5,6 +5,7 @@
             <t t-foreach="docs" t-as="o">
                 <t t-call="kiz_report.external_layout">
                     <div class="page">
+
                         <xpath expr="//div[@name='company_address']" position="replace"></xpath>
                         <t t-set="type">purchase</t>
                         <t t-set="address">
@@ -14,16 +15,18 @@
                                 <span t-field="o.partner_id.vat"/>
                             </p>
                         </t>
-<!--                        <t t-call="kiz_report.purchase_table" />-->
+                        <t t-call="kiz_report.common_header_layout"/>
+                        <!--                        <t t-call="kiz_report.purchase_table" />-->
                         <table class="table table-condensed">
                             <tbody class="invoice_tbody">
                                 <thead style="background-color:#F8F9FA">
                                     <tr>
-<!--                                        <th>summary</th>-->
+                                        <!--                                        <th>summary</th>-->
                                         <th class="text-center">Item</th>
                                         <th class="text-center">Spec</th>
                                         <th class="text-center">Qty</th>
                                         <th class="text-center">Delivery place</th>
+                                        <th class="text-center">Note</th>
 
                                     </tr>
                                 </thead>
@@ -53,20 +56,41 @@
                                     </td>
 
                                     <td>
-                                        <span t-field="l.price_subtotal"/>
+                                        <span t-field="l.delivery_spot"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="l.note"/>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+                        <hr/>
+                        <div>Attached image</div>
                         <div t-foreach="o.order_line" t-as="l">
-<!--                            <span t-field="l.item_purchase_image_ids.name"/>-->
+                            <!--                            <span t-field="l.item_purchase_image_ids.name"/>-->
                             <t
                                     t-set="images"
                                     t-value="l.mapped('item_purchase_image_ids')"
                             />
-<!--                            <t t-if="images">-->
-<!--                                <t t-call="purchase_report_image.purchase_line_image"/>-->
-<!--                            </t>-->
+                            <t t-if="images">
+                                <t t-foreach="images" t-as="image">
+                                    <div>
+                                        <!--                <td style="border: 0;">-->
+                                        <!--                    <span t-field="image.name" />-->
+                                        <!--                </td>-->
+                                        <div colspan="99" style="border: 0;">
+                                            <div style="text-align: center;">
+                                                <div t-field="image.name" />
+                                                <img
+                                                        t-att-src="image_data_uri(image.image_1920)"
+                                                        style="max-height: 800px; padding-top: 10px;"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+
+                            </t>
                         </div>
                     </div>
                 </t>
@@ -78,23 +102,31 @@
     <template id="purchase_table">
         <table class="table table-condensed">
             <tbody class="sale_tbody">
-            <thead style="background-color:#F8F9FA">
-                <th>product</th>
-                <th>spec</th>
-                <th>qty</th>
-                <th>place</th>
-            </thead>
-        <t t-foreach="o.order_line" t-as="l">
-            <tr>
-                <td><span t-field="l.product_template_id.display_name"/></td>
+                <thead style="background-color:#F8F9FA">
+                    <th>product</th>
+                    <th>spec</th>
+                    <th>qty</th>
+                    <th>place</th>
+                </thead>
+                <t t-foreach="o.order_line" t-as="l">
+                    <tr>
+                        <td>
+                            <span t-field="l.product_template_id.display_name"/>
+                        </td>
 
-                <td><t t-foreach="l.product_id.product_template_attribute_value_ids" t-as="string_line">
-                    <span t-esc="string_line.display_name"/><br/></t></td>
-                <td><span t-esc="'{0:,.0f}'.format(l.product_uom_qty)"/></td>
-                <td></td>
-            </tr>
+                        <td>
+                            <t t-foreach="l.product_id.product_template_attribute_value_ids" t-as="string_line">
+                                <span t-esc="string_line.display_name"/>
+                                <br/>
+                            </t>
+                        </td>
+                        <td>
+                            <span t-esc="'{0:,.0f}'.format(l.product_uom_qty)"/>
+                        </td>
+                        <td></td>
+                    </tr>
 
-        </t>
+                </t>
             </tbody>
         </table>
     </template>

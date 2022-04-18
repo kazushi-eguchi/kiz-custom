@@ -17,7 +17,7 @@ msgstr ""
 
 #. module: kiz_construction
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
-msgid "<span>China</span>"
+msgid "<span>China</span>"item_purchase_image_ids
 msgstr ""
 
 #. module: kiz_construction
