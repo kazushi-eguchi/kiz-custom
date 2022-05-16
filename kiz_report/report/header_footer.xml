@@ -35,12 +35,12 @@
                     <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;"
                          alt="Logo"/>
                 </div>
-                <div class="col-6 text-center" style="font-size:48px;text-align:center">
-                    <t t-if="type == 'purchase'">
+                <div class="col-5 text-center" style="font-size:48px;text-align:center">
+                    <t t-if="type == 'type_purchase'">
                         <span>purchase</span>
                     </t>
                 </div>
-                <div class="col-3 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto">
+                <div class="col-4 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto">
                       管理番号：
                     <t t-foreach="o.account_id" t-as="item">
                                 <span t-field="item.name"/>

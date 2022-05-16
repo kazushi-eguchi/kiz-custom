@@ -7,7 +7,7 @@
                     <div class="page">
 
                         <xpath expr="//div[@name='company_address']" position="replace"></xpath>
-                        <t t-set="type">purchase</t>
+                        <t t-set="type">type_purchase</t>
                         <t t-set="address">
                             <div t-field="o.partner_id"
                                  t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
@@ -39,7 +39,7 @@
                                     <td class="text-center">
                                         <span t-field="l.product_template_id" />
                                     </td>
-                                    <td class="text-center">
+                                    <td class="text-left">
                                         <t t-foreach="l.product_id.product_template_attribute_value_ids"
                                            t-as="string_line">
                                             ●
@@ -63,7 +63,7 @@
                                     <td class="text-center">
                                         <span t-field="l.delivery_spot"/>
                                     </td>
-                                    <td class="text-center">
+                                    <td class="text-left">
                                         <t t-if="images">
                                             <t t-foreach="images" t-as="image">
                                                 <div t-field="image.name"/>
