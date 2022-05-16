@@ -128,7 +128,7 @@ msgstr ""
 #: model:ir.actions.report,name:kiz_report.report_purchase_order_rtw
 #: model_terms:ir.ui.view,arch_db:kiz_report.purchase
 msgid "purchase"
-msgstr ""
+msgstr "注文書"
 
 #. module: kiz_report
 #: model_terms:ir.ui.view,arch_db:kiz_report.purchase_table
