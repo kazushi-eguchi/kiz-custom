@@ -26,15 +26,20 @@
                                         <th class="text-center">Spec</th>
                                         <th class="text-center">Qty</th>
                                         <th class="text-center">Delivery place</th>
+                                        <th class="text-center">Image</th>
                                         <th class="text-center">Note</th>
 
                                     </tr>
                                 </thead>
                                 <tr t-foreach="o.order_line" t-as="l">
-                                    <td>
-                                        <span t-field="l.product_template_id"/>
+                                    <t
+                                            t-set="images"
+                                            t-value="l.mapped('item_purchase_image_ids')"
+                                    />
+                                    <td class="text-center">
+                                        <span t-field="l.product_template_id" />
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <t t-foreach="l.product_id.product_template_attribute_value_ids"
                                            t-as="string_line">
                                             ●
@@ -48,24 +53,31 @@
                                         </t>
                                     </td>
 
-                                    <td>
+                                    <td class="text-center">
                                         <div id="quote_qty">
                                             <span t-esc="'{0:,.0f}'.format(l.product_uom_qty)"/>
 
                                         </div>
                                     </td>
 
-                                    <td>
+                                    <td class="text-center">
                                         <span t-field="l.delivery_spot"/>
                                     </td>
-                                    <td>
+                                    <td class="text-center">
+                                        <t t-if="images">
+                                            <t t-foreach="images" t-as="image">
+                                                <div t-field="image.name"/>
+                                            </t>
+                                        </t>
+                                    </td>
+                                    <td class="text-center">
                                         <span t-field="l.note"/>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                         <hr/>
-                        <div>Attached image</div>
+<!--                        <div>Attached image</div>-->
                         <div t-foreach="o.order_line" t-as="l">
                             <!--                            <span t-field="l.item_purchase_image_ids.name"/>-->
                             <t
@@ -80,11 +92,12 @@
                                         <!--                </td>-->
                                         <div colspan="99" style="border: 0;">
                                             <div style="text-align: center;">
-                                                <div t-field="image.name" />
+
                                                 <img
                                                         t-att-src="image_data_uri(image.image_1920)"
                                                         style="max-height: 800px; padding-top: 10px;"
                                                 />
+                                                <div t-field="image.name"/>
                                             </div>
                                         </div>
                                     </div>

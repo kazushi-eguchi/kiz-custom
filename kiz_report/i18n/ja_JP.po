@@ -1,0 +1,155 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kiz_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-16 01:09+0000\n"
+"PO-Revision-Date: 2022-05-16 01:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.common_header_layout
+msgid "<br/>SNo."
+msgstr ""
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.common_header_layout
+msgid "<br/>品名."
+msgstr ""
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.common_header_layout
+msgid "<br/>商社."
+msgstr ""
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.common_header_layout
+msgid "<br/>造船所."
+msgstr ""
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.common_header_layout
+msgid "<span>purchase</span>"
+msgstr "<span>注文書</span>"
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.purchase
+msgid "Attached image"
+msgstr ""
+
+#. module: kiz_report
+#: model:ir.model,name:kiz_report.model_res_company
+msgid "Companies"
+msgstr "会社"
+
+#. module: kiz_report
+#: model:ir.model.fields,field_description:kiz_report.field_res_company__chop
+msgid "Company Chop Image"
+msgstr ""
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.purchase
+msgid "Delivery place"
+msgstr "納品場所"
+
+#. module: kiz_report
+#: model:ir.model.fields,field_description:kiz_report.field_res_company__display_name
+msgid "Display Name"
+msgstr "表示名"
+
+#. module: kiz_report
+#: model:ir.model.fields,field_description:kiz_report.field_res_company__id
+msgid "ID"
+msgstr ""
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.purchase
+msgid "Image"
+msgstr "画像"
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.purchase
+msgid "Item"
+msgstr "品名"
+
+#. module: kiz_report
+#: model:ir.model.fields,field_description:kiz_report.field_res_company____last_update
+msgid "Last Modified on"
+msgstr "最終更新日"
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.common_header_layout
+msgid "Logo"
+msgstr ""
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.purchase
+msgid "Note"
+msgstr "備考"
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.common_footer_layout
+msgid ""
+"Page:\n"
+"                    <span class=\"page\"/>\n"
+"                    /\n"
+"                    <span class=\"topage\"/>"
+msgstr ""
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.purchase
+msgid "Qty"
+msgstr "数量"
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.purchase
+msgid "Spec"
+msgstr "仕様"
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.purchase_table
+msgid "place"
+msgstr ""
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.purchase_table
+msgid "product"
+msgstr ""
+
+#. module: kiz_report
+#: model:ir.actions.report,name:kiz_report.report_purchase_order_rtw
+#: model_terms:ir.ui.view,arch_db:kiz_report.purchase
+msgid "purchase"
+msgstr "注文書"
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.purchase_table
+msgid "qty"
+msgstr ""
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.purchase_table
+msgid "spec"
+msgstr ""
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.common_header_layout
+msgid ""
+"平素より格別のお引き立てを賜り厚く御礼申し上げます。\n"
+"                            <br/>\n"
+"                            下記の通り手配依頼いたします。ご査収の程よろしくお願いいたします\n"
+"                            <br/>"
+msgstr ""
+
+#. module: kiz_report
+#: model_terms:ir.ui.view,arch_db:kiz_report.common_header_layout
+msgid "管理番号："
+msgstr ""
