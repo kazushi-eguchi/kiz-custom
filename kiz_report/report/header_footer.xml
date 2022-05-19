@@ -99,7 +99,7 @@
                     <img
                             t-if="o.company_id.chop"
                             t-attf-src="data:image/*;base64,{{o.company_id.chop}}"
-                            style="position: absolute;max-height: 100px;left:120px;top:45px"
+                            style="position: absolute;max-height: 100px;left:180px;top:45px"
                             align="right"
 
                     />
