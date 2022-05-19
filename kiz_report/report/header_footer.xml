@@ -87,8 +87,13 @@
                             <span t-field="o.trading_company"/>
                             <br/>造船所.
                             <span t-field="o.shipyard_full"/>
-                            <br/>品名.
+                            <br/>建造所.
+                            <span t-field="o.shipyard_full"/>
+                            <br/>品名（図番）.
                             <span t-field="o.product_name"/>
+                            <t t-if="o.drawing_number">
+                            （<span t-field="o.drawing_number"/>）
+                                </t>
                         </t>
 
 

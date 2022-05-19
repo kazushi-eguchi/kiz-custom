@@ -22,7 +22,10 @@ class KizPurchaseOrder(models.Model):
     )  # S番
     deadline = fields.Date(string="deadline",
                            related='construction_id.deadline')  # 工事伝票納期
-
+    drawing_number = fields.Char(string="drawing_number",
+                           related='construction_id.drawing_number')  # 図面番号
+    building = fields.Char(string="building",
+                           related='construction_id.building')  # 建造所
     product_name = fields.Char(string="name")
     trading_company = fields.Many2one(
         comodel_name='res.partner', string='trading_company')  # 商社

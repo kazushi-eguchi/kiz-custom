@@ -12,6 +12,8 @@
                         <field name="account_id"/>
                     <field name="construction_id"/>
                     <field name="deadline"/>
+                    <field name="drawing_number"/>
+                    <field name="building"/>
                         <field name="s_no"/>
                         <field name="product_name"/>
                         <field name="trading_company"/>
