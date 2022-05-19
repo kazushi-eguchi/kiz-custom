@@ -28,8 +28,8 @@ class kiz_construction(models.Model):
         "ships.ship",
         string="ship"
     )  # S番 OK
-    name = fields.Char(string="name")   # 品名 OK
-    production_name = fields.Char(string="Production Name")     # 制作名称 OK
+    name = fields.Char(string="name")  # 品名 OK
+    production_name = fields.Char(string="Production Name")  # 制作名称 OK
     first_category = fields.Char(string="First category")  # 大項目 OK
     second_category = fields.Char(string="Second category")  # 中項目 OK
     ship_class = fields.Char(string="Ship class")  # 船級 OK
@@ -37,18 +37,18 @@ class kiz_construction(models.Model):
     painting = fields.Char(string="painting")  # 塗装 OK
     product_number = fields.Char(string="product number")  # 品番 OK
     date_of_issue = fields.Datetime(string="date of issue")  # 製作管理票発行日 OK
-    finished_making_the_day = fields.Date(string="Finished making the day")     # 製缶完了日 OK
-    designer = fields.Char(string="Designer")   # 設計担当者 OK
+    finished_making_the_day = fields.Date(string="Finished making the day")  # 製缶完了日 OK
+    designer = fields.Char(string="Designer")  # 設計担当者 OK
     machining_drawing = fields.Char(string="Machining drawing")  # 加工図 OK
     in_house_construction_drawing = fields.Char(string="In-house construction drawing")  # 社内工事図 OK
     attachment_id = fields.Many2one('ir.attachment', string="Attachment")  # 添付ファイル OK
     isomorphism = fields.Char(string="Isomorphism")  # 同型 OK
     items = fields.Text(string="items")  # 内訳 OK
-    note = fields.Text(string="note")   # 備考 OK
+    note = fields.Text(string="note")  # 備考 OK
     design_note = fields.Char(string="Design note")  # 設計備考 OK
     nesting_notes = fields.Char(string="Nesting Notes")  # ネスティング備考 OK
     material_input_person = fields.Char(string="Material input person")  # 資材入力者 OK
-    production_place = fields.Char(string="Production place")   # 製作場所 OK
+    production_place = fields.Char(string="Production place")  # 製作場所 OK
     correction_area = fields.Char(string="correction area")  # 手直し場所 OK
     china_arrival_date = fields.Date(string="China arrival date")  # 中国入荷日 OK
     procurement_date = fields.Date(string="Procurement date")  # 調達日 OK
@@ -62,18 +62,18 @@ class kiz_construction(models.Model):
     construction_drawing = fields.Binary(string="Construction drawing")  # 工事図 OK
     steel_material_order_date = fields.Date(string="Steel material order date")  # 鋼材注文日 OK
     steel_material_arrangement_date = fields.Date(string="Steel material arrangement date")  # 鋼材手配日 OK
-    paint_order_date = fields.Date(string="paint order date")    # 塗装注文日 OK
-    paint_arrangement_date = fields.Date(string="paint arrangement date")    # 塗装手配日 OK
+    paint_order_date = fields.Date(string="paint order date")  # 塗装注文日 OK
+    paint_arrangement_date = fields.Date(string="paint arrangement date")  # 塗装手配日 OK
     gross_weight = fields.Float(string="Gross weight")  # 予想総重量	OK
     expected_gross_weight = fields.Float(string="Expected gross weight", related='s_no.total_weight')  # 実際重量
     const_files = fields.One2many(
         comodel_name="const.files",
         inverse_name="const_id",
-        string="Drawing files", )   # 図面
+        string="Drawing files", )  # 図面
     purchase_line = fields.One2many(
         comodel_name="purchase.order.line",
         compute='_compute_purchase_line'
-    )   # 購買一覧
+    )  # 購買一覧
 
     # 添付ファイル
 
@@ -91,7 +91,6 @@ class kiz_construction(models.Model):
     #         for record in self:
     #             record.value2 = float(record.value) / 100
 
-
     def create_po(self):
         return {
             'type': 'ir.actions.act_window',
@@ -102,6 +101,7 @@ class kiz_construction(models.Model):
             'context': {
                 'default_name': self.no.name,
                 'default_account_id': self.no.id,
+                'default_construction_id': self.id,
                 'default_s_no': self.s_no.id,
                 'default_product_name': self.name,
                 'default_trading_company': self.trading_company.id,

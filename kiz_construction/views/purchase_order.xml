@@ -10,6 +10,8 @@
                 <xpath expr="//field[@name='partner_ref']" position="after">
 
                         <field name="account_id"/>
+                    <field name="construction_id"/>
+                    <field name="deadline"/>
                         <field name="s_no"/>
                         <field name="product_name"/>
                         <field name="trading_company"/>

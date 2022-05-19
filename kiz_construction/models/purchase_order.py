@@ -10,6 +10,9 @@ from odoo import models, fields, api
 class KizPurchaseOrder(models.Model):
     _inherit = 'purchase.order'
     #
+    construction_id = fields.Many2one(
+        comodel_name="kiz_construction.kiz_construction", string="construction"
+    )
     account_id = fields.Many2one(
         comodel_name="account.analytic.account", string="production management slip no"
     )
@@ -17,6 +20,8 @@ class KizPurchaseOrder(models.Model):
         comodel_name="ships.ship",
         string="ship"
     )  # S番
+    deadline = fields.Date(string="deadline",
+                           related='construction_id.deadline')  # 工事伝票納期
 
     product_name = fields.Char(string="name")
     trading_company = fields.Many2one(
