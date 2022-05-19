@@ -95,7 +95,7 @@
 
                                                 <img
                                                         t-att-src="image_data_uri(image.image_1920)"
-                                                        style="max-height: 800px; padding-top: 10px;"
+                                                        style="max-width: 800px;max-height: 800px; padding-top: 10px;"
                                                 />
                                                 <div t-field="image.name"/>
                                             </div>
