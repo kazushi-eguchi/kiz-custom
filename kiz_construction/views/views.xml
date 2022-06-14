@@ -125,6 +125,7 @@
                                         <field name="inspection_f"/>
                                         <field name="coating_f"/>
                                         <field name="delivery_f"/>
+                                        <field name="total_number_of_workers"/>
                                     </group>
                                     <group string="actual">
                                         <field name="installation_a"/>
@@ -141,6 +142,8 @@
                                         <field name="inspection_a"/>
                                         <field name="coating_a"/>
                                         <field name="delivery_a"/>
+                                        <field name="total_number_of_workers_2"/>
+
                                     </group>
                                 </group>
                             </page>

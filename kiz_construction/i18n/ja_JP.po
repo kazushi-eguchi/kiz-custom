@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-14 01:54+0000\n"
-"PO-Revision-Date: 2022-06-14 01:54+0000\n"
+"POT-Creation-Date: 2022-06-14 02:29+0000\n"
+"PO-Revision-Date: 2022-06-14 02:29+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -365,6 +365,12 @@ msgid "Steel material order date"
 msgstr "鋼材注文日"
 
 #. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__total_number_of_workers
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__total_number_of_workers_2
+msgid "Total number of workers"
+msgstr "総工数（予想）"
+
+#. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__type
 msgid "Type"
 msgstr "タイプ"
@@ -383,7 +389,7 @@ msgstr ""
 #. module: kiz_construction
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "actual"
-msgstr ""
+msgstr "実際"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__assembly_a
@@ -606,7 +612,7 @@ msgstr ""
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__machining_a
 msgid "machining actual"
-msgstr ""
+msgstr "キ加工"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__machining_f

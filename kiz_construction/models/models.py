@@ -90,7 +90,7 @@ class kiz_construction(models.Model):
     inspection_f = fields.Float("inspection forecast")
     coating_f = fields.Float("coating forecast")
     delivery_f = fields.Float("delivery forecast")
-
+    total_number_of_workers = fields.Float(string="Total number of workers", compute="_calc_total")
     # actual
     installation_a = fields.Float("installation actual")
     foundation_a = fields.Float("foundation actual")
@@ -106,6 +106,9 @@ class kiz_construction(models.Model):
     inspection_a = fields.Float("inspection actual")
     coating_a = fields.Float("coating actual")
     delivery_a = fields.Float("delivery actual")
+    total_number_of_workers_2 = fields.Float(string="Total number of workers", compute="_calc_total_2")
+
+
     # 添付ファイル
 
     # 分析勘定
@@ -148,3 +151,37 @@ class kiz_construction(models.Model):
         # self.purchase_line = self.env["purchase.order"].search([("account_id", "=", self.no.id)]).id
         self.purchase_line = self.env["purchase.order.line"].search([("account_analytic_id", "=", self.no.name)])
         # print(self.account_id)
+
+    def _calc_total(self):
+        for rec in self:
+            rec.total_number_of_workers = rec.installation_f + \
+                                          rec.foundation_f + \
+                                          rec.cutting_f + \
+                                          rec.saw_f + \
+                                          rec.roll_f + \
+                                          rec.press_f + \
+                                          rec.machining_f + \
+                                          rec.robot_f + \
+                                          rec.assembly_f + \
+                                          rec.cleaning_f + \
+                                          rec.weld_f + \
+                                          rec.inspection_f + \
+                                          rec.coating_f + \
+                                          rec.delivery_f
+
+    def _calc_total_2(self):
+        for rec in self:
+            rec.total_number_of_workers_2 = rec.installation_a + \
+                                            rec.foundation_a + \
+                                            rec.cutting_a + \
+                                            rec.saw_a + \
+                                            rec.roll_a + \
+                                            rec.press_a + \
+                                            rec.machining_a + \
+                                            rec.robot_a + \
+                                            rec.assembly_a + \
+                                            rec.cleaning_a + \
+                                            rec.weld_a + \
+                                            rec.inspection_a + \
+                                            rec.coating_a + \
+                                            rec.delivery_a
