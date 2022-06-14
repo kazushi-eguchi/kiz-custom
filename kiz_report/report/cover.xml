@@ -221,9 +221,10 @@
                         <hr/>
                         <!--                        <div>Attached image</div>-->
                     </div>
+
                     <div class="page">
                         <t t-foreach="o.const_files" t-as="f">
-
+                        <p style="page-break-before:always;"> </p>
                             <t t-if="f.image">
                                 <div colspan="99" style="border: 0;">
                                             <div style="text-align: center;">
