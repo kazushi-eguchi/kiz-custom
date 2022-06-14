@@ -12,7 +12,7 @@
                                 <field name="name" string="name" invisible="1"/>
                                 <field filename="name" name="file" string="file" widget="pdf_viewer"/>
                                 <field name="type" string="type"/>
-
+                           <field name="image"/>
                        </group>
                        <group></group>
                 </group>
@@ -30,6 +30,7 @@
                                 <field name="name" string="name" invisible="1"/>
                                 <field filename="name" name="file" string="file" widget="pdf_viewer"/>
                                 <field name="type" string="type"/>
+                                               <field name="image"/>
                 </tree>
             </field>
         </record>
