@@ -75,6 +75,37 @@ class kiz_construction(models.Model):
         compute='_compute_purchase_line'
     )  # 購買一覧
 
+    # 工数
+    installation_f = fields.Float("installation forecast")
+    foundation_f = fields.Float("foundation forecast")
+    cutting_f = fields.Float("cutting forecast")
+    saw_f = fields.Float("saw forecast")
+    roll_f = fields.Float("roll forecast")
+    press_f = fields.Float("press forecast")
+    machining_f = fields.Float("machining forecast")
+    robot_f = fields.Float("robot forecast")
+    assembly_f = fields.Float("assembly forecast")
+    cleaning_f = fields.Float("cleaning forecast")
+    weld_f = fields.Float("weld forecast")
+    inspection_f = fields.Float("inspection forecast")
+    coating_f = fields.Float("coating forecast")
+    delivery_f = fields.Float("delivery forecast")
+
+    # actual
+    installation_a = fields.Float("installation actual")
+    foundation_a = fields.Float("foundation actual")
+    cutting_a = fields.Float("cutting actual")
+    saw_a = fields.Float("saw actual")
+    roll_a = fields.Float("roll actual")
+    press_a = fields.Float("press actual")
+    machining_a = fields.Float("machining actual")
+    robot_a = fields.Float("robot actual")
+    assembly_a = fields.Float("assembly actual")
+    cleaning_a = fields.Float("cleaning actual")
+    weld_a = fields.Float("weld actual")
+    inspection_a = fields.Float("inspection actual")
+    coating_a = fields.Float("coating actual")
+    delivery_a = fields.Float("delivery actual")
     # 添付ファイル
 
     # 分析勘定

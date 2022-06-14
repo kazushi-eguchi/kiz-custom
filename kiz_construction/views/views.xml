@@ -108,6 +108,42 @@
                                     <field name="purchase_line" nolabel="1" context="{'group_by':'order_id'}"/>
                                 </group>
                             </page>
+                            <page string="production requirements">
+                                <group>
+                                    <group string="forecast">
+                                        <field name="installation_f"/>
+                                        <field name="foundation_f"/>
+                                        <field name="cutting_f"/>
+                                        <field name="saw_f"/>
+                                        <field name="roll_f"/>
+                                        <field name="press_f"/>
+                                        <field name="machining_f"/>
+                                        <field name="robot_f"/>
+                                        <field name="assembly_f"/>
+                                        <field name="cleaning_f"/>
+                                        <field name="weld_f"/>
+                                        <field name="inspection_f"/>
+                                        <field name="coating_f"/>
+                                        <field name="delivery_f"/>
+                                    </group>
+                                    <group string="actual">
+                                        <field name="installation_a"/>
+                                        <field name="foundation_a"/>
+                                        <field name="cutting_a"/>
+                                        <field name="saw_a"/>
+                                        <field name="roll_a"/>
+                                        <field name="press_a"/>
+                                        <field name="machining_a"/>
+                                        <field name="robot_a"/>
+                                        <field name="assembly_a"/>
+                                        <field name="cleaning_a"/>
+                                        <field name="weld_a"/>
+                                        <field name="inspection_a"/>
+                                        <field name="coating_a"/>
+                                        <field name="delivery_a"/>
+                                    </group>
+                                </group>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>

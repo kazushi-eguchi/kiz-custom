@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_kiz_attribute_sequence_no_kiz_attribute_sequence_no,kiz_attribute_sequence_no.kiz_attribute_sequence_no,model_kiz_attribute_sequence_no_kiz_attribute_sequence_no,base.group_user,1,1,1,1

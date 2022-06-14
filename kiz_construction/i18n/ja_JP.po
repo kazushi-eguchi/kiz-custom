@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0-20211213\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 23:39+0000\n"
-"PO-Revision-Date: 2022-04-14 23:39+0000\n"
+"POT-Creation-Date: 2022-06-14 01:54+0000\n"
+"PO-Revision-Date: 2022-06-14 01:54+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #. module: kiz_construction
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
-msgid "<span>China</span>"item_purchase_image_ids
+msgid "<span>China</span>"
 msgstr ""
 
 #. module: kiz_construction
@@ -95,13 +95,21 @@ msgstr "購買作成"
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__create_uid
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__create_uid
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__create_date
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__create_date
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot__create_date
 msgid "Created on"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model,name:kiz_construction.model_purchase_delivery_spot
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_order_line__delivery_spot
+msgid "Delivery Spot"
 msgstr ""
 
 #. module: kiz_construction
@@ -123,6 +131,7 @@ msgstr "設計担当者"
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__display_name
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__display_name
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot__display_name
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_order__display_name
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_order_line__display_name
 #: model:ir.model.fields,field_description:kiz_construction.field_res_partner__display_name
@@ -200,6 +209,7 @@ msgstr "予想総重量"
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__id
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__id
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot__id
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_order__id
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_order_line__id
 #: model:ir.model.fields,field_description:kiz_construction.field_res_partner__id
@@ -227,6 +237,7 @@ msgstr "同型"
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files____last_update
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction____last_update
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot____last_update
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_order____last_update
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_order_line____last_update
 #: model:ir.model.fields,field_description:kiz_construction.field_res_partner____last_update
@@ -237,12 +248,14 @@ msgstr "最終更新日"
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__write_uid
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__write_uid
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__write_date
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__write_date
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot__write_date
 msgid "Last Updated on"
 msgstr ""
 
@@ -369,11 +382,32 @@ msgstr ""
 
 #. module: kiz_construction
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "actual"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__assembly_a
+msgid "assembly actual"
+msgstr "組立"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__assembly_f
+msgid "assembly forecast"
+msgstr "組立"
+
+#. module: kiz_construction
+#: model:ir.actions.report,name:kiz_construction.report_binding
+msgid "binding"
+msgstr ""
+
+#. module: kiz_construction
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "branch"
 msgstr "支店"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__building
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_order__building
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "building"
 msgstr "建造所"
@@ -390,6 +424,26 @@ msgid "china days"
 msgstr "日間（中国）"
 
 #. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__cleaning_a
+msgid "cleaning actual"
+msgstr "掃除"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__cleaning_f
+msgid "cleaning forecast"
+msgstr "掃除"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__coating_a
+msgid "coating actual"
+msgstr "塗装"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__coating_f
+msgid "coating forecast"
+msgstr "塗装"
+
+#. module: kiz_construction
 #: model:ir.ui.menu,name:kiz_construction.menu_2_list
 msgid "const files"
 msgstr ""
@@ -399,6 +453,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:kiz_construction.const_files_tree
 msgid "const id"
 msgstr "図面"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_order__construction_id
+msgid "construction"
+msgstr ""
 
 #. module: kiz_construction
 #: model_terms:ir.ui.view,arch_db:kiz_construction.view_partner_form_form_inherit
@@ -427,6 +486,16 @@ msgid "correction area"
 msgstr "手直し場所"
 
 #. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__cutting_a
+msgid "cutting actual"
+msgstr "切断"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__cutting_f
+msgid "cutting forecast"
+msgstr "切断"
+
+#. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__date_of_issue
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "date of issue"
@@ -434,15 +503,31 @@ msgstr "製作管理票発行日"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__deadline
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_order__deadline
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "deadline"
 msgstr "工事伝票納期"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__delivery_a
+msgid "delivery actual"
+msgstr "納品"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__delivery_f
+msgid "delivery forecast"
+msgstr "納品"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__drawing_number
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "drawing number"
 msgstr "図面番号"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_order__drawing_number
+msgid "drawing_number"
+msgstr ""
 
 #. module: kiz_construction
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
@@ -457,6 +542,21 @@ msgid "file"
 msgstr "ファイル"
 
 #. module: kiz_construction
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "forecast"
+msgstr "予想"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__foundation_a
+msgid "foundation actual"
+msgstr "生設"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__foundation_f
+msgid "foundation forecast"
+msgstr "生設"
+
+#. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__in_date
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "in date"
@@ -466,6 +566,26 @@ msgstr "日付（社内）"
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__in_days
 msgid "in days"
 msgstr "日間（社内）"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__inspection_a
+msgid "inspection actual"
+msgstr "検品"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__inspection_f
+msgid "inspection forecast"
+msgstr "検品"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__installation_a
+msgid "installation actual"
+msgstr "基設"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__installation_f
+msgid "installation forecast"
+msgstr "基設"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__items
@@ -484,7 +604,18 @@ msgid "kiz_construction.kiz_construction"
 msgstr ""
 
 #. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__machining_a
+msgid "machining actual"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__machining_f
+msgid "machining forecast"
+msgstr "キ加工"
+
+#. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__name
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot__name
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_order__product_name
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_order_line__product_name
 #: model_terms:ir.ui.view,arch_db:kiz_construction.const_files_form
@@ -495,6 +626,7 @@ msgstr "品名"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__note
+#: model:ir.model.fields,field_description:kiz_construction.field_purchase_order_line__note
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "note"
 msgstr "備考"
@@ -514,6 +646,16 @@ msgstr "塗装注文日"
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "painting"
 msgstr "塗装"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__press_a
+msgid "press actual"
+msgstr "プレス"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__press_f
+msgid "press forecast"
+msgstr "プレス"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__product_number
@@ -542,8 +684,43 @@ msgstr "製作管理票納期"
 
 #. module: kiz_construction
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "production requirements"
+msgstr "工数"
+
+#. module: kiz_construction
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "purchase"
 msgstr "購買"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__robot_a
+msgid "robot actual"
+msgstr "ロボット"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__robot_f
+msgid "robot forecast"
+msgstr "ロボット"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__roll_a
+msgid "roll actual"
+msgstr "ロール"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__roll_f
+msgid "roll forecast"
+msgstr "ロール"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__saw_a
+msgid "saw actual"
+msgstr "ノコ"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__saw_f
+msgid "saw forecast"
+msgstr "ノコ"
 
 #. module: kiz_construction
 #: model:ir.model,name:kiz_construction.model_ships_ship
@@ -596,3 +773,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:kiz_construction.const_files_tree
 msgid "type"
 msgstr "タイプ"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__weld_a
+msgid "weld actual"
+msgstr "溶接"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__weld_f
+msgid "weld forecast"
+msgstr "溶接"

@@ -31,6 +31,8 @@
         'views/const_files.xml',
         'views/purchase_order_line_view.xml',
         'views/purchase_order.xml',
+        'reports/report.xml',
+        # 'reports/binding.xml',
         "security/ir.model.access.csv"
     ],
     # only loaded in demonstration mode

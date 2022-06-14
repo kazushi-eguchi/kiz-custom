@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <report
+            string="binding"
+            id="report_binding"
+            model="kiz_construction.kiz_construction"
+            report_type="qweb-pdf"
+            name="kiz_construction.binding"
+            file="kiz_construction.binding"
+    />
+</odoo>

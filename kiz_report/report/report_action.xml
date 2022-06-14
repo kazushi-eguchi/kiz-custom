@@ -1,17 +1,7 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-
-
-    <report
-            string="purchase"
-            id="report_purchase_order_rtw"
-            model="purchase.order"
-            report_type="qweb-pdf"
-            name="kiz_report.purchase"
-            file="kiz_report.purchase"
-    />
-    <report
+    <data>
+        <report
             id="action_report_cover"
             string="Cover"
             model="kiz_construction.kiz_construction"
@@ -21,4 +11,5 @@
             print_report_name="'%s-%s' % (object.name, object.id)"
         />
 
+    </data>
 </odoo>
