@@ -231,7 +231,7 @@
 
                                                 <img
                                                         t-att-src="image_data_uri(f.image)"
-                                                        style="max-width: 800px;max-height: 800px; padding-top: 10px;"
+                                                        style="max-width: 1000px;max-height: 1350px; padding-top: 10px;"
                                                 />
 
                                             </div>
