@@ -107,7 +107,7 @@ class kiz_construction(models.Model):
     coating_a = fields.Float("coating actual")
     delivery_a = fields.Float("delivery actual")
     total_number_of_workers_2 = fields.Float(string="Total number of workers", compute="_calc_total_2")
-
+    const_process_line_ids = fields.One2many("const.process_line", inverse_name="const_id")
 
     # 添付ファイル
 

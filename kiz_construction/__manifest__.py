@@ -29,6 +29,7 @@
         'views/ships.xml',
         'views/res_partner.xml',
         'views/const_files.xml',
+        'views/const_process_line.xml',
         'views/purchase_order_line_view.xml',
         'views/purchase_order.xml',
         'reports/report.xml',

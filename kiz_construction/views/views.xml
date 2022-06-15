@@ -147,6 +147,9 @@
                                     </group>
                                 </group>
                             </page>
+                            <page string="工程">
+                                <field name="const_process_line_ids"/>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
@@ -183,6 +186,18 @@
             <field name="view_mode">tree,form</field>
         </record>
 
+        <record model="ir.actions.act_window" id="action_const_process">
+            <field name="name">const process window</field>
+            <field name="res_model">const.process</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_const_process_line">
+            <field name="name">const process line window</field>
+            <field name="res_model">const.process_line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
 
         <!-- server action to the one above -->
         <!--
@@ -214,6 +229,10 @@
 
         <menuitem name="List" id="kiz_construction.menu_1_list" parent="kiz_construction.menu_1"
                   action="kiz_construction.action_window"/>
+
+        <menuitem name="工程" id="kiz_construction.const_process" parent="kiz_construction.menu_1"
+                  action="action_const_process"/>
+
 
         <!--<menuitem name="Server to list" id="kiz_construction" parent="kiz_construction.menu_2"
                   action="kiz_construction.action_server"/>-->

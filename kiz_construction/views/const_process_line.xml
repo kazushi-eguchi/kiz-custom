@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="const_process_line_form" model="ir.ui.view">
+            <field name="name">const_process_line_form</field>
+            <field name="model">const.process_line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="request_date"/>
+                            <field name="dead_line"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="const_process_line_tree" model="ir.ui.view">
+            <field name="name">const_process_line_tree</field>
+            <field name="model">const.process_line</field>
+            <field name="arch" type="xml">
+                <tree>
+                            <field name="name"/>
+                            <field name="request_date"/>
+                            <field name="dead_line"/>
+                    <field name="const_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <menuitem name="工程明細" id="kiz_construction.const_process_line" parent="kiz_construction.menu_1"
+                  action="action_const_process_line"/>
+
+    </data>
+</odoo>
