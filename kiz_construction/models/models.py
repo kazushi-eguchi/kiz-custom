@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*-
-
+import base64
+import qrcode
+from io import BytesIO
 from odoo import models, fields, api
 
 
 class kiz_construction(models.Model):
     _name = 'kiz_construction.kiz_construction'
+    _inherit = [
+        'mail.thread',
+        'mail.activity.mixin'
+    ]
     _description = 'kiz_construction.kiz_construction'
     _rec_name = "no"
     sub_number = fields.Integer("sub number", tracking=True)  # 枝番 OK
@@ -108,6 +114,64 @@ class kiz_construction(models.Model):
     delivery_a = fields.Float("delivery actual")
     total_number_of_workers_2 = fields.Float(string="Total number of workers", compute="_calc_total_2")
     const_process_line_ids = fields.One2many("const.process_line", inverse_name="const_id")
+    const_item_line_ids = fields.One2many("const.item_line", inverse_name="const_id")
+    const_product_line_ids = fields.One2many("const.product_line", inverse_name="const_id")
+
+    # 表紙
+    method = fields.Selection(
+        [('new', 'NEW'),
+         ('all_same_as', 'All same as'),
+         ('partially_changed_rom', 'Partially changed from'),
+         (' ', 'without'),
+         ],)  #
+    method_no = fields.Char()
+    method_note = fields.Char()
+    sh_flg = fields.Boolean()
+    qr = fields.Binary("qr", compute="_get_qr")
+    paint_flg = fields.Boolean("paint_flg")  # 塗装
+    plating_flg = fields.Boolean("plating_flg")  # 電気メッキ
+    galvanizing_flg = fields.Boolean("galvanizing_flg")  # ドブメッキ
+    being_on_site = fields.Boolean("being_on_site")  # 客先立会
+    class_inspection = fields.Boolean("class_inspection")  # 船級検査
+    class_inspection_note = fields.Char("class_inspection")  # 船級検査 note
+    quality_control_inspection = fields.Boolean("quality_control_inspection")  # 品管検査
+    pressure_test = fields.Selection(
+        [('water', 'Water'),
+         ('air', 'Air'),
+         (' ', 'without'),
+         ],)  # 圧力検査
+    pressure = fields.Float()
+    nondestructive_inspection = fields.Selection(
+        [('rt', 'RT'),
+         ('ut', 'UT'),
+         ('mt', 'MT'),
+         ('pt', 'PT'),
+         (' ', 'without'),
+         ],)  # 非破壊検査
+    mil_sheet = fields.Boolean()  # ミルシート
+    slime_mark = fields.Boolean()  # スリマーク
+    appointment = fields.Date()  # スリマーク
+    steel_supplied_material = fields.Boolean()  # 支給材
+    steel_supplied_material_order = fields.Date()  # 支給材
+    steel_supplied_material_delivery = fields.Date()  # 支給材
+    steel_purchased_material = fields.Boolean()  # 購入材
+    steel_purchased_material_order = fields.Date()  # 購入材
+    steel_purchased_material_delivery = fields.Date()  # 購入材
+    cut = fields.Selection(
+        [('plasma', 'Plasma'),
+         ('gas', 'Gas'),
+         (' ', 'without'),
+         ],)  # 切断
+    cut_date = fields.Date()
+    laser = fields.Boolean()  # レーザー
+    laser_date = fields.Date()  # レーザー
+    pattern_paper = fields.Boolean()  # 型紙
+    pattern_paper_date = fields.Date()  # 型紙
+    safety_operation = fields.Selection(
+        [('yes', 'YES'),
+         ('no', 'NO'),
+         (' ', 'without'),
+         ],)  # 安全作業手順検討
 
     # 添付ファイル
 
@@ -124,6 +188,26 @@ class kiz_construction(models.Model):
     #     def _value_pc(self):
     #         for record in self:
     #             record.value2 = float(record.value) / 100
+    def _get_qr(self):
+        for rec in self:
+            print(rec.construction_slip_number)
+            if rec.construction_slip_number:
+                qr = qrcode.QRCode(
+                    version=2,
+                    error_correction=qrcode.constants.ERROR_CORRECT_L,
+                    box_size=3,
+                    border=4,
+                )
+                qr.add_data(rec.construction_slip_number)
+                qr.make(fit=True)
+                img = qr.make_image()
+                temp = BytesIO()
+                img.save(temp, format="PNG")
+                qr_image = base64.b64encode(temp.getvalue())
+                rec.update({'qr': qr_image})
+
+            else:
+                rec.qr = False
 
     def create_po(self):
         return {

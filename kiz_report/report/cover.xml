@@ -4,31 +4,16 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="kiz_report.external_layout">
-                    <div class="page">
-
-                        <!--                        <xpath expr="//div[@name='company_address']" position="replace"></xpath>-->
-                        <!--                        <t t-set="type">cover</t>-->
-                        <!--                        <t t-set="address">-->
-                        <!--                            <div t-field="o.partner_id"-->
-                        <!--                                 t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>-->
-                        <!--                            <p t-if="o.partner_id.vat"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>:-->
-                        <!--                                <span t-field="o.partner_id.vat"/>-->
-                        <!--                            </p>-->
-                        <!--                        </t>-->
-                        <!--                        <t t-call="kiz_report.common_header_layout"/>-->
-                        <!--                        <t t-call="kiz_report.purchase_table" />-->
-
-                        <!--		<td colspan="5" width="425" style="border-left:none;width:320pt"> </td>-->
-
-                        <!--<table width="1020" style="width: 768pt;" zn_id="254" class="table-bordered" cellpadding="1" cellspacing="0" padding="1" margin="1">-->
+                    <div class="page" style="font-size:18px;">
                         <style>
+                            .container {margin-left:-10pt}
                             table {
                             border-collapse: collapse;
                             }
                             th {
                             border: solid 1px #666666;
                             color: #000000;
-                            background-color: #ff9999;
+                            background-color: #999999;
                             }
                             td {
                             border: solid 1px #666666;
@@ -38,242 +23,329 @@
                             text-align:center;
                             }
                         </style>
-                        <table border="0" width="1020" style="width: 768pt;">
-                            <colgroup>
-                                <col style="width: 8.3%;"/>
-                                <col style="width: 8.3%;"/>
-                                <col style="width: 8.3%;"/>
-                                <col style="width: 8.3%;"/>
-                                <col style="width: 8.3%;"/>
-                                <col style="width: 8.3%;"/>
-                                <col style="width: 8.3%;"/>
-                                <col style="width: 8.3%;"/>
-                                <col style="width: 8.3%;"/>
-                                <col style="width: 8.3%;"/>
-                                <col style="width: 8.3%;"/>
-                                <col style="width: 8.3%;"/>
-                            </colgroup>
-                            <tr>
-                                <td colspan="1" rowspan="2">注文先</td>
-                                <td colspan="4" rowspan="2">xxx</td>
-                                <td colspan="1">管理番号</td>
-                                <td colspan="5">
-                                    <t t-if="o.no">
-                                        <span t-field="o.no"/>
-                                    </t>
-                                </td>
-                                <td colspan="1" rowspan="2">現場用図</td>
-                            </tr>
-                            <tr>
-                                <td colspan="1">改正番号</td>
-                                <td colspan="5">xxx</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">船番</td>
-                                <td colspan="2">図番</td>
-                                <td colspan="2">品番</td>
-                                <td colspan="2">塗装</td>
-                                <td rowspan="3">納期</td>
-                                <td colspan="3" rowspan="3">
-                                    <t t-if="o.deadline">
-                                        <span t-field="o.deadline"/>
-                                    </t>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" rowspan="2" zn_id="247">
-                                    <t t-if="o.s_no">
-                                        <span t-field="o.s_no"/>
-                                    </t>
-                                </td>
-                                <td colspan="2" rowspan="2" zn_id="219">
-                                    <t t-if="o.drawing_number">
-                                        <span t-field="o.drawing_number"/>
-                                    </t>
-                                </td>
-                                <td colspan="2" rowspan="2" zn_id="220">
-                                    <t t-if="o.product_number">
-                                        <span t-field="o.product_number"/>
-                                    </t>
-                                </td>
-                                <td colspan="2">電気メッキ</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">ドブメッキ</td>
-                            </tr>
-                            <tr>
-                                <td rowspan="3" zn_id="248">図面名称<br/>制作名称
-                                </td>
-                                <td colspan="7" rowspan="3" zn_id="221">
-                                    <t t-if="o.name">
-                                        <span t-field="o.name"/>
-                                    </t>
-                                </td>
-                                <td rowspan="3">製缶<br/>完了日
-                                </td>
-                                <td colspan="3" rowspan="3">xxx</td>
-                            </tr>
-                            <tr></tr>
-                            <tr>
-                            </tr>
-                            <tr>
-                                <td rowspan="3" zn_id="250">備考</td>
-                                <td colspan="8" rowspan="3" zn_id="222">
-                                    <t t-if="o.note">
-                                        <span t-field="o.note"/>
-                                    </t>
-                                </td>
-                                <td colspan="3">xxx</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" rowspan="2">xxx</td>
-                            </tr>
-                            <tr>
-                            </tr>
-                            <tr>
-                                <td colspan="2">営業担当</td>
-                                <td colspan="2">設計担当</td>
-                                <td colspan="2">大項目</td>
-                                <td>予想時間</td>
-                                <td zn_id="223">設計時間</td>
-                                <td zn_id="224">出図納期</td>
-                                <td>切板切断納期</td>
-                                <td colspan="2">概算重量</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" zn_id="251">
-                                    <t t-if="o.account_executive">
-                                        <span t-field="o.account_executive"/>
-                                    </t>
-                                </td>
-                                <td colspan="2">
-                                    <t t-if="o.designer">
-                                        <span t-field="o.designer"/>
-                                    </t>
-                                </td>
-                                <td colspan="2">
-                                    <t t-if="o.first_category">
-                                        <span t-field="o.first_category"/>
-                                    </t>
-                                </td>
-                                <td>xxx</td>
-                                <td>xxx</td>
-                                <td>
-                                    <t t-if="o.in_date">
-                                        <span t-field="o.in_date"/>
-                                    </t>
-                                </td>
-                                <td>xxx</td>
-                                <td colspan="2">
-                                    <t t-if="o.gross_weight">
-                                        <span t-field="o.gross_weight"/>
-                                    </t>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="12" zn_id="225">加工</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" zn_id="252">工程</td>
-                                <td colspan="2">手配日</td>
-                                <td colspan="2">納期</td>
-                                <td colspan="2">工程</td>
-                                <td colspan="2" zn_id="226">手配日</td>
-                                <td colspan="2">納期</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" zn_id="253">xxx</td>
-                                <td colspan="2">xxx</td>
-                                <td colspan="2">xxx</td>
-                                <td colspan="2">xxx</td>
-                                <td colspan="2" zn_id="227">xxx</td>
-                                <td colspan="2">xxx</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" zn_id="254">xxx</td>
-                                <td colspan="2">xxx</td>
-                                <td colspan="2">xxx</td>
-                                <td colspan="2">xxx</td>
-                                <td colspan="2">xxx</td>
-                                <td colspan="2" zn_id="228">xxx</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" zn_id="255">xxx</td>
-                                <td colspan="2">xxx</td>
-                                <td colspan="2">xxx</td>
-                                <td colspan="2">xxx</td>
-                                <td colspan="2" zn_id="233">xxx</td>
-                                <td colspan="2" zn_id="229">xxx</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" zn_id="256">xxx</td>
-                                <td colspan="2">xxx</td>
-                                <td colspan="2">xxx</td>
-                                <td colspan="2">xxx</td>
-                                <td colspan="2" zn_id="232">xxx</td>
-                                <td colspan="2" zn_id="230">xxx</td>
-                            </tr>
-                            <tr>
-                                <td colspan="12" zn_id="231">手配品</td>
-                            </tr>
-                        </table>
+                        <div class="container">
+                            <table border="0" width="1020" style="width: 768pt;">
+                                <colgroup>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                </colgroup>
+                                <tr>
+                                    <td colspan="2" rowspan="5">
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAGAAACH5BAEKAP8ALAAAAAABAAEAAAgEAP8FBAA7"
+                                             alt="" height="1" width="1"/>
+                                        <img t-attf-src="data:image/*;base64,{{o.qr}}" width="100px"/>
+                                    </td>
+                                    <td colspan="1" rowspan="2">注文先</td>
+                                    <td colspan="4" rowspan="2">xxx</td>
+                                    <td colspan="1">管理番号</td>
+                                    <td colspan="4">
+                                        <t t-if="o.no">
+                                            <span t-field="o.construction_slip_number"/>
+                                        </t>
+                                    </td>
+<!--                                    <td colspan="1" rowspan="2">現場用図</td>-->
+                                </tr>
+                                <tr>
+                                    <td colspan="1">改正番号</td>
+                                    <td colspan="4">xxx</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">船番</td>
+                                    <td colspan="2">図番</td>
+                                    <td colspan="2">品番</td>
+                                    <td colspan="1">塗装</td>
+                                    <td rowspan="3">納期</td>
+                                    <td colspan="2" rowspan="3">
+                                        <t t-if="o.deadline">
+                                            <span t-field="o.deadline"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" rowspan="2" zn_id="247">
+                                        <t t-if="o.s_no">
+                                            <span t-field="o.s_no"/>
+                                        </t>
+                                    </td>
+                                    <td colspan="2" rowspan="2" zn_id="219">
+                                        <t t-if="o.drawing_number">
+                                            <span t-field="o.drawing_number"/>
+                                        </t>
+                                    </td>
+                                    <td colspan="2" rowspan="2" zn_id="220">
+                                        <t t-if="o.product_number">
+                                            <span t-field="o.product_number"/>
+                                        </t>
+                                    </td>
+                                    <td colspan="1">電気メッキ</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1">ドブメッキ</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3" zn_id="248">図面名称<br/>制作名称
+                                    </td>
+                                    <td colspan="7" rowspan="3" zn_id="221">
+                                        <t t-if="o.name">
+                                            <span t-field="o.name"/>
+                                        </t>
+                                    </td>
+                                    <td rowspan="3">製缶<br/>完了日
+                                    </td>
+                                    <td colspan="3" rowspan="3">
+                                        <span t-field="o.finished_making_the_day"/>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                                <tr>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3" zn_id="250">
+                                        <div style="min-height:4em;vertical-align: middle;">備考</div>
+                                    </td>
+                                    <td colspan="8" rowspan="3" zn_id="222">
+                                        <t t-if="o.note">
+                                            <span t-field="o.note"/>
+                                        </t>
+                                    </td>
+                                    <td colspan="3" rowspan="3">
+                                        <t t-if="o.method == 'new'">新規</t>
+                                        <t t-if="o.method == 'all_same_as'">SNo.<span t-field="o.method_no"/>とすべて同じ</t>
+                                        <t t-if="o.method == 'partially_changed_rom'">SNo.<span t-field="o.method_no"/>から一部変更
+                                        <div t-field="o.method_note"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                                <tr>
 
-                        <hr/>
+                                </tr>
+                                <tr>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">営業担当</td>
+                                    <td colspan="2">設計担当</td>
+                                    <td colspan="2">大項目</td>
+
+                                    <td zn_id="224" colspan="2">出図納期</td>
+                                    <td colspan="2">切板切断納期</td>
+                                    <td colspan="2">概算重量</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" zn_id="251">
+                                        <t t-if="o.account_executive">
+                                            <span t-field="o.account_executive"/>
+                                        </t>
+                                    </td>
+                                    <td colspan="2">
+                                        <t t-if="o.designer">
+                                            <span t-field="o.designer"/>
+                                        </t>
+                                    </td>
+                                    <td colspan="2">
+                                        <t t-if="o.first_category">
+                                            <span t-field="o.first_category"/>
+                                        </t>
+                                    </td>
+
+                                    <td colspan="2">
+                                        <t t-if="o.in_date">
+                                            <span t-field="o.in_date"
+                                                  t-options='{"widget": "date","format": "yyyy/MM/dd"}'/>
+                                        </t>
+                                    </td>
+                                    <td colspan="2">xxx</td>
+                                    <td colspan="2">
+                                        <t t-if="o.gross_weight">
+                                            <span t-field="o.gross_weight"/>Kg
+                                        </t>
+                                    </td>
+                                </tr>
+
+
+                            </table>
+                        </div>
+                        <!--                        <div style="text-align:center;">加工</div>-->
+                        <!--                        <div class="container pt-2">-->
+
+                        <!--                           <div class="row">-->
+                        <!--                            <div t-foreach="o.const_process_line_ids" t-as="l" class="col-3">-->
+                        <!--                                <div class="box m-1 p-1 rounded border border-dark">-->
+                        <!--                                    <div>工程: <span t-field="l.name"/></div>-->
+                        <!--                                <div>依頼日: <span t-field="l.request_date" class="text-decoration-underline"/> </div>-->
+                        <!--                                <div>納期: <span t-field="l.dead_line" class="text-decoration-underline"/></div>-->
+                        <!--                                    </div>-->
+                        <!--                            </div>-->
+                        <!--                           </div>-->
+                        <!--                        </div>-->
+                        <!--                        <div style="text-align:center;">手配品</div>-->
+                        <!--                        <div class="container pt-2">-->
+
+                        <!--                           <div class="row">-->
+                        <!--                            <div t-foreach="o.const_item_line_ids" t-as="l" class="col-3">-->
+                        <!--                                <div class="box m-1 p-1 rounded border border-dark">-->
+                        <!--                                    <div>品名: <span t-field="l.name"/></div>-->
+                        <!--                                <div>手配先: <span t-field="l.request_date" class="text-decoration-underline"/> </div>-->
+                        <!--                                <div>手配日: <span t-field="l.supplier" class="text-decoration-underline"/></div>-->
+                        <!--                                    </div>-->
+                        <!--                            </div>-->
+                        <!--                           </div>-->
+                        <!--                        </div>-->
+                        <div class="container pt-2">
+                            <div class="row">
+                                <div class="col-6 mr-2">
+                                    <div style="text-align:center;">加工</div>
+                                    <table border="0" style="width: 380pt;">
+                                        <colgroup>
+                                            <col style="width: 33%;"/>
+                                            <col style="width: 33%;"/>
+                                            <col style="width: 33%;"/>
+                                        </colgroup>
+
+                                        <th>工程</th>
+                                        <th>手配日</th>
+                                        <th>納期</th>
+                                        <t t-foreach="o.const_process_line_ids" t-as="l">
+                                            <tr>
+                                                <td>
+                                                    <span t-field="l.name"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="l.request_date"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="l.dead_line"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+
+                                    </table>
+                                </div>
+                                <div class="col-6 ml-2">
+                                    <div style="text-align:center;">手配品</div>
+                                    <table border="0" style="width: 380pt;">
+                                        <colgroup>
+                                            <col style="width: 33%;"/>
+                                            <col style="width: 33%;"/>
+                                            <col style="width: 33%;"/>
+                                        </colgroup>
+
+                                        <th>手配品名</th>
+                                        <th>手配先</th>
+                                        <th>手配日</th>
+                                        <t t-foreach="o.const_item_line_ids" t-as="l">
+                                            <tr>
+                                                <td>
+                                                    <span t-field="l.name"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="l.request_date"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="l.supplier"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+
+                                    </table>
+                                </div>
+                            </div>
+                            <div/>
+                            <table border="0" style="width: 768pt;">
+                                        <colgroup>
+                                            <col style="width: 40%;"/>
+                                            <col style="width: 10%;"/>
+                                            <col style="width: 20%;"/>
+                                            <col style="width: 30%;"/>
+                                        </colgroup>
+
+                                        <th>製品</th>
+                                        <th>個数</th>
+                                        <th>制作場所</th>
+                                        <th>備考</th>
+                                        <t t-foreach="o.const_product_line_ids" t-as="l">
+                                            <tr>
+                                                <td>
+                                                    <span t-field="l.name"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="l.qty"/> <span t-field="l.uom"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="l.place"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="l.note"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+
+                                    </table>
+                        </div>
                         <!--                        <div>Attached image</div>-->
                     </div>
 
                     <div class="page">
                         <t t-foreach="o.const_files" t-as="f">
-                        <p style="page-break-before:always;"> </p>
+                            <p style="page-break-before:always;"></p>
                             <t t-if="f.image">
                                 <div colspan="99" style="border: 0;">
-                                            <div style="text-align: center;">
+                                    <div style="text-align: center;">
 
-                                                <img
-                                                        t-att-src="image_data_uri(f.image)"
-                                                        style="max-width: 1000px;max-height: 1350px; padding-top: 10px;"
-                                                />
+                                        <img
+                                                t-att-src="image_data_uri(f.image)"
+                                                style="max-width: 1000px;max-height: 1350px; padding-top: 10px;"
+                                        />
 
-                                            </div>
-                                        </div>
+                                    </div>
+                                </div>
                             </t>
 
-<!--                            <t-->
-<!--                                            t-set="images"-->
-<!--                                            t-value="f.mapped('const_files')"-->
-<!--                                    />-->
-<!--                            <t t-if="images">-->
-<!--                                <t t-foreach="images" t-as="image">-->
-<!--                                    <div>-->
-<!--                                        &lt;!&ndash;                <td style="border: 0;">&ndash;&gt;-->
-<!--                                        &lt;!&ndash;                    <span t-field="image.name" />&ndash;&gt;-->
-<!--                                        &lt;!&ndash;                </td>&ndash;&gt;-->
-<!--                                        <div colspan="99" style="border: 0;">-->
-<!--                                            <div style="text-align: center;">-->
+                            <!--                            <t-->
+                            <!--                                            t-set="images"-->
+                            <!--                                            t-value="f.mapped('const_files')"-->
+                            <!--                                    />-->
+                            <!--                            <t t-if="images">-->
+                            <!--                                <t t-foreach="images" t-as="image">-->
+                            <!--                                    <div>-->
+                            <!--                                        &lt;!&ndash;                <td style="border: 0;">&ndash;&gt;-->
+                            <!--                                        &lt;!&ndash;                    <span t-field="image.name" />&ndash;&gt;-->
+                            <!--                                        &lt;!&ndash;                </td>&ndash;&gt;-->
+                            <!--                                        <div colspan="99" style="border: 0;">-->
+                            <!--                                            <div style="text-align: center;">-->
 
-<!--                                                <img-->
-<!--                                                        t-att-src="image_data_uri(image.image_1920)"-->
-<!--                                                        style="max-width: 800px;max-height: 800px; padding-top: 10px;"-->
-<!--                                                />-->
-<!--                                                <div t-field="image.name"/>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </t>-->
-<!--                            </t>-->
+                            <!--                                                <img-->
+                            <!--                                                        t-att-src="image_data_uri(image.image_1920)"-->
+                            <!--                                                        style="max-width: 800px;max-height: 800px; padding-top: 10px;"-->
+                            <!--                                                />-->
+                            <!--                                                <div t-field="image.name"/>-->
+                            <!--                                            </div>-->
+                            <!--                                        </div>-->
+                            <!--                                    </div>-->
+                            <!--                                </t>-->
+                            <!--                            </t>-->
                         </t>
                     </div>
                 </t>
             </t>
-<!--            <t t-set="docs" t-value="docs.const_files[0]">-->
-<!--                <t t-foreach="docs" t-as="o">-->
-<!--                    <t t-call="kiz_report.external_layout">-->
-<!--                        <div class="page">-->
-<!--                                <span t-field="o.name"></span>-->
-<!--                        </div>-->
-<!--                    </t>-->
-<!--                </t>-->
-<!--            </t>-->
+            <!--            <t t-set="docs" t-value="docs.const_files[0]">-->
+            <!--                <t t-foreach="docs" t-as="o">-->
+            <!--                    <t t-call="kiz_report.external_layout">-->
+            <!--                        <div class="page">-->
+            <!--                                <span t-field="o.name"></span>-->
+            <!--                        </div>-->
+            <!--                    </t>-->
+            <!--                </t>-->
+            <!--            </t>-->
 
         </t>
     </template>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0-20211213\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-15 06:22+0000\n"
-"PO-Revision-Date: 2022-06-15 06:22+0000\n"
+"POT-Creation-Date: 2022-06-15 12:22+0000\n"
+"PO-Revision-Date: 2022-06-15 12:22+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -67,6 +67,21 @@ msgid "Const Files"
 msgstr "図面"
 
 #. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__const_process_line_ids
+msgid "Const Process Line"
+msgstr "工程明細"
+
+#. module: kiz_construction
+#: model:ir.model,name:kiz_construction.model_const_process
+msgid "Const process"
+msgstr "工程"
+
+#. module: kiz_construction
+#: model:ir.model,name:kiz_construction.model_const_process_line
+msgid "Const process line"
+msgstr "工程明細"
+
+#. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__const_id
 #: model:ir.model.fields,field_description:kiz_construction.field_ships_ship__construction_ids
 msgid "Construction"
@@ -94,6 +109,8 @@ msgstr "購買作成"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__create_uid
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process__create_uid
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process_line__create_uid
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__create_uid
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot__create_uid
 msgid "Created by"
@@ -101,6 +118,8 @@ msgstr ""
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__create_date
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process__create_date
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process_line__create_date
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__create_date
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot__create_date
 msgid "Created on"
@@ -130,6 +149,8 @@ msgstr "設計担当者"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__display_name
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process__display_name
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process_line__display_name
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__display_name
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot__display_name
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_order__display_name
@@ -208,6 +229,8 @@ msgstr "予想総重量"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__id
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process__id
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process_line__id
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__id
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot__id
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_order__id
@@ -236,6 +259,8 @@ msgstr "同型"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files____last_update
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process____last_update
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process_line____last_update
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction____last_update
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot____last_update
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_order____last_update
@@ -247,6 +272,8 @@ msgstr "最終更新日"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__write_uid
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process__write_uid
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process_line__write_uid
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__write_uid
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot__write_uid
 msgid "Last Updated by"
@@ -254,6 +281,8 @@ msgstr "最終更新者"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_files__write_date
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process__write_date
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process_line__write_date
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__write_date
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_delivery_spot__write_date
 msgid "Last Updated on"
@@ -461,6 +490,17 @@ msgid "const id"
 msgstr "図面"
 
 #. module: kiz_construction
+#: model:ir.actions.act_window,name:kiz_construction.action_const_process_line
+msgid "const process line window"
+msgstr "工程明細"
+
+#. module: kiz_construction
+#: model:ir.actions.act_window,name:kiz_construction.action_const_process
+msgid "const process window"
+msgstr "工程"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process_line__const_id
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_order__construction_id
 msgid "construction"
 msgstr "制作管理表"
@@ -506,6 +546,11 @@ msgstr "切断"
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "date of issue"
 msgstr "製作管理票発行日"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process_line__dead_line
+msgid "dead_line"
+msgstr "納期"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__deadline
@@ -664,6 +709,12 @@ msgid "press forecast"
 msgstr "プレス"
 
 #. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process__name
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process_line__name
+msgid "process name"
+msgstr "プロセス名"
+
+#. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__product_number
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "product number"
@@ -697,6 +748,11 @@ msgstr "工数"
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "purchase"
 msgstr "購買"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_const_process_line__request_date
+msgid "request_date"
+msgstr "依頼日"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__robot_a
@@ -789,3 +845,14 @@ msgstr "溶接"
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__weld_f
 msgid "weld forecast"
 msgstr "溶接"
+
+#. module: kiz_construction
+#: model:ir.ui.menu,name:kiz_construction.const_process
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "工程"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.ui.menu,name:kiz_construction.const_process_line
+msgid "工程明細"
+msgstr ""

@@ -3,4 +3,8 @@ access_kiz_construction_kiz_construction,access.kiz_construction.kiz_constructio
 access_const_files_user,const.files.user,model_const_files,,1,1,1,1
 access_const_process_user,const.process.user,model_const_process,,1,1,1,1
 access_const_process_line_user,const.process_line.user,model_const_process_line,,1,1,1,1
+access_const_item_user,const.item.user,model_const_item,,1,1,1,1
+access_const_item_line_user,const.item_line.user,model_const_item_line,,1,1,1,1
+access_const_product_user,const.product.user,model_const_product,,1,1,1,1
+access_const_product_line_user,const.product_line.user,model_const_product_line,,1,1,1,1
 access_delivery_spot,purchase.delivery_spot,model_purchase_delivery_spot,,1,1,1,1

@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <record id="const_item_line_form" model="ir.ui.view">
+            <field name="name">const_item_line_form</field>
+            <field name="model">const.item_line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="supplier"/>
+                            <field name="request_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="const_item_line_tree" model="ir.ui.view">
+            <field name="name">const_item_line_tree</field>
+            <field name="model">const.item_line</field>
+            <field name="arch" type="xml">
+                <tree>
+                            <field name="name"/>
+                            <field name="supplier"/>
+                            <field name="request_date"/>
+                    <field name="const_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_const_item_line">
+            <field name="name">const item line window</field>
+            <field name="res_model">const.item_line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="手配品" id="kiz_construction.const_item_line" parent="kiz_construction.menu_1"
+                  action="action_const_item_line"/>
+
+    </data>
+</odoo>

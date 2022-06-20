@@ -30,6 +30,7 @@
                                 <field name="china_arrival_date"/>
                                 <field name="procurement_date"/>
                                 <field name="departure_date"/>
+                                <field name="qr" widget="image"/>
                             </group>
                             <group>
 
@@ -67,21 +68,23 @@
                         <notebook>
                             <page string="construction info">
                                 <group>
-                                    <span>In-House</span>
-                                    <field name="in_days"/>
-                                    <field name="in_date"/>
-                                    <span>China</span>
-                                    <field name="china_days"/>
-                                    <field name="china_date"/>
-                                    <span>Steel</span>
-                                    <field name="steel_material_order_date"/>
-                                    <field name="steel_material_arrangement_date"/>
-                                    <span>Steel</span>
-                                    <field name="steel_material_order_date"/>
-                                    <field name="steel_material_arrangement_date"/>
-                                    <span>Paint</span>
-                                    <field name="paint_order_date"/>
-                                    <field name="paint_arrangement_date"/>
+                                    <group>
+                                        <span>In-House</span>
+                                        <field name="in_days"/>
+                                        <field name="in_date"/>
+                                        <span>China</span>
+                                        <field name="china_days"/>
+                                        <field name="china_date"/>
+                                    </group>
+                                    <group>
+                                        <span>Steel</span>
+                                        <field name="steel_material_order_date"/>
+                                        <field name="steel_material_arrangement_date"/>
+
+                                        <span>Paint</span>
+                                        <field name="paint_order_date"/>
+                                        <field name="paint_arrangement_date"/>
+                                    </group>
                                 </group>
                                 <group>
                                     <field name="consultation_drawing"/>
@@ -92,7 +95,7 @@
                             <page string="ship info">
                                 <group>
                                     <field name="ship_class" string="Ship class"/>
-                                    <field name="gross_weight" />
+                                    <field name="gross_weight"/>
                                     <field name="expected_gross_weight"/>
                                     <field name="in_date" string="in date"/>
                                     <field name="china_date" string="china date"/>
@@ -150,8 +153,53 @@
                             <page string="工程">
                                 <field name="const_process_line_ids"/>
                             </page>
+                            <page string="手配品">
+                                <field name="const_item_line_ids"/>
+                            </page>
+                            <page string="製品">
+                                <field name="const_product_line_ids"/>
+                            </page>
+                            <page string="表紙情報">
+
+                                <group col="8">
+                                        <field name="method" widget="radio"/>
+                                        <field name="method_no" attrs="{'invisible': ['|', ('method', '=', 'new'), ('method', '=', ' ')]}"/>
+                                        <field name="method_note" attrs="{'invisible': [('method', '!=', 'partially_changed_rom')]}"/>
+                                        <field name="paint_flg"/>
+                                        <field name="plating_flg"/>
+                                        <field name="galvanizing_flg"/>
+                                        <field name="being_on_site"/>
+                                        <field name="class_inspection"/>
+                                        <field name="class_inspection_note"/>
+                                        <field name="quality_control_inspection"/>
+                                        <field name="pressure_test" widget="radio"/>
+                                        <field name="pressure"/>
+                                        <field name="nondestructive_inspection" widget="radio"/>
+                                        <field name="mil_sheet"/>
+                                        <field name="slime_mark"/>
+                                        <field name="appointment"/>
+                                        <field name="steel_supplied_material"/>
+                                        <field name="steel_supplied_material_order"/>
+                                        <field name="steel_supplied_material_delivery"/>
+                                        <field name="steel_purchased_material"/>
+                                        <field name="steel_purchased_material_order"/>
+                                        <field name="steel_purchased_material_delivery"/>
+                                        <field name="cut" widget="radio"/>
+                                        <field name="cut_date"/>
+                                        <field name="laser"/>
+                                        <field name="laser_date"/>
+                                        <field name="pattern_paper"/>
+                                        <field name="pattern_paper_date"/>
+                                        <field name="safety_operation" widget="radio"/>
+                                </group>
+                            </page>
                         </notebook>
                     </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" modifiers="{}" id="activity_ids"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
                 </form>
             </field>
         </record>
@@ -176,7 +224,29 @@
                 </tree>
             </field>
         </record>
-
+        <record id="cont_search" model="ir.ui.view">
+            <field name="name">kiz_construction.search</field>
+            <field name="model">kiz_construction.kiz_construction</field>
+            <field name="arch" type="xml">
+                <search string="construction">
+                    <field name="name"
+                           filter_domain="['|',
+                           ('name','ilike',self),
+                           ('production_name','ilike',self),
+                           ]" string="制作管理表"/>
+                    <separator/>
+                    <filter name="my_account_executive" string="私が営業担当者" domain="[('account_executive', '=', uid)]"/>
+                    <filter name="my_designer" string="私が設計担当者" domain="[('designer', '=', uid)]"/>
+                    <filter name="my_material_input_person" string="私が資材入力者" domain="[('material_input_person', '=', uid)]"/>
+                    <separator/>
+                    <filter name="date_of_issue" string="製作管理票発行日" date="date_of_issue"/>
+                    <filter name="deadline" string="納期" date="deadline"/>
+                    <group expand="0" string="Group By">
+                        <filter string="商社" name="trading_company" domain="[]" context="{'group_by': 'trading_company'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
 
         <!-- actions opening views on models -->
 
