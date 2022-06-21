@@ -138,7 +138,7 @@ class kiz_construction(models.Model):
     galvanizing_flg = fields.Boolean("galvanizing_flg")  # ドブメッキ
     being_on_site = fields.Boolean("being_on_site")  # 客先立会
     class_inspection = fields.Boolean("class_inspection")  # 船級検査
-    class_inspection_note = fields.Char("class_inspection")  # 船級検査 note
+    class_inspection_note = fields.Char("class_inspection_note")  # 船級検査 note
     quality_control_inspection = fields.Boolean("quality_control_inspection")  # 品管検査
     pressure_test = fields.Selection(
         [('water', 'Water'),
@@ -155,7 +155,7 @@ class kiz_construction(models.Model):
          ],)  # 非破壊検査
     mil_sheet = fields.Boolean()  # ミルシート
     slime_mark = fields.Boolean()  # スリマーク
-    appointment = fields.Date()  # スリマーク
+    appointment = fields.Date()  # 打ち合わせ
     steel_supplied_material = fields.Boolean()  # 支給材
     steel_supplied_material_order = fields.Date()  # 支給材
     steel_supplied_material_delivery = fields.Date()  # 支給材
@@ -198,12 +198,9 @@ class kiz_construction(models.Model):
         res = super(kiz_construction, self).default_get(fields_list)
         vals = []
         process_items = self.env['const.process'].search([('default', '=', True)])
-        print(process_items)
         for process in process_items:
-            print(process.id)
             line = (0, 0,  {'name': process.id})
             vals.append(line)
-        print(vals)
         res.update({'const_process_line_ids': vals})
         return res
 
@@ -218,7 +215,6 @@ class kiz_construction(models.Model):
 
     def _get_qr(self):
         for rec in self:
-            print(rec.construction_slip_number)
             if rec.construction_slip_number:
                 qr = qrcode.QRCode(
                     version=2,
@@ -258,8 +254,6 @@ class kiz_construction(models.Model):
     def _compute_purchase_line(self):
         a = self.env["purchase.order.line"].search_read([("account_analytic_id", "=", self.no.name)])
         # b = self.purchase_lines
-        print(self.no.name)
-        print(a)
         # self.purchase_line = self.env["purchase.order"].search([("account_id", "=", self.no.id)]).id
         self.purchase_line = self.env["purchase.order.line"].search([("account_analytic_id", "=", self.no.name)])
         # print(self.account_id)

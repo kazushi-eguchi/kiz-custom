@@ -8,6 +8,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="need"/>
                             <field name="request_date"/>
                             <field name="dead_line"/>
                         </group>
@@ -22,6 +23,7 @@
             <field name="arch" type="xml">
                 <tree editable="bottom">
                             <field name="name"/>
+                            <field name="need"/>
                             <field name="request_date"/>
                             <field name="dead_line"/>
 <!--                    <field name="const_id"/>-->

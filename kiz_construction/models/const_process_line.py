@@ -11,4 +11,5 @@ class ConstProcessLine(models.Model):
     name = fields.Many2one("const.process", string="process name")  # 工程
     request_date = fields.Date("request_date")  # 依頼日
     dead_line = fields.Date("dead_line")  # 納期
+    need = fields.Boolean("need")
     const_id = fields.Many2one("kiz_construction.kiz_construction", string="construction")
