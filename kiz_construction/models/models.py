@@ -197,15 +197,24 @@ class kiz_construction(models.Model):
     def default_get(self, fields_list):
         res = super(kiz_construction, self).default_get(fields_list)
         vals = []
-        prosess_items = self.env['const.process'].search([('default', '=', True)])
-        print(prosess_items)
-        for prosess in prosess_items:
-            print(prosess.id)
-            line = (0, 0,  {'name': prosess.id})
+        process_items = self.env['const.process'].search([('default', '=', True)])
+        print(process_items)
+        for process in process_items:
+            print(process.id)
+            line = (0, 0,  {'name': process.id})
             vals.append(line)
         print(vals)
         res.update({'const_process_line_ids': vals})
         return res
+
+    def load_process(self):
+        res = []
+        process_items = self.env['const.process'].search([('default', '=', True)])
+        for process in process_items:
+            line = (0, 0, {'name': process.id})
+            res.append(line)
+        # res.append(self.const_process_line_ids)
+        self.const_process_line_ids = res
 
     def _get_qr(self):
         for rec in self:

@@ -151,6 +151,8 @@
                                 </group>
                             </page>
                             <page string="工程">
+                                <button id="button_confirm" name="load_process" string="工程読込"
+                                        confirm="工程を読み込みます。よろしいですか？" type="object" class="oe_highlight"/>
                                 <field name="const_process_line_ids"/>
                             </page>
                             <page string="手配品">
