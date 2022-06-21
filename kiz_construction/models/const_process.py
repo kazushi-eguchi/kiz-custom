@@ -9,3 +9,4 @@ class ConstProcess(models.Model):
     _order = "id"
 
     name = fields.Char("process name")
+    default = fields.Boolean("デフォルト")

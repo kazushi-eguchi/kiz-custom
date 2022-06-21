@@ -113,7 +113,12 @@ class kiz_construction(models.Model):
     coating_a = fields.Float("coating actual")
     delivery_a = fields.Float("delivery actual")
     total_number_of_workers_2 = fields.Float(string="Total number of workers", compute="_calc_total_2")
-    const_process_line_ids = fields.One2many("const.process_line", inverse_name="const_id")
+    const_process_line_ids = fields.One2many("const.process_line",
+                                             inverse_name="const_id")
+    # const_process_line_ids = fields.One2many("const.process_line",
+    #                                          inverse_name="const_id",
+    #                                          default=lambda self: self.env[
+    #                                              'const.process_line'].search([('default', '=', True)]))
     const_item_line_ids = fields.One2many("const.item_line", inverse_name="const_id")
     const_product_line_ids = fields.One2many("const.product_line", inverse_name="const_id")
 
@@ -188,6 +193,20 @@ class kiz_construction(models.Model):
     #     def _value_pc(self):
     #         for record in self:
     #             record.value2 = float(record.value) / 100
+    @api.model
+    def default_get(self, fields_list):
+        res = super(kiz_construction, self).default_get(fields_list)
+        vals = []
+        prosess_items = self.env['const.process'].search([('default', '=', True)])
+        print(prosess_items)
+        for prosess in prosess_items:
+            print(prosess.id)
+            line = (0, 0,  {'name': prosess.id})
+            vals.append(line)
+        print(vals)
+        res.update({'const_process_line_ids': vals})
+        return res
+
     def _get_qr(self):
         for rec in self:
             print(rec.construction_slip_number)

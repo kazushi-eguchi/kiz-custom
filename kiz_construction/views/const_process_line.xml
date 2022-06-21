@@ -20,11 +20,21 @@
             <field name="name">const_process_line_tree</field>
             <field name="model">const.process_line</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree editable="bottom">
                             <field name="name"/>
                             <field name="request_date"/>
                             <field name="dead_line"/>
-                    <field name="const_id"/>
+<!--                    <field name="const_id"/>-->
+                </tree>
+            </field>
+        </record>
+        <record id="const_process_tree" model="ir.ui.view">
+            <field name="name">const_process_tree</field>
+            <field name="model">const.process</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                            <field name="name"/>
+                            <field name="default"/>
                 </tree>
             </field>
         </record>
