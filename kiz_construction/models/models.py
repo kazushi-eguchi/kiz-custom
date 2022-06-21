@@ -22,7 +22,7 @@ class kiz_construction(models.Model):
     )  # 制作管理番号 OK
     status = fields.Char(string="status")  # 工事伝票ステータス OK
     deadline = fields.Date(string="deadline")  # 工事伝納期 OK
-    account_executive = fields.Char(string="account executive")  # 営業担当者 OK
+    account_executive = fields.Many2one('res.users', string="account executive")  # 営業担当者 OK
     trading_company = fields.Many2one(
         comodel_name='res.partner', string='trading_company')  # 商社 OK
     trading_company_short_name = fields.Char(string="trading company short name")  # 商社略称 OK
@@ -44,7 +44,7 @@ class kiz_construction(models.Model):
     product_number = fields.Char(string="product number")  # 品番 OK
     date_of_issue = fields.Datetime(string="date of issue")  # 製作管理票発行日 OK
     finished_making_the_day = fields.Date(string="Finished making the day")  # 製缶完了日 OK
-    designer = fields.Char(string="Designer")  # 設計担当者 OK
+    designer = fields.Many2one('res.users', string="Designer")  # 設計担当者 OK
     machining_drawing = fields.Char(string="Machining drawing")  # 加工図 OK
     in_house_construction_drawing = fields.Char(string="In-house construction drawing")  # 社内工事図 OK
     attachment_id = fields.Many2one('ir.attachment', string="Attachment")  # 添付ファイル OK
@@ -53,7 +53,7 @@ class kiz_construction(models.Model):
     note = fields.Text(string="note")  # 備考 OK
     design_note = fields.Char(string="Design note")  # 設計備考 OK
     nesting_notes = fields.Char(string="Nesting Notes")  # ネスティング備考 OK
-    material_input_person = fields.Char(string="Material input person")  # 資材入力者 OK
+    material_input_person = fields.Many2one('res.users', string="Material input person")  # 資材入力者 OK
     production_place = fields.Char(string="Production place")  # 製作場所 OK
     correction_area = fields.Char(string="correction area")  # 手直し場所 OK
     china_arrival_date = fields.Date(string="China arrival date")  # 中国入荷日 OK
