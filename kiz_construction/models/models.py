@@ -178,6 +178,10 @@ class kiz_construction(models.Model):
          (' ', 'without'),
          ],)  # 安全作業手順検討
 
+    # 中国向け項目
+    note_1 = fields.Text("note_1")
+    note_2 = fields.Text("note_2")
+
     # 添付ファイル
 
     # 分析勘定

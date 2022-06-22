@@ -4,9 +4,18 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="kiz_report.external_layout">
-                    <div class="page" style="font-size:18px;">
+                    <div class="page" style="font-size:18px;height:900pt">
                         <style>
-                            .container {margin-left:-10pt}
+                            .active{background-color: #e0e0e0;}
+                            page {position: relative;}
+                            .container {
+                            margin-left:-10pt;
+                            }
+                            .bt-box{
+                            position: absolute;
+                            bottom: 10px;
+                            left: 10px;
+                            }
                             table {
                             border-collapse: collapse;
                             }
@@ -53,7 +62,7 @@
                                             <span t-field="o.construction_slip_number"/>
                                         </t>
                                     </td>
-<!--                                    <td colspan="1" rowspan="2">現場用図</td>-->
+                                    <!--                                    <td colspan="1" rowspan="2">現場用図</td>-->
                                 </tr>
                                 <tr>
                                     <td colspan="1">改正番号</td>
@@ -120,9 +129,11 @@
                                     </td>
                                     <td colspan="3" rowspan="3">
                                         <t t-if="o.method == 'new'">新規</t>
-                                        <t t-if="o.method == 'all_same_as'">SNo.<span t-field="o.method_no"/>とすべて同じ</t>
-                                        <t t-if="o.method == 'partially_changed_rom'">SNo.<span t-field="o.method_no"/>から一部変更
-                                        <div t-field="o.method_note"/>
+                                        <t t-if="o.method == 'all_same_as'">SNo.<span t-field="o.method_no"/>とすべて同じ
+                                        </t>
+                                        <t t-if="o.method == 'partially_changed_rom'">SNo.<span t-field="o.method_no"/>
+                                            から一部変更
+                                            <div t-field="o.method_note"/>
                                         </t>
                                     </td>
                                 </tr>
@@ -174,33 +185,8 @@
 
                             </table>
                         </div>
-                        <!--                        <div style="text-align:center;">加工</div>-->
-                        <!--                        <div class="container pt-2">-->
 
-                        <!--                           <div class="row">-->
-                        <!--                            <div t-foreach="o.const_process_line_ids" t-as="l" class="col-3">-->
-                        <!--                                <div class="box m-1 p-1 rounded border border-dark">-->
-                        <!--                                    <div>工程: <span t-field="l.name"/></div>-->
-                        <!--                                <div>依頼日: <span t-field="l.request_date" class="text-decoration-underline"/> </div>-->
-                        <!--                                <div>納期: <span t-field="l.dead_line" class="text-decoration-underline"/></div>-->
-                        <!--                                    </div>-->
-                        <!--                            </div>-->
-                        <!--                           </div>-->
-                        <!--                        </div>-->
-                        <!--                        <div style="text-align:center;">手配品</div>-->
-                        <!--                        <div class="container pt-2">-->
-
-                        <!--                           <div class="row">-->
-                        <!--                            <div t-foreach="o.const_item_line_ids" t-as="l" class="col-3">-->
-                        <!--                                <div class="box m-1 p-1 rounded border border-dark">-->
-                        <!--                                    <div>品名: <span t-field="l.name"/></div>-->
-                        <!--                                <div>手配先: <span t-field="l.request_date" class="text-decoration-underline"/> </div>-->
-                        <!--                                <div>手配日: <span t-field="l.supplier" class="text-decoration-underline"/></div>-->
-                        <!--                                    </div>-->
-                        <!--                            </div>-->
-                        <!--                           </div>-->
-                        <!--                        </div>-->
-                        <div class="container pt-2">
+                        <div class="container pt-2" style="height:500pt">
                             <div class="row">
                                 <div class="col-6 mr-2">
                                     <div style="text-align:center;">加工</div>
@@ -215,17 +201,19 @@
                                         <th>手配日</th>
                                         <th>納期</th>
                                         <t t-foreach="o.const_process_line_ids" t-as="l">
-                                            <tr>
-                                                <td>
-                                                    <span t-field="l.name"/>
-                                                </td>
-                                                <td>
-                                                    <span t-field="l.request_date"/>
-                                                </td>
-                                                <td>
-                                                    <span t-field="l.dead_line"/>
-                                                </td>
-                                            </tr>
+                                            <t t-if="l.need == true">
+                                                <tr>
+                                                    <td>
+                                                        <span t-field="l.name"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="l.request_date"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="l.dead_line"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
                                         </t>
 
                                     </table>
@@ -261,35 +249,82 @@
                             </div>
                             <div/>
                             <table border="0" style="width: 768pt;">
-                                        <colgroup>
-                                            <col style="width: 40%;"/>
-                                            <col style="width: 10%;"/>
-                                            <col style="width: 20%;"/>
-                                            <col style="width: 30%;"/>
-                                        </colgroup>
+                                <colgroup>
+                                    <col style="width: 40%;"/>
+                                    <col style="width: 10%;"/>
+                                    <col style="width: 20%;"/>
+                                    <col style="width: 30%;"/>
+                                </colgroup>
 
-                                        <th>製品</th>
-                                        <th>個数</th>
-                                        <th>制作場所</th>
-                                        <th>備考</th>
-                                        <t t-foreach="o.const_product_line_ids" t-as="l">
-                                            <tr>
-                                                <td>
-                                                    <span t-field="l.name"/>
-                                                </td>
-                                                <td>
-                                                    <span t-field="l.qty"/> <span t-field="l.uom"/>
-                                                </td>
-                                                <td>
-                                                    <span t-field="l.place"/>
-                                                </td>
-                                                <td>
-                                                    <span t-field="l.note"/>
-                                                </td>
-                                            </tr>
-                                        </t>
+                                <th>製品</th>
+                                <th>個数</th>
+                                <th>制作場所</th>
+                                <th>備考</th>
+                                <t t-foreach="o.const_product_line_ids" t-as="l">
+                                    <tr>
+                                        <td>
+                                            <span t-field="l.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="l.qty"/>
+                                            <span t-field="l.uom"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="l.place"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="l.note"/>
+                                        </td>
+                                    </tr>
+                                </t>
 
-                                    </table>
+                            </table>
+
+                        </div>
+                        <div class="container">
+                            <table border="0" width="1020" style="width: 768pt;">
+                                <colgroup>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                    <col style="width: 8.3%;"/>
+                                </colgroup>
+                                <tr>
+                                    <th>検査</th>
+                                    <td colspan="2" t-attf-class="{{ 'active' if o.being_on_site == True else '' }}">客先立会  （
+                                        <span t-if="o.being_on_site">○</span>
+                                        <span t-if="not o.being_on_site">☓</span>
+                                        )
+                                    </td>
+                                    <td colspan="4" t-attf-class="{{ 'active' if o.class_inspection == True else '' }}">船級検査  (
+                                        <span t-if="o.class_inspection">○</span>
+                                        <span t-if="not o.class_inspection">☓</span>
+                                        )
+                                    </td>
+                                    <td colspan="2" t-attf-class="{{ 'active' if o.quality_control_inspection == True else '' }}">品管検査  (
+                                        <span t-if="o.quality_control_inspection">○</span>
+                                        <span t-if="not o.quality_control_inspection">☓</span>
+                                        )
+                                    </td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                </tr>
+                                <tr>
+                                    <th>検査内容</th>
+                                    <td colspan="5">圧力検査  Mpa</td>
+                                    <td colspan="5">非破壊検査</td>
+                                    <td>test</td>
+                                </tr>
+                            </table>
                         </div>
                         <!--                        <div>Attached image</div>-->
                     </div>

@@ -195,6 +195,12 @@
                                         <field name="safety_operation" widget="radio"/>
                                 </group>
                             </page>
+                            <page string="中国表紙">
+                                <group>
+                                    <field name="note_1" string="説明"/>
+                                    <field name="note_2" string="注記"/>
+                                </group>
+                            </page>
                         </notebook>
                     </sheet>
                     <div class="oe_chatter">
