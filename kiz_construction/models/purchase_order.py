@@ -26,11 +26,13 @@ class KizPurchaseOrder(models.Model):
                            related='construction_id.drawing_number')  # 図面番号
     building = fields.Char(string="building",
                            related='construction_id.building')  # 建造所
-    product_name = fields.Char(string="name")
+    product_name = fields.Char(string="製作名称", related='construction_id.production_name')
     trading_company = fields.Many2one(
         comodel_name='res.partner', string='trading_company')  # 商社
     shipyard_full = fields.Char(string="Shipyard Full")
-
+    material_input_person = fields.Char(related='construction_id.material_input_person.name', string="資材担当者")
+    production_management_ticket_period = fields.Date(string="制作管理票納期",
+                           related='construction_id.production_management_ticket_period')  # 制作管理票納期
     # def _compute_account_id(self):
     #
     #     a = self.env["purchase.order.line"].search_read([], [])

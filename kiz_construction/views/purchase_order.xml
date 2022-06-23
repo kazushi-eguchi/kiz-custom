@@ -8,10 +8,12 @@
 
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='partner_ref']" position="after">
-
+                         <field name="material_input_person"/>
                         <field name="account_id"/>
-                    <field name="construction_id"/>
                     <field name="deadline"/>
+                    <field name="construction_id"/>
+                    <field name="production_management_ticket_period"/>
+
                     <field name="drawing_number"/>
                     <field name="building"/>
                         <field name="s_no"/>
@@ -27,6 +29,43 @@
                     <field name="delivery_spot"/>
 
 
+                </xpath>
+            </field>
+        </record>
+        <record id="kiz_po_kpi_tree" model="ir.ui.view">
+            <field name="name">purchase.order.kpi.tree.rtw</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='activity_ids']" position="replace"/>
+                <xpath expr="//field[@name='origin']" position="replace"/>
+                <xpath expr="//field[@name='amount_total']" position="replace"/>
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="construction_id" string="制作管理番号"/>
+                    <field name="production_management_ticket_period" string="制作管理票納期"/>
+                    <field name="trading_company" string="商社"/>
+                    <field name="building" string="建造所"/>
+                    <field name="s_no" string="船番"/>
+                    <field name="product_name" string="品名"/>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="kiz_po_tree" model="ir.ui.view">
+            <field name="name">purchase.order.tree.rtw</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='activity_ids']" position="replace"/>
+                <xpath expr="//field[@name='origin']" position="replace"/>
+                <xpath expr="//field[@name='amount_total']" position="replace"/>
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="construction_id" string="制作管理番号"/>
+                    <field name="production_management_ticket_period" string="制作管理票納期"/>
+                    <field name="trading_company" string="商社"/>
+                    <field name="building" string="建造所"/>
+                    <field name="s_no" string="船番"/>
+                    <field name="product_name" string="品名"/>
                 </xpath>
             </field>
         </record>
