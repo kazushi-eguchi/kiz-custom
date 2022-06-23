@@ -218,6 +218,7 @@
             <field name="model">kiz_construction.kiz_construction</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="construction_slip_number"/>
                     <field name="no"/>
                     <field name="status"/>
                     <field name="designer"/>

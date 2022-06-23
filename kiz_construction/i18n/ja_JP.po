@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-21 13:02+0000\n"
-"PO-Revision-Date: 2022-06-21 13:02+0000\n"
+"POT-Creation-Date: 2022-06-23 02:42+0000\n"
+"PO-Revision-Date: 2022-06-23 02:42+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -909,9 +909,13 @@ msgstr "日間（中国）"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__class_inspection
-#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__class_inspection_note
 msgid "class_inspection"
 msgstr "船級検査"
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__class_inspection_note
+msgid "class_inspection_note"
+msgstr ""
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__cleaning_a
@@ -987,7 +991,7 @@ msgstr "制作情報"
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__construction_slip_number
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "construction slip number"
-msgstr "工事伝票番号"
+msgstr "制作管理表番号"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__construction_slip_status
@@ -1161,6 +1165,16 @@ msgid "note"
 msgstr "備考"
 
 #. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__note_1
+msgid "note_1"
+msgstr ""
+
+#. module: kiz_construction
+#: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__note_2
+msgid "note_2"
+msgstr ""
+
+#. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_const_item__name
 #: model:ir.model.fields,field_description:kiz_construction.field_const_item_line__name
 msgid "ordered item"
@@ -1231,7 +1245,7 @@ msgstr "制作管理票"
 #: model:ir.model.fields,field_description:kiz_construction.field_purchase_order_line__account_id
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "production management slip no"
-msgstr "製作管理番号"
+msgstr "工事伝票番号"
 
 #. module: kiz_construction
 #: model:ir.model.fields,field_description:kiz_construction.field_kiz_construction_kiz_construction__production_management_ticket_period
@@ -1377,6 +1391,11 @@ msgid "デフォルト"
 msgstr ""
 
 #. module: kiz_construction
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "中国表紙"
+msgstr ""
+
+#. module: kiz_construction
 #: model_terms:ir.ui.view,arch_db:kiz_construction.cont_search
 msgid "制作管理表"
 msgstr ""
@@ -1414,6 +1433,11 @@ msgid "手配品"
 msgstr ""
 
 #. module: kiz_construction
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "注記"
+msgstr ""
+
+#. module: kiz_construction
 #: model_terms:ir.ui.view,arch_db:kiz_construction.cont_search
 msgid "私が営業担当者"
 msgstr ""
@@ -1447,4 +1471,9 @@ msgstr ""
 #: model:ir.ui.menu,name:kiz_construction.const_product_line
 #: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
 msgid "製品"
+msgstr ""
+
+#. module: kiz_construction
+#: model_terms:ir.ui.view,arch_db:kiz_construction.kiz_construction_form
+msgid "説明"
 msgstr ""
