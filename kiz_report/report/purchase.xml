@@ -25,8 +25,8 @@
                                     <tr>
                                         <!--                                        <th>summary</th>-->
                                         <th class="text-center">Item</th>
-                                        <th class="text-center">Spec</th>
-                                        <th class="text-center">Qty</th>
+                                        <th class="text-center" width="25%">Spec</th>
+                                        <th class="text-center" width="8%">Qty</th>
                                         <th class="text-center">Delivery place</th>
                                         <th class="text-center">Image</th>
                                         <th class="text-center" width="30%">Note</th>
