@@ -72,7 +72,7 @@
                                             </t>
                                         </t>
                                     </td>
-                                    <td class="text-center">
+                                    <td class="text-left" >
                                         <span t-field="l.note"/>
                                     </td>
                                 </tr>
