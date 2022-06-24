@@ -44,7 +44,7 @@
                     <field name="construction_id" string="制作管理番号"/>
                     <field name="production_management_ticket_period" string="制作管理票納期"/>
                     <field name="trading_company" string="商社"/>
-                    <field name="building" string="建造所"/>
+                    <field name="shipyard_full" string="造船所"/>
                     <field name="s_no" string="船番"/>
                     <field name="product_name" string="品名"/>
                 </xpath>
