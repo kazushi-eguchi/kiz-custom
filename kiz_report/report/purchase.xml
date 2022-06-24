@@ -17,9 +17,11 @@
                         </t>
                         <t t-call="kiz_report.common_header_layout"/>
                         <!--                        <t t-call="kiz_report.purchase_table" />-->
-                        <table class="table table-condensed">
+                        <table class="table table-condensed" style="table-layout: fixed">
                             <tbody class="invoice_tbody">
-                                <thead style="background-color:#F8F9FA">
+
+                                <thead style="background-color:#F8F9FA" >
+
                                     <tr>
                                         <!--                                        <th>summary</th>-->
                                         <th class="text-center">Item</th>
@@ -27,7 +29,7 @@
                                         <th class="text-center">Qty</th>
                                         <th class="text-center">Delivery place</th>
                                         <th class="text-center">Image</th>
-                                        <th class="text-center">Note</th>
+                                        <th class="text-center" width="30%">Note</th>
 
                                     </tr>
                                 </thead>
