@@ -32,7 +32,7 @@ class KizPurchaseOrder(models.Model):
     trading_company = fields.Many2one(
         comodel_name='res.partner', string='trading_company')  # 商社
     shipyard_full = fields.Char(string="Shipyard Full")
-    material_input_person = fields.Char(related='construction_id.material_input_person.name', string="資材担当者")
+    material_input_person = fields.Many2one('res.users', string="資材担当者")
     production_management_ticket_period = fields.Date(string="制作管理票納期",
                            related='construction_id.production_management_ticket_period')  # 制作管理票納期
     # def _compute_account_id(self):
