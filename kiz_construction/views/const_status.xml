@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+        <record id="const_status_form" model="ir.ui.view">
+            <field name="name">const_status_form</field>
+            <field name="model">kiz_construction.status</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="active"/>
+                            <field name="default"/>
+                            <field name="done"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="const_status_tree" model="ir.ui.view">
+            <field name="name">const_status_tree</field>
+            <field name="model">kiz_construction.status</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="active"/>
+                    <field name="default"/>
+                    <field name="done"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_status_line">
+            <field name="name">const status window</field>
+            <field name="res_model">kiz_construction.status</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="ステータス" id="kiz_construction.const_status" parent="kiz_construction.menu_1"
+                  action="action_status_line"/>
+
+    </data>
+</odoo>

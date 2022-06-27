@@ -12,6 +12,7 @@
                     <sheet>
                         <group>
                             <group>
+<!--                                <field name="status"/>-->
                                 <!--                                <field name="analytic_account_id" string="Analytic Account"/>-->
                                 <field name="construction_slip_number" string="construction slip number"/>
                                 <field name="date_of_issue" string="date of issue"/>
@@ -246,6 +247,7 @@
                            ('no','ilike',self),
                            ]" string="制作管理表"/>
                     <separator/>
+                    <filter name="status" string="未完了" domain="[('status', '!=', 'done')]"/>
                     <filter name="my_account_executive" string="私が営業担当者" domain="[('account_executive', '=', uid)]"/>
                     <filter name="my_designer" string="私が設計担当者" domain="[('designer', '=', uid)]"/>
                     <filter name="my_material_input_person" string="私が資材入力者" domain="[('material_input_person', '=', uid)]"/>

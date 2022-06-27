@@ -177,7 +177,12 @@ class kiz_construction(models.Model):
          ('no', 'NO'),
          (' ', 'without'),
          ],)  # 安全作業手順検討
-
+    # status = fields.Many2one('kiz_construction.status', default=lambda self: self.env['kiz_construction.status'].search([('default', '=', True)]))
+    status = fields.Selection([
+        ('new', '新規'),
+        ('done', '完了')
+    ], default='new',
+        string="ステータス", )  # OK
     # 中国向け項目
     note_1 = fields.Text("note_1")
     note_2 = fields.Text("note_2")
