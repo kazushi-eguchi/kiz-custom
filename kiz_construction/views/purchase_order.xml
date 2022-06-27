@@ -20,6 +20,9 @@
                         <field name="product_name"/>
                         <field name="trading_company"/>
                         <field name="shipyard_full"/>
+                        <field name="order_qty"/>
+                        <field name="order_received_qty"/>
+                        <field name="not_complete"/>
                 </xpath>
                 <xpath
                         expr="//field[@name='order_line']/tree//field[@name='price_subtotal']"
@@ -70,6 +73,26 @@
             </field>
         </record>
 
+        <record id="purchase_search" model="ir.ui.view">
+            <field name="name">purchase_order.search</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_view_search" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <filter name="not_complete" string="未入荷あり" domain="[('not_complete', '=', True)]"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="purchase_request_search" model="ir.ui.view">
+            <field name="name">purchase_request_order.search</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_filter" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <filter name="not_complete" string="未入荷あり" domain="[('not_complete', '=', True)]"/>
+                </xpath>
+            </field>
+        </record>
 
     </data>
 </odoo>

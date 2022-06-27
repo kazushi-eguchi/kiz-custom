@@ -39,6 +39,37 @@ class KizPurchaseOrder(models.Model):
     material_input_person = fields.Many2one('res.users', string="資材担当者")
     production_management_ticket_period = fields.Date(string="制作管理票納期",
                            related='construction_id.production_management_ticket_period')  # 制作管理票納期
+
+    order_qty = fields.Integer(compute="_get_order_qty_count", string="発注数量")
+    order_received_qty = fields.Integer(compute="_get_order_received_qty_count", string="完了数量")
+    not_complete = fields.Boolean(compute="_check_complete", search='_value_search', string="未入荷あり")
+
+    def _value_search(self, operator, value):
+        recs = self.search([]).filtered(lambda x: x.not_complete is True)
+        if recs:
+            return [('id', 'in', [x.id for x in recs])]
+
+    def _check_complete(self):
+        for rec in self:
+            flg = rec.order_qty - rec.order_received_qty
+            if flg == 0:
+                rec.not_complete = False
+            else:
+                rec.not_complete = True
+
+    def _get_order_qty_count(self):
+        for rec in self:
+            qty = 0
+            for l in rec.order_line:
+                qty += l.product_qty
+            rec.order_qty = qty
+
+    def _get_order_received_qty_count(self):
+        for rec in self:
+            qty = 0
+            for l in rec.order_line:
+                qty += l.qty_received
+            rec.order_received_qty = qty
     # def _compute_account_id(self):
     #
     #     a = self.env["purchase.order.line"].search_read([], [])
