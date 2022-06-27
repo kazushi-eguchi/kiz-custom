@@ -261,10 +261,10 @@ class kiz_construction(models.Model):
         }
 
     def _compute_purchase_line(self):
-        a = self.env["purchase.order.line"].search_read([("account_analytic_id", "=", self.no.name)])
+        # a = self.env["purchase.order.line"].search_read([("account_analytic_id", "=", self.no.name)])
         # b = self.purchase_lines
         # self.purchase_line = self.env["purchase.order"].search([("account_id", "=", self.no.id)]).id
-        self.purchase_line = self.env["purchase.order.line"].search([("account_analytic_id", "=", self.no.name)])
+        self.purchase_line = self.env["purchase.order.line"].search([("account_id", "=", self.no.name)])
         # print(self.account_id)
 
     def _calc_total(self):
