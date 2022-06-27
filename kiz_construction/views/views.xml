@@ -239,9 +239,11 @@
             <field name="arch" type="xml">
                 <search string="construction">
                     <field name="name"
-                           filter_domain="['|',
+                           filter_domain="['|','|','|',
                            ('name','ilike',self),
                            ('production_name','ilike',self),
+                           ('construction_slip_number','ilike',self),
+                           ('no','ilike',self),
                            ]" string="制作管理表"/>
                     <separator/>
                     <filter name="my_account_executive" string="私が営業担当者" domain="[('account_executive', '=', uid)]"/>
