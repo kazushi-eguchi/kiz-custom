@@ -15,10 +15,12 @@ class KizPurchaseOrder(models.Model):
     )
     account_id = fields.Many2one(
         comodel_name="account.analytic.account", string="production management slip no"
+        , related='construction_id.no'
     )
     s_no = fields.Many2one(
         comodel_name="ships.ship",
-        string="ship"
+        string="ship",
+        related='construction_id.s_no'
     )  # S番
     deadline = fields.Date(string="deadline",
                            related='construction_id.deadline')  # 工事伝票納期
@@ -30,8 +32,10 @@ class KizPurchaseOrder(models.Model):
                            related='construction_id.shipyard_full')  # 建造所
     product_name = fields.Char(string="製作名称", related='construction_id.production_name')
     trading_company = fields.Many2one(
-        comodel_name='res.partner', string='trading_company')  # 商社
-    shipyard_full = fields.Char(string="Shipyard Full")
+        comodel_name='res.partner', string='trading_company',
+        related='construction_id.trading_company'
+    )  # 商社
+    shipyard_full = fields.Char(string="Shipyard Full", related='construction_id.shipyard_full')
     material_input_person = fields.Many2one('res.users', string="資材担当者")
     production_management_ticket_period = fields.Date(string="制作管理票納期",
                            related='construction_id.production_management_ticket_period')  # 制作管理票納期
