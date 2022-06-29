@@ -18,6 +18,11 @@
                     <field name="allocated_code" string="allocated code 1"/>
                     <field name="allocated_code2" string="allocated code 2"/>
                     <field name="custom_type" string="custom_type" widget="many2many_tags"/>
+                    <field name="for_purchase" string="仕入"/>
+                    <field name="for_other_payable" string="仕入(未払)"/>
+                    <field name="is_outsourcing_partner" string="外注"/>
+                    <field name="available" string="有効"/>
+                    <field name="use_kubun"/>
                 </group>
             </xpath>
         </field>

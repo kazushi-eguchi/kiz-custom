@@ -15,6 +15,12 @@ class kiz_partner(models.Model):
     custom_type = fields.Many2many(
         comodel_name="res.partner.custom_type",
     )
+    for_purchase = fields.Boolean('')
+    for_other_payable = fields.Boolean()
+    is_outsourcing_partner = fields.Boolean()
+    available = fields.Boolean()
+    use_kubun = fields.Boolean()
+
 #    customer
 #     partner_code = fields.Many2one("res.partner", string="partner_code")
 #     partner_name = fields.Char(related='partner_code.name')
