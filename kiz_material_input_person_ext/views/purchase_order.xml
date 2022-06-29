@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record id="kiz_po_form_ext" model="ir.ui.view">
+            <field name="name">purchase.order.form_ext</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="kiz_construction.kiz_po_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='material_input_person']" position="replace">
+                    <field name="material_input_person" domain="[('material_input_person_flg', '=', True)]"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
