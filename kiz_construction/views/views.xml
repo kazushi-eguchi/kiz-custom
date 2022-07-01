@@ -67,6 +67,19 @@
                             </group>
                         </group>
                         <notebook>
+                            <page string="purchase">
+                                <group>
+                                    <field name="purchase_line" nolabel="1" context="{'group_by':'order_id'}">
+                                        <tree>
+                                            <field name="name"/>
+                                            <field name="product_qty"/>
+                                            <field name="product_uom"/>
+                                            <field name="qty_received"/>
+                                            <field name="product_uom"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
                             <page string="construction info">
                                 <group>
                                     <group>
@@ -105,11 +118,6 @@
                             <page string="drawings">
                                 <group>
                                     <field name="const_files" nolabel="1" context="{'default_const_id': no}"/>
-                                </group>
-                            </page>
-                            <page string="purchase">
-                                <group>
-                                    <field name="purchase_line" nolabel="1" context="{'group_by':'order_id'}"/>
                                 </group>
                             </page>
                             <page string="production requirements">
