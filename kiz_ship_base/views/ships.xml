@@ -107,7 +107,10 @@
                 <tree>
                     <field name="name" string="Name"/>
                     <field name="sno" string="sno"/>
-                    <field name="note" string="note"/>
+                    <field name="shipyard"/>
+                    <field name="trading_company"/>
+                    <field name="client_construction_site"/>
+                    <field name="note"/>
                 </tree>
             </field>
     </record>
