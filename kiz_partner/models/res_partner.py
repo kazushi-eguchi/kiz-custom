@@ -21,6 +21,7 @@ class kiz_partner(models.Model):
     available = fields.Boolean()
     use_kubun = fields.Boolean()
     search_key = fields.Char()
+    use_by_purchase = fields.Boolean()
 
 #    customer
 #     partner_code = fields.Many2one("res.partner", string="partner_code")

@@ -23,7 +23,7 @@
                     <field name="is_outsourcing_partner" string="外注"/>
                     <field name="available" string="有効"/>
                     <field name="use_kubun"/>
-                    <field name="search_key" string="検索キー"/>
+                    <field name="use_by_purchase" string="購買で使用"/>
                 </group>
             </xpath>
         </field>
