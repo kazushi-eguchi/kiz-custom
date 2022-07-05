@@ -20,6 +20,7 @@ class kiz_partner(models.Model):
     is_outsourcing_partner = fields.Boolean()
     available = fields.Boolean()
     use_kubun = fields.Boolean()
+    search_key = fields.Char()
 
 #    customer
 #     partner_code = fields.Many2one("res.partner", string="partner_code")

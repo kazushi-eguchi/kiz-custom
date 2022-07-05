@@ -23,8 +23,29 @@
                     <field name="is_outsourcing_partner" string="外注"/>
                     <field name="available" string="有効"/>
                     <field name="use_kubun"/>
+                    <field name="search_key" string="検索キー"/>
                 </group>
             </xpath>
         </field>
     </record>
+    <record id="customer_search_view_kiz" model="ir.ui.view">
+            <field name="name">customer.kiz.search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+
+                <field name="name" position="attributes">
+                    <attribute name="filter_domain">['|','|','|','|','|','|','|',
+                        ('phone', 'ilike', self),
+                        ('code', 'ilike', self),
+                        ('kana', 'ilike', self),
+                        ('alias_name', 'ilike', self),
+                        ('display_name', 'ilike', self),
+                        ('ref', '=', self),
+                        ('allocated_code', 'ilike', self),
+                        ('search_key', 'ilike', self), ]</attribute>
+                </field>
+
+            </field>
+        </record>
 </odoo>
