@@ -36,8 +36,8 @@ class ShipsShip(models.Model):
         required=False,
         ondelete="set null",
     )
-    client_construction_site = fields.Char(string="Construction site")
-    shipyard = fields.Char(string="shipyard")
+    client_construction_site = fields.Many2one(comodel_name="res.partner", string="Construction site")
+    shipyard = fields.Many2one(comodel_name="res.partner", string="shipyard")
     publication_start_date = fields.Date(string="Publication start date")
     launch_date = fields.Date(string="Launch date")
     delivery_date = fields.Date(string="Delivery date")
