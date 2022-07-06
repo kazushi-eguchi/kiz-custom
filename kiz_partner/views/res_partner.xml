@@ -33,7 +33,7 @@
                     <field name="for_other_payable" string="仕入(未払)"/>
                     <field name="is_outsourcing_partner" string="外注"/>
                     <field name="available" string="有効"/>
-                    <field name="use_kubun"/>
+<!--                    <field name="use_kubun"/>-->
                     <field name="use_by_purchase" string="購買で使用"/>
                 </group>
             </xpath>
