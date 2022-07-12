@@ -44,7 +44,8 @@
                       管理番号：
                     <t t-foreach="o.account_id" t-as="item">
                                 <span t-field="item.name"/>
-                            </t>
+                            </t><br/>
+                    注文書番号：<span t-field="o.name"/>
                     </div>
             </div>
             <div t-if="company.logo or company.report_header" class="row zero_min_height">
