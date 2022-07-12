@@ -44,7 +44,10 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_res_partner_filter"/>
         <field name="arch" type="xml">
-
+            <xpath expr="//filter[@name='type_company']" position="after">
+            <separator/>
+                    <filter name="use_by_purchase" string="購買で使用" domain="[('use_by_purchase', '=', True)]"/>
+            </xpath>
             <field name="name" position="attributes">
                 <attribute name="filter_domain">['|','|','|','|','|','|','|',
                     ('phone', 'ilike', self),

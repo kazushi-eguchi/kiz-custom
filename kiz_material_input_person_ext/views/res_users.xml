@@ -12,4 +12,15 @@
              </xpath>
         </field>
     </record>
+    <record id="kiz_res_users_search" model="ir.ui.view">
+            <field name="name">res.users.search</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='Inactive']" position="after">
+                    <separator/>
+                    <filter name="material_input_person_flg" string="資材入力担当" domain="[('material_input_person_flg', '=', True)]"/>
+                </xpath>
+            </field>
+        </record>
 </odoo>
