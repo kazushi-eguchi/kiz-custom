@@ -71,6 +71,7 @@ class KizPurchaseOrder(models.Model):
                 qty += l.qty_received
             rec.order_received_qty = qty
 
+
     # def clear(self):
     #     for rec in self:
     #         # rec.write({'partner_id': [(5, 0, 0)]})
