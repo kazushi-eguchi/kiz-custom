@@ -94,9 +94,9 @@
                 <xpath expr="//field[@name='name']"  position="attributes">
                         <attribute name="filter_domain">['|', '|', '|', '|', '|',
                             ('name', 'ilike', self),
-                            ('construction_id.production_name', 'ilike', self),
-                            ('construction_id.s_no', 'ilike', self),
-                            ('construction_id.no', 'ilike', self),
+                            ('s_no.sno', 'ilike', self),
+                            ('product_name', 'ilike', self),
+                            ('construction_id', 'ilike', self),
                             ('partner_ref', 'ilike', self),
                             ('partner_id', 'child_of', self)]</attribute>
                 </xpath>
@@ -113,9 +113,9 @@
                 <xpath expr="//field[@name='name']"  position="attributes">
                         <attribute name="filter_domain">['|', '|', '|', '|', '|',
                             ('name', 'ilike', self),
-                            ('construction_id.production_name', 'ilike', self),
-                            ('construction_id.s_no', 'ilike', self),
-                            ('construction_id.no', 'ilike', self),
+                            ('s_no.sno', 'ilike', self),
+                            ('product_name', 'ilike', self),
+                            ('construction_id', 'ilike', self),
                             ('partner_ref', 'ilike', self),
                             ('partner_id', 'child_of', self)]</attribute>
                 </xpath>
