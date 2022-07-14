@@ -28,6 +28,7 @@
         'views/views.xml',
         'views/templates.xml',
         'views/res_company_view.xml',
+        'views/product_attribute.xml',
 
         'report/header_footer.xml',
         'report/purchase.xml',
