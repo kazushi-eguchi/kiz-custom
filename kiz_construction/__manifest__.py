@@ -35,6 +35,7 @@
         'views/const_item_line.xml',
         'views/purchase_order_line_view.xml',
         'views/purchase_order.xml',
+        'views/delivery_spot.xml',
         'reports/report.xml',
         # 'reports/binding.xml',
         "security/ir.model.access.csv"

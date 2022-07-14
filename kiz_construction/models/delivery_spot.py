@@ -9,3 +9,4 @@ class ConstFiles(models.Model):
     _order = "name"
 
     name = fields.Char("name")
+    # active = fields.Boolean()
