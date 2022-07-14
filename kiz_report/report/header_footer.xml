@@ -39,6 +39,9 @@
                     <t t-if="type == 'type_purchase'">
                         <span>purchase</span>
                     </t>
+                    <t t-if="type == 'type_purchase_quotation'">
+                        <span>見積依頼</span>
+                    </t>
                 </div>
                 <div class="col-4 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto">
                       管理番号：
@@ -76,7 +79,9 @@
                         <t>
                             平素より格別のお引き立てを賜り厚く御礼申し上げます。
                             <br/>
-                            下記の通り手配依頼いたします。ご査収の程よろしくお願いいたします
+                            <t t-if="type == 'type_purchase'">下記の通り手配依頼いたします。</t>
+                            <t t-if="type == 'type_purchase_quotation'">下記の通り見積もり依頼いたします。</t>
+                                ご査収の程よろしくお願いいたします
                             <br/>
 <!--                            管理番号：-->
 <!--                            <t t-foreach="o.account_id" t-as="item">-->

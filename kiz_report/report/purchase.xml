@@ -5,7 +5,6 @@
             <t t-foreach="docs" t-as="o">
                 <t t-call="kiz_report.external_layout">
                     <div class="page">
-
                         <xpath expr="//div[@name='company_address']" position="replace"></xpath>
                         <t t-set="type">type_purchase</t>
                         <t t-set="address">
@@ -16,20 +15,53 @@
                             </p>
                         </t>
                         <t t-call="kiz_report.common_header_layout"/>
+                        <t t-call="kiz_report.purchase_table"/>
                         <!--                        <t t-call="kiz_report.purchase_table" />-->
-                        <table class="table table-condensed" style="table-layout: fixed">
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="purchase_quotation">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="kiz_report.external_layout">
+                    <div class="page">
+                        <xpath expr="//div[@name='company_address']" position="replace"></xpath>
+                        <t t-set="type">type_purchase_quotation</t>
+                        <t t-set="address">
+                            <div t-field="o.partner_id"
+                                 t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+                            <p t-if="o.partner_id.vat"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>:
+                                <span t-field="o.partner_id.vat"/>
+                            </p>
+                        </t>
+                        <t t-call="kiz_report.common_header_layout"/>
+                        <t t-call="kiz_report.purchase_table"/>
+                        <!--                        <t t-call="kiz_report.purchase_table" />-->
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="purchase_table">
+        <table class="table table-condensed" style="table-layout: fixed">
                             <tbody class="invoice_tbody">
 
                                 <thead style="background-color:#F8F9FA" >
 
                                     <tr>
                                         <!--                                        <th>summary</th>-->
-                                        <th class="text-center">Item</th>
-                                        <th class="text-center" width="25%">Spec</th>
-                                        <th class="text-center" width="8%">Qty</th>
-                                        <th class="text-center">Delivery place</th>
-                                        <th class="text-center">Image</th>
-                                        <th class="text-center" width="30%">Note</th>
+                                        <th class="text-center">品名</th>
+                                        <th class="text-center" width="30%">仕様</th>
+                                        <th class="text-center" width="8%">数量</th>
+                                        <th class="text-center" width="12%">納品場所</th>
+                                        <th class="text-center" width="8%%">画像</th>
+                                        <th class="text-center" width="25%">備考</th>
 
                                     </tr>
                                 </thead>
@@ -112,42 +144,5 @@
 
                             </t>
                         </div>
-                    </div>
-                </t>
-            </t>
-
-        </t>
-    </template>
-
-    <template id="purchase_table">
-        <table class="table table-condensed">
-            <tbody class="sale_tbody">
-                <thead style="background-color:#F8F9FA">
-                    <th>product</th>
-                    <th>spec</th>
-                    <th>qty</th>
-                    <th>place</th>
-                </thead>
-                <t t-foreach="o.order_line" t-as="l">
-                    <tr>
-                        <td>
-                            <span t-field="l.product_template_id.display_name"/>
-                        </td>
-
-                        <td>
-                            <t t-foreach="l.product_id.product_template_attribute_value_ids" t-as="string_line">
-                                <span t-esc="string_line.display_name"/>
-                                <br/>
-                            </t>
-                        </td>
-                        <td>
-                            <span t-esc="'{0:,.0f}'.format(l.product_uom_qty)"/>
-                        </td>
-                        <td></td>
-                    </tr>
-
-                </t>
-            </tbody>
-        </table>
     </template>
 </odoo>
