@@ -36,7 +36,7 @@ class KizPurchaseOrder(models.Model):
         related='construction_id.trading_company'
     )  # 商社
     shipyard_full = fields.Char(string="Shipyard Full", related='construction_id.shipyard_full')
-    material_input_person = fields.Many2one('res.users', string="資材担当者")
+    material_input_person = fields.Many2one('res.users', string="資材担当者", default=lambda self: self.env.user)
     production_management_ticket_period = fields.Date(string="制作管理票納期",
                            related='construction_id.production_management_ticket_period')  # 制作管理票納期
 
