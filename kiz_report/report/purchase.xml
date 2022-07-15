@@ -77,8 +77,8 @@
                                         <t t-foreach="l.product_id.product_template_attribute_value_ids"
                                            t-as="string_line">
                                             ●
-                                            <t t-if="string_line.attribute_id.display_name">
-                                                <span t-esc=" '%s: %s' % (string_line.attribute_id.display_name, string_line.name)"/>
+                                            <t t-if="string_line.attribute_id.product_name">
+                                                <span t-esc=" '%s: %s' % (string_line.attribute_id.product_name, string_line.name)"/>
                                             </t>
                                             <t t-else="">
                                             <span t-esc=" '%s: %s' % (string_line.attribute_id.name, string_line.name)"/>

@@ -7,5 +7,5 @@ class ProductAttributeExt(models.Model):
     _inherit = 'product.attribute'
     _rec_name = 'name'
 
-    display_name = fields.Char(string="表示名")
+    # display_name = fields.Char(string="表示名")
     product_name = fields.Char(string="表示名")
