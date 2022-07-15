@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <record id="product_configurator_check" model="ir.ui.view">
+            <field name="name">product.template.product_check.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <field name="check" widget="statusbar"  clickable="1"/>
+                </xpath>
+<!--                <xpath expr="//field[@name='sale_ok']" position="before">-->
+<!--                    <field name="check"/>-->
+<!--                </xpath>-->
+            </field>
+        </record>
+    </data>
+</odoo>

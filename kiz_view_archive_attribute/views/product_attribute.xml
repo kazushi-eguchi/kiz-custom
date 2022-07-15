@@ -1,0 +1,12 @@
+<odoo>
+    <record id="product_attribute_search" model="ir.ui.view">
+        <field name="name">product.attribute.search</field>
+        <field name="model">product.attribute</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string="アーカイブ済" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+
+        </field>
+    </record>
+</odoo>
