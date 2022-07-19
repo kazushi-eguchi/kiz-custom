@@ -86,7 +86,7 @@
                                             <br/>
                                         </t>
                                         <t t-foreach="l.config_session_id.custom_value_ids" t-as="string_line">
-                                            ●<span t-esc="string_line.display_name"/>:
+                                            ●<span t-esc="string_line.attribute_id.product_name"/>:
                                             <span t-esc="string_line.value"/>
                                             <br/>
                                         </t>
