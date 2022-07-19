@@ -13,3 +13,14 @@ class product_configurator_check(models.Model):
     ], default='no',
         string="確認",
         tracking=True)
+
+    def write(self, values):
+        print(self._origin.check)
+        print(values.get("check"))
+        flg = self._origin.check
+        if self._origin.check == 'no' and values.get("check") == 'yes':
+            values['check'] = 'yes'
+        else:
+            values['check'] = 'no'
+        res = super(product_configurator_check, self).write(values)
+        return res
