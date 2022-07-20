@@ -1,26 +1,37 @@
 <odoo>
-  <data>
-    <record id="attribute_tree_view_inherit" model="ir.ui.view">
-        <field name="name">product.attribute.tree.ext</field>
-        <field name="model">product.attribute</field>
-        <field name="inherit_id" ref="product.attribute_tree_view" />
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="after">
-<!--                <field name="display_name"/>-->
-                <field name="product_name"/>
-            </xpath>
-        </field>
-    </record>
-      <record id="attribute_form_view_inherit" model="ir.ui.view">
-        <field name="name">product.attribute.form.ext</field>
-        <field name="model">product.attribute</field>
-        <field name="inherit_id" ref="product.product_attribute_view_form" />
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="after">
-<!--                <field name="display_name"/>-->
-                <field name="product_name"/>
-            </xpath>
-        </field>
-    </record>
-  </data>
+    <data>
+        <record id="attribute_tree_view_inherit" model="ir.ui.view">
+            <field name="name">product.attribute.tree.ext</field>
+            <field name="model">product.attribute</field>
+            <field name="inherit_id" ref="product.attribute_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <!--                <field name="display_name"/>-->
+                    <field name="product_name"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="attribute_form_view_inherit" model="ir.ui.view">
+            <field name="name">product.attribute.form.ext</field>
+            <field name="model">product.attribute</field>
+            <field name="inherit_id" ref="product.product_attribute_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <!--                <field name="display_name"/>-->
+                    <field name="product_name"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="attribute_search" model="ir.ui.view">
+            <field name="name">attribute.search</field>
+            <field name="model">product.attribute</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" filter_domain="['|', ('name', 'ilike', self), ('product_name', '=', self)]"
+                           string="属性"/>
+                </search>
+            </field>
+        </record>
+    </data>
 </odoo>
