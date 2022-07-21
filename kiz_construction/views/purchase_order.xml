@@ -101,7 +101,7 @@
                             ('partner_id', 'child_of', self)]</attribute>
                 </xpath>
                 <xpath expr="//field[@name='name']" position="before">
-                    <filter name="not_complete" string="未入荷あり" domain="[('not_complete', '=', True)]"/>
+                    <filter name="not_complete" string="未入荷あり" domain="[('not_complete', '=', True),('state', '!=', 'cancel')]"/>
                 </xpath>
             </field>
         </record>
@@ -120,7 +120,7 @@
                             ('partner_id', 'child_of', self)]</attribute>
                 </xpath>
                 <xpath expr="//field[@name='name']" position="before">
-                    <filter name="not_complete" string="未入荷あり" domain="[('not_complete', '=', True)]"/>
+                    <filter name="not_complete" string="未入荷あり" domain="[('not_complete', '=', True),('state', '!=', 'cancel')]"/>
                 </xpath>
             </field>
         </record>
