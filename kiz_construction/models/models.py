@@ -13,6 +13,8 @@ class kiz_construction(models.Model):
     ]
     _description = 'kiz_construction.kiz_construction'
     _rec_name = "construction_slip_number"
+    _order = "production_management_ticket_period"
+
     sub_number = fields.Integer("sub number", tracking=True)  # 枝番 OK
     construction_slip_number = fields.Char(string="construction slip number", Transrate=True)  # 制作管理番号 OK
     construction_slip_status = fields.Char(string="construction slip status")  # ステータス OK

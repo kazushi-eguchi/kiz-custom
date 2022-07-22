@@ -9,6 +9,8 @@ from odoo import models, fields, api
 
 class KizPurchaseOrder(models.Model):
     _inherit = 'purchase.order'
+    _order = "production_management_ticket_period"
+
     #
     construction_id = fields.Many2one(
         comodel_name="kiz_construction.kiz_construction", string="construction"
@@ -41,8 +43,7 @@ class KizPurchaseOrder(models.Model):
                                             default=lambda self: self.env.user,
                                             domain=[("material_input_person_flg", "=", True)])
     production_management_ticket_period = fields.Date(string="制作管理票納期",
-                           related='construction_id.production_management_ticket_period')  # 制作管理票納期
-
+                                                      related='construction_id.production_management_ticket_period', store=True)  # 制作管理票納期
     order_qty = fields.Integer(compute="_get_order_qty_count", string="発注数量")
     order_received_qty = fields.Integer(compute="_get_order_received_qty_count", string="完了数量")
     not_complete = fields.Boolean(compute="_check_complete", search='_value_search', string="未入荷あり")

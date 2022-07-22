@@ -23,7 +23,6 @@
                     <field name="deadline"/>
                     <field name="construction_id"/>
                     <field name="production_management_ticket_period"/>
-
                     <field name="drawing_number"/>
                     <field name="building"/>
                     <field name="s_no"/>
