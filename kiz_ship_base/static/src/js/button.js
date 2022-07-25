@@ -84,7 +84,7 @@ onpreview_success: function (event, from, to, result) {
                     case 'many2one': case 'many2many': case 'one2many':
                         $thing.find('input').attr('field', data.id);
                         $thing.show();
-                       $thing.find('input').attr('field', '').prop('checked', true).change();
+                        $thing.find('input').attr('field', '').prop('checked', true).change();
                         break;
                     default:
                         $thing.find('input').attr('field', '').prop('checked', false);
