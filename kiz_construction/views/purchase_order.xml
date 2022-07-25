@@ -101,6 +101,7 @@
                 </xpath>
                 <xpath expr="//field[@name='name']" position="before">
                     <filter name="not_complete" string="未入荷あり" domain="[('not_complete', '=', True),('state', '!=', 'cancel')]"/>
+                    <filter name="not_complete" string="請求書待ち" domain="[('invoice_status','=','to invoice')]"/>
                 </xpath>
             </field>
         </record>
@@ -120,6 +121,7 @@
                 </xpath>
                 <xpath expr="//field[@name='name']" position="before">
                     <filter name="not_complete" string="未入荷あり" domain="[('not_complete', '=', True),('state', '!=', 'cancel')]"/>
+                    <filter name="not_complete" string="請求書待ち" domain="[('invoice_status','=','to invoice')]"/>
                 </xpath>
             </field>
         </record>
