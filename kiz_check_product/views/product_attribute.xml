@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="product_attribute_check" model="ir.ui.view">
+            <field name="name">product.attribute.check.form</field>
+            <field name="model">product.attribute</field>
+            <field name="inherit_id" ref="product.product_attribute_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <field name="att_check" widget="statusbar" clickable="1"/>
+                    </header>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="attribute_search_chk" model="ir.ui.view">
+            <field name="name">attribute.search.chk</field>
+            <field name="model">product.attribute</field>
+            <field name="inherit_id" ref="kiz_report.attribute_search"/>
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="未チェック" name="att_check" domain="[('att_check', '=', 'no')]"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>
