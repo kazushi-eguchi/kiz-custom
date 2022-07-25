@@ -83,8 +83,8 @@ onpreview_success: function (event, from, to, result) {
                     switch (data.type) {
                     case 'many2one': case 'many2many': case 'one2many':
                         $thing.find('input').attr('field', data.id);
+//                        $thing.find('input').attr('field', '').click();
                         $thing.show();
-                        $thing.find('input').attr('field', '').prop('checked', true).change();
                         break;
                     default:
                         $thing.find('input').attr('field', '').prop('checked', false);
@@ -113,6 +113,9 @@ onpreview_success: function (event, from, to, result) {
             }).on('change', function (e) {
                 bind(item_finder(e.currentTarget.value));
             });
+        });
+        $('.o_import_create_option').each(function(){
+            $(this).click();
         });
     },
 });
