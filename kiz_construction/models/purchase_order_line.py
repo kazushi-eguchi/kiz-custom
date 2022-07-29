@@ -10,6 +10,10 @@ class KizPurchaseOrderLine(models.Model):
         related='order_id.account_id',
         comodel_name="account.analytic.account", string="production management slip no"
     )
+    account_analytic_id = fields.Many2one(
+        related='order_id.account_id',
+        comodel_name="account.analytic.account"
+    )
     s_no = fields.Many2one(
         related='order_id.s_no',
         comodel_name="ships.ship",

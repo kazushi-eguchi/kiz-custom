@@ -1,0 +1,22 @@
+<odoo>
+    <record id="kiz_invoice_form" model="ir.ui.view">
+        <field name="name">account.move.form.kiz</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+           <xpath expr="//group[@id='header_right_group']" position="inside">
+                    <field name="default_rate"/>
+           </xpath>
+           <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="jma_order_no"/>
+           </xpath>
+           <xpath expr="//tree//field[@name='price_unit']" position="after">
+                    <field name="invoice_deliver_date"/>
+           </xpath>
+            <xpath expr="//tree//field[@name='price_subtotal']" position="after">
+                    <field name="rate"/>
+                    <field name="jma_order_no_ref"/>
+           </xpath>
+        </field>
+    </record>
+</odoo>

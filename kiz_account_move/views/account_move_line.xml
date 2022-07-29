@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <record id="kiz_account_move_line_tree" model="ir.ui.view">
+            <field name="name">kiz.account.move.line.tree</field>
+            <field name="model">account.move.line</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="today_id" string="ID(編集不可)"/>
+<!--                    <field name="po_no"/>-->
+                    <field name="display_move_id"  options="{'format': 0}" string="仕入コード"/>
+                    <field name="kouji_id" string="工事伝票番号"/>
+                    <field name="jma_order_no_ref"/>
+                    <field name="invoice_deliver_date"/>
+                    <field name="yotei_date"/>
+                    <field name="supplier_line"/>
+                    <field name="display_id" string="件名"/>
+                    <field name="kubun" string="区分"/>
+                    <field name="hinmei" string="品名"/>
+                    <field name="size" string="サイズ"/>
+                    <field name="qty" string="数量"/>
+                    <field name="uom" string="単位"/>
+                    <field name="price" string="単価"/>
+                    <field name="price_total_cp" string="金額"/>
+                    <field name="tax" string="消費税"/>
+                    <field name="summary" string="摘要"/>
+                    <field name="rate" string="摘要"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_kiz_account_move_line_tree" model="ir.actions.act_window">
+            <field name="name">仕入れ明細</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.move.line</field>
+            <field name="view_id" ref="kiz_account_move_line_tree"/>
+            <field name="view_mode">tree,form,pivot,graph</field>
+            <field name="domain">[('account_id', 'not in', ('買掛金'))]</field>
+        </record>
+
+        <menuitem
+                id="menu_case_tree"
+                action="action_kiz_account_move_line_tree"
+                parent="account.menu_finance"
+                sequence="30"
+        />
+    </data>
+</odoo>
