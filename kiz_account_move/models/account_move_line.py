@@ -7,7 +7,7 @@ class kiz_account_move(models.Model):
     _inherit = 'account.move.line'
 
     today_id = fields.Char("ID(編集不可)")
-    invoice_deliver_date = fields.Date(string="請求書納品日", store=True)
+    invoice_deliver_date = fields.Date(string="請求書納品日")
     # rate = fields.Float("レート", default=1)
     rate = fields.Float("為替レート", compute="_get_rate")
     jma_order_no_ref = fields.Char("JMU注番", compute="_get_jma_order_no")

@@ -4,7 +4,7 @@
             <field name="name">kiz.account.move.line.tree</field>
             <field name="model">account.move.line</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree editable="top">
                     <field name="today_id" string="ID(編集不可)"/>
 <!--                    <field name="po_no"/>-->
                     <field name="display_move_id"  options="{'format': 0}" string="仕入コード"/>
