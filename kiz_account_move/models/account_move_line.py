@@ -29,6 +29,13 @@ class kiz_account_move(models.Model):
     yotei_date = fields.Date("支払予定日", related="date")
     qty = fields.Char("数量")
     uom = fields.Char("単位")
+    row_no = fields.Integer(compute="_get_no")
+
+    def _get_no(self):
+        no = 1
+        for rec in self:
+            rec.row_no = no
+            no += 1
 
     def _get_kouji_id(self):
         for rec in self:

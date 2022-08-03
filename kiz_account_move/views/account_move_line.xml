@@ -24,6 +24,7 @@
                     <field name="tax" string="消費税"/>
                     <field name="summary" string="摘要"/>
                     <field name="rate" string="摘要"/>
+                    <field name="row_no" string="no"/>
                 </tree>
             </field>
         </record>
