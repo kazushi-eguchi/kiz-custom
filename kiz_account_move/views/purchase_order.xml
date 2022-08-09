@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record id="kiz_po_form_quick_update" model="ir.ui.view">
+            <field name="name">purchase.order.form.quick_update</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='products']"  position="inside">
+                    <button string="クイックアップデート" name="toggle_quick_update" type="object"/>
+                </xpath>
+                <xpath expr="//tree//field[@name='price_unit']" position="after">
+                    <field name="invoice_deliver_date"/>
+           </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

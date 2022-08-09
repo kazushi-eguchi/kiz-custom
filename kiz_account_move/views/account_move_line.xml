@@ -4,10 +4,10 @@
             <field name="name">kiz.account.move.line.tree</field>
             <field name="model">account.move.line</field>
             <field name="arch" type="xml">
-                <tree editable="top">
-                    <field name="today_id" string="ID(編集不可)"/>
-<!--                    <field name="po_no"/>-->
-                    <field name="display_move_id"  options="{'format': 0}" string="仕入コード"/>
+                <tree editable="bottom">
+                    <field name="today_id" string="ID(編集不可)" readonly="1"/>
+                    <!--                    <field name="po_no"/>-->
+                    <field name="display_move_id" options="{'format': 0}" string="仕入コード" readonly="1"/>
                     <field name="kouji_id" string="工事伝票番号"/>
                     <field name="jma_order_no_ref"/>
                     <field name="invoice_deliver_date"/>
@@ -21,11 +21,39 @@
                     <field name="uom" string="単位"/>
                     <field name="price" string="単価"/>
                     <field name="price_total_cp" string="金額"/>
-                    <field name="tax" string="消費税"/>
+                    <field name="tax" string="消費税"  widget="char"/>
                     <field name="summary" string="摘要"/>
                     <field name="rate" string="摘要"/>
                     <field name="row_no" string="no"/>
+                    <field name="exported" optional="hide"/>
                 </tree>
+            </field>
+        </record>
+
+        <record id="cont_search" model="ir.ui.view">
+            <field name="name">kiz_account_move.search</field>
+            <field name="model">account.move.line</field>
+            <field name="inherit_id" ref="account.view_account_move_line_filter"/>
+            <field name="arch" type="xml">
+                <!--                <xpath expr="//field[@name='name']"  position="attributes">-->
+                <!--                </xpath>-->
+                <xpath expr="//field[@name='name']" position="after">
+                    <filter name="exported" string="エクスポート済み" domain="[('exported', '=', True)]"/>
+                    <filter name="not_exported" string="未エクスポート" domain="[('exported', '=', False)]"/>
+                    <separator/>
+                </xpath>
+                <!--                    <field name="name"-->
+                <!--                           filter_domain="['|','|','|',-->
+                <!--                           ('name','ilike',self),-->
+                <!--                           ('production_name','ilike',self),-->
+                <!--                           ('construction_slip_number','ilike',self),-->
+                <!--                           ('no','ilike',self),-->
+                <!--                           ]" string="制作管理表"/>-->
+                <!--                    <separator/>-->
+                <!--                    <group expand="0" string="Group By">-->
+                <!--                        <filter string="商社" name="trading_company" domain="[]" context="{'group_by': 'trading_company'}"/>-->
+                <!--                    </group>-->
+
             </field>
         </record>
 
@@ -42,6 +70,12 @@
                 id="menu_case_tree"
                 action="action_kiz_account_move_line_tree"
                 parent="account.menu_finance"
+                sequence="30"
+        />
+        <menuitem
+                id="menu_po_account_tree"
+                action="action_kiz_account_move_line_tree"
+                parent="purchase.menu_purchase_root"
                 sequence="30"
         />
     </data>

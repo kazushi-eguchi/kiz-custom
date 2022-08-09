@@ -30,6 +30,8 @@ class kiz_account_move(models.Model):
     qty = fields.Char("数量")
     uom = fields.Char("単位")
     row_no = fields.Integer(compute="_get_no")
+    exported = fields.Boolean("エクスポート済み", default=False, store=True)
+    c_tax = fields.Char("消費税")
 
     def _get_no(self):
         no = 1

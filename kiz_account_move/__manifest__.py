@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'account'],
+    'depends': ['base', 'account', 'purchase'],
 
     # always loaded
     'data': [
@@ -28,6 +28,7 @@
         'views/account_move.xml',
         'views/account_move_line.xml',
         'views/product_template.xml',
+        'views/purchase_order.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode
