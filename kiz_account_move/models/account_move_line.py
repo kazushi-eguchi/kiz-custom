@@ -6,8 +6,14 @@ from odoo import models, fields, api
 class kiz_account_move(models.Model):
     _inherit = 'account.move.line'
 
+    def _default_deliver_date(self):
+        for rec in self:
+            date = rec.purchase_line_id.invoice_deliver_date
+            print(date)
+            return date
+
     today_id = fields.Char("ID(編集不可)")
-    invoice_deliver_date = fields.Date(string="請求書納品日")
+    invoice_deliver_date = fields.Date(string="請求書納品日", compute="_get_deliver_date")
     # rate = fields.Float("レート", default=1)
     rate = fields.Float("為替レート", compute="_get_rate")
     jma_order_no_ref = fields.Char("JMU注番", compute="_get_jma_order_no")
@@ -136,3 +142,8 @@ class kiz_account_move(models.Model):
                 rec.kubun = rec.product_id.kubun
             else:
                 rec.kubun = ""
+
+    def _get_deliver_date(self):
+        for rec in self:
+            print("chk")
+            rec.invoice_deliver_date = rec.purchase_line_id.invoice_deliver_date

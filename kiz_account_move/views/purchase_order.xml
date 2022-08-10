@@ -6,13 +6,89 @@
             <field name="model">purchase.order</field>
             <field name="inherit_id" ref="purchase.purchase_order_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//page[@name='products']"  position="inside">
-                    <button string="クイックアップデート" name="toggle_quick_update" type="object"/>
+                <xpath expr="//page[@name='products']" position="inside">
+                    <!--                    <field name="quick_update" />-->
+                    <field name="quick_update" invisible="0"/>
+
+                    <div attrs="{'invisible': [('quick_update','=', True)]}">
+                        <button string="クイックアップデートを有効化する" name="toggle_quick_update" type="object"/>
+                    </div>
+                    <div attrs="{'invisible': [('quick_update','!=', True)]}">
+                        <button string="クイックアップデート利用中" name="toggle_quick_update" type="object"/>
+                    </div>
                 </xpath>
-                <xpath expr="//tree//field[@name='price_unit']" position="after">
-                    <field name="invoice_deliver_date"/>
-           </xpath>
+<!--                <xpath expr="//tree//field[@name='price_unit']" position="after">-->
+<!--                    <field name="invoice_deliver_date" attrs="{'column_invisible': [('parent.quick_update', '=', True)]}"/>-->
+<!--                </xpath>-->
+                <xpath expr="//tree//field[@name='name']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('parent.quick_update', '=', True)]}</attribute>
+                </xpath>
+                <xpath expr="//tree//field[@name='date_planned']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('parent.quick_update', '=', True)]}</attribute>
+                </xpath>
+                <xpath expr="//tree//field[@name='taxes_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('parent.quick_update', '=', True)]}</attribute>
+                </xpath>
+
             </field>
         </record>
+        <record id="kiz_po_form_quick_update_config" model="ir.ui.view">
+            <field name="name">purchase.order.form.quick_update_config</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="product_configurator_purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='reconfigure_product']" position="attributes">
+                    <attribute name="attrs">{'column_invisible': [('parent.quick_update', '=', True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='sequence']" position="after">
+<!--                    <field name="invoice_deliver_date" attrs="{'column_invisible': [('parent.quick_update', '=', False)]}"/>-->
+                    <field name="invoice_deliver_date" />
+                </xpath>
+                <xpath expr="//field[@name='config_session_id']" position="attributes">
+                    <attribute name="attrs">{'column_invisible': [('parent.quick_update', '=', True)]}</attribute>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="kiz_po_form_quick_update_image" model="ir.ui.view">
+            <field name="name">purchase.order.form.quick_update_image</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase_order_line_image.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='item_purchase_image_ids']" position="attributes">
+                    <attribute name="attrs">{'column_invisible': [('parent.quick_update', '=', True)]}</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_get_item_purchase_image_view']" position="attributes">
+                    <attribute name="attrs">{'column_invisible': [('parent.quick_update', '=', True)]}</attribute>
+                </xpath>
+            </field>
+        </record>
+<!--        <record id="kiz_po_form_quick_update_copy" model="ir.ui.view">-->
+<!--            <field name="name">purchase.order.form.quick_update_copy</field>-->
+<!--            <field name="model">purchase.order</field>-->
+<!--            <field name="inherit_id" ref="bi_copy_sale_purchase_line.purchase_form_view"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//button[@name='copy_purchase_order_line']" position="replace"/>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="kiz_po_form_quick_update_split" model="ir.ui.view">-->
+<!--            <field name="name">purchase.order.form.quick_update_split</field>-->
+<!--            <field name="model">purchase.order</field>-->
+<!--            <field name="inherit_id" ref="abs_split_purchase_rfq.view_purchase_checkbox_button_form"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//field[@name='split']" position="replace"/>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="kiz_po_form_quick_update_po" model="ir.ui.view">-->
+<!--            <field name="name">purchase.order.form.quick_update_po</field>-->
+<!--            <field name="model">purchase.order</field>-->
+<!--            <field name="inherit_id" ref="kiz_construction.kiz_po_form"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//field[@name='delivery_spot']" position="attributes">-->
+<!--                      <attribute name="attrs">{'column_invisible': [('parent.quick_update', '=', True)]}</attribute>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
     </data>
 </odoo>
