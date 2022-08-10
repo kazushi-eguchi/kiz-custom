@@ -64,6 +64,7 @@
             <field name="view_id" ref="kiz_account_move_line_tree"/>
             <field name="view_mode">tree,form,pivot,graph</field>
             <field name="domain">[('account_id', 'not in', ('買掛金'))]</field>
+            <field name="context">{"search_default_not_exported":1}</field>
         </record>
 
         <menuitem
