@@ -83,6 +83,8 @@
                             <t t-if="type == 'type_purchase_quotation'">下記の通り見積もり依頼いたします。</t>
                                 ご査収の程よろしくお願いいたします
                             <br/>
+                            納期.
+                            <span t-field="o.deadline"/>
 <!--                            管理番号：-->
 <!--                            <t t-foreach="o.account_id" t-as="item">-->
 <!--                                <span t-field="item.name"/>-->
