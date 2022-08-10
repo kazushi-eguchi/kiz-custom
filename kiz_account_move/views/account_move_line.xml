@@ -13,7 +13,8 @@
                     <field name="invoice_deliver_date"/>
                     <field name="yotei_date"/>
                     <field name="supplier_line"/>
-                    <field name="display_id" string="件名"/>
+                    <field name="id" string="件名"/>
+<!--                    <field name="display_id" string="件名"/>-->
                     <field name="kubun" string="区分"/>
                     <field name="hinmei" string="品名"/>
                     <field name="size" string="サイズ"/>
