@@ -84,7 +84,8 @@
                                 ご査収の程よろしくお願いいたします
                             <br/>
                             納期.
-                            <span t-field="o.deadline"/>
+                            <t t-esc="context_timestamp(o.date_planned).strftime('%Y年%m月%d日  %H:%M')"/>
+<!--                            <span t-field="o.date_planned" t-options='{"widget": "date","format": "dd-MM-yyyy"}'/>-->
 <!--                            管理番号：-->
 <!--                            <t t-foreach="o.account_id" t-as="item">-->
 <!--                                <span t-field="item.name"/>-->
