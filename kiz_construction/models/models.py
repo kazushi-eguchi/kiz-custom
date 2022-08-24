@@ -259,6 +259,7 @@ class kiz_construction(models.Model):
                 'default_product_name': self.name,
                 'default_trading_company': self.trading_company.id,
                 'default_shipyard_full': self.shipyard_full,
+                'default_partner_id': self.env['res.partner'].search([('name', 'ilike', '申請')], limit=1).id,
             }
         }
 

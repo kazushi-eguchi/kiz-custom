@@ -45,6 +45,12 @@
 
 
                 </xpath>
+                <xpath
+                        expr="//field[@name='order_line']/tree//field[@name='date_planned']"
+                        position="attributes"
+                >
+
+                </xpath>
             </field>
         </record>
         <record id="kiz_po_kpi_tree" model="ir.ui.view">
