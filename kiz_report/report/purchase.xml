@@ -117,32 +117,28 @@
                         </table>
                         <hr/>
 <!--                        <div>Attached image</div>-->
-                        <div t-foreach="o.order_line" t-as="l">
-                            <!--                            <span t-field="l.item_purchase_image_ids.name"/>-->
+                        <div style="text-align:left;">
+                        <div style="display:inline-block;max-width:49%" t-foreach="o.order_line" t-as="l">
                             <t
                                     t-set="images"
                                     t-value="l.mapped('item_purchase_image_ids')"
                             />
                             <t t-if="images">
                                 <t t-foreach="images" t-as="image">
-                                    <div>
-                                        <!--                <td style="border: 0;">-->
-                                        <!--                    <span t-field="image.name" />-->
-                                        <!--                </td>-->
                                         <div colspan="99" style="border: 0;">
-                                            <div style="text-align: center;">
+                                            <div style="text-align: left;">
 
                                                 <img
                                                         t-att-src="image_data_uri(image.image_1920)"
-                                                        style="max-width: 800px;max-height: 800px; padding-top: 10px;"
+                                                        style="max-width: 100%;max-height: 800px; padding-top: 10px;"
                                                 />
                                                 <div t-field="image.name"/>
                                             </div>
                                         </div>
-                                    </div>
                                 </t>
 
                             </t>
+                        </div>
                         </div>
     </template>
 </odoo>
