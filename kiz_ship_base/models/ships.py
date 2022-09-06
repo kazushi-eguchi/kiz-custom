@@ -51,14 +51,19 @@ class ShipsShip(models.Model):
         required=False,
         ondelete="set null",
     )
+
     @api.depends('sno', 'name')
     def _compute_fields_combination(self):
         for ship in self:
-            if ship.sno == False:
+            if not ship.sno and ship.name:
+                print("check")
                 ship.combination = ship.name
-            if ship.name == False:
+            if not ship.name and ship.sno:
                 ship.combination = ship.sno
-            else:
+            if not ship.name and not ship.sno:
+                ship.combination = " "
+            if ship.name and ship.sno:
+                print("check2")
                 ship.combination = ship.sno.__str__() + ' ' + ship.name.__str__()
 
     def _compute_lead_count(self):
@@ -90,4 +95,3 @@ class ShipsShip(models.Model):
                 'default_ship_id': self.id,
             }
         }
-

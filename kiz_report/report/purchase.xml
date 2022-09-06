@@ -49,6 +49,8 @@
     </template>
 
     <template id="purchase_table">
+        <div class="order_info">
+        </div>
         <table class="table table-condensed" style="table-layout: fixed">
                             <tbody class="invoice_tbody">
 

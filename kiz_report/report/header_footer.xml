@@ -50,7 +50,7 @@
                             </t><br/>
                     注文書番号：<span t-field="o.name"/>
                     </div>
-            </div>
+                </div>
             <div t-if="company.logo or company.report_header" class="row zero_min_height">
                 <div class="col-12">
                     <div style="border-bottom: 1px solid black;"/>
