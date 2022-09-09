@@ -1,0 +1,83 @@
+<odoo>
+    <record model="ir.ui.view" id="view_po_line_pivot">
+        <field name="name">po.line.pivot</field>
+        <field name="model">purchase.order.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Order Lines" sample="1">
+                <field name="product_id" type="row"/>
+                <field name="product_qty" type="col"/>
+                <field name="price_subtotal" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_po_line_tree">
+        <field name="name">po.line.tree</field>
+        <field name="model">purchase.order.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="order_id"/>
+                <field name="name"/>
+                <field name="custom_values"/>
+                <field name="partner_id" string="Vendor"/>
+                <field name="product_id"/>
+                <field name="account_id"/>
+                <field name="s_no"/>
+                <field name="shipyard_full"/>
+                <field name="trading_company"/>
+                <field name="price_unit"/>
+                <field name="product_qty"/>
+                <field name="delivery_spot"/>
+                <field name="note"/>
+                <field name="product_uom" groups="uom.group_uom"/>
+                <field name="price_subtotal" widget="monetary"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="date_planned" widget="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="purchase_order_line_search" model="ir.ui.view">
+        <field name="name">purchase.order.line.search</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase.purchase_order_line_search"/>
+        <field name="arch" type="xml">
+
+                <xpath expr="//filter[@name='groupby_supplier']"  position="before">
+                                    <filter string="工事伝票" name="groupby_account" domain="[]" context="{'group_by': 'account_analytic_id'}"/>
+                <separator/>
+                </xpath>
+<!--                <field name="subject"-->
+<!--                       filter_domain="[-->
+<!--                           '|',('cause_company_name','ilike',self),-->
+<!--                           ('cause_person_name','ilike',self)-->
+<!--                           ]"/>-->
+<!--                <filter string="未完了" domain="[('isclosed', '!=', True)]" name="not_close"></filter>-->
+<!--                <separator/>-->
+<!--                <filter string="今年" name="this_year" domain="[-->
+<!--                    '&amp;',-->
+<!--                    ('report_date','&lt;=', time.strftime('%%Y-12-31')),-->
+<!--                    ('report_date','&gt;=',time.strftime('%%Y-01-01')),]"/>-->
+
+        </field>
+    </record>
+
+
+    <record id="action_po_lines" model="ir.actions.act_window">
+        <field name="name">Purchase Order Lines</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order.line</field>
+        <field name="view_mode">tree,pivot</field>
+        <field name="context">{"search_default_groupby_account":1}</field>
+    </record>
+
+    <menuitem
+            id="po_line_menu"
+            name="PO Lines"
+            action="action_po_lines"
+            parent="purchase.menu_procurement_management"
+            sequence="7"
+    />
+
+
+</odoo>

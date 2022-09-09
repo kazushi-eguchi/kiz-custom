@@ -24,7 +24,7 @@
         </t>
     </template>
 
-    <template id="purchase_quotation">
+    <template id="check">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="kiz_report.external_layout" t-lang="o.partner_id.lang">
@@ -38,8 +38,8 @@
                                 <span t-field="o.partner_id.vat"/>
                             </p>
                         </t>
-                        <t t-call="kiz_report.common_header_layout"/>
-                        <t t-call="kiz_report.purchase_table"/>
+                        <t t-call="kiz_report.common_header_layout_check"/>
+                        <t t-call="kiz_report.check_table"/>
                         <!--                        <t t-call="kiz_report.purchase_table" />-->
 
                     </div>
@@ -48,7 +48,7 @@
         </t>
     </template>
 
-    <template id="purchase_table">
+    <template id="check_table">
         <div class="order_info">
         </div>
         <table class="table table-condensed" style="table-layout: fixed">
@@ -58,12 +58,11 @@
 
                                     <tr>
                                         <!--                                        <th>summary</th>-->
-                                        <th class="text-center">品名</th>
-                                        <th class="text-center" width="30%">仕様</th>
-                                        <th class="text-center" width="8%">数量</th>
+                                        <th class="text-center" width="8%">品名</th>
+                                        <th class="text-center" width="60%">仕様</th>
+                                        <th class="text-center" width="5%">数</th>
                                         <th class="text-center" width="12%">納品場所</th>
-                                        <th class="text-center" width="8%%">画像</th>
-                                        <th class="text-center" width="25%">備考</th>
+                                        <th class="text-center" width="15%">備考</th>
 
                                     </tr>
                                 </thead>
@@ -72,10 +71,11 @@
                                         <td class="text-center">
                                         <span t-field="l.product_template_id" />
                                         </td>
-                                        <td class="text-left" colspan="5">
+                                        <td class="text-left">
+<!--                                        <td class="text-left" colspan="4">-->
                                         <t t-foreach="l.product_id.product_template_attribute_value_ids"
                                            t-as="string_line">
-                                            ●
+                                            |
                                             <t t-if="string_line.attribute_id.product_name">
                                                 <span t-esc=" '%s: %s' % (string_line.attribute_id.product_name, string_line.name)"/>
                                             </t>
@@ -85,22 +85,15 @@
 
                                         </t>
                                         <t t-foreach="l.config_session_id.custom_value_ids" t-as="string_line">
-                                            ●<span t-esc="string_line.attribute_id.product_name"/>:
+                                            |<span t-esc="string_line.attribute_id.product_name"/>:
                                             <span t-esc="string_line.value"/>
 
                                         </t>
                                     </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td><td></td>
-                                    <t
+                                        <t
                                             t-set="images"
                                             t-value="l.mapped('item_purchase_image_ids')"
-                                    />
-
-
-
-                                    <td class="text-center">
+                                    /><td class="text-center">
                                         <div id="quote_qty">
                                             <span t-esc="'{0:,.0f}'.format(l.product_uom_qty)"/>
 
@@ -110,44 +103,58 @@
                                     <td class="text-center">
                                         <span t-field="l.delivery_spot"/>
                                     </td>
-                                    <td class="text-left">
-                                        <t t-if="images">
-                                            <t t-foreach="images" t-as="image">
-                                                <div t-field="image.name"/>
-                                            </t>
-                                        </t>
-                                    </td>
+
                                     <td class="text-left" >
                                         <span t-field="l.note"/>
                                     </td>
                                     </tr>
+<!--                                    <tr>-->
+<!--                                        <td></td><td></td>-->
+<!--                                    <t-->
+<!--                                            t-set="images"-->
+<!--                                            t-value="l.mapped('item_purchase_image_ids')"-->
+<!--                                    /><td class="text-center">-->
+<!--                                        <div id="quote_qty">-->
+<!--                                            <span t-esc="'{0:,.0f}'.format(l.product_uom_qty)"/>-->
+
+<!--                                        </div>-->
+<!--                                    </td>-->
+
+<!--                                    <td class="text-center">-->
+<!--                                        <span t-field="l.delivery_spot"/>-->
+<!--                                    </td>-->
+
+<!--                                    <td class="text-left" >-->
+<!--                                        <span t-field="l.note"/>-->
+<!--                                    </td>-->
+<!--                                    </tr>-->
                                 </t>
                             </tbody>
                         </table>
                         <hr/>
 <!--                        <div>Attached image</div>-->
-                        <div style="text-align:left;">
-                        <div style="display:inline-block;max-width:49%" t-foreach="o.order_line" t-as="l">
-                            <t
-                                    t-set="images"
-                                    t-value="l.mapped('item_purchase_image_ids')"
-                            />
-                            <t t-if="images">
-                                <t t-foreach="images" t-as="image">
-                                        <div colspan="99" style="border: 0;">
-                                            <div style="text-align: left;">
+<!--                        <div style="text-align:left;">-->
+<!--                        <div style="display:inline-block;max-width:49%" t-foreach="o.order_line" t-as="l">-->
+<!--                            <t-->
+<!--                                    t-set="images"-->
+<!--                                    t-value="l.mapped('item_purchase_image_ids')"-->
+<!--                            />-->
+<!--                            <t t-if="images">-->
+<!--                                <t t-foreach="images" t-as="image">-->
+<!--                                        <div colspan="99" style="border: 0;">-->
+<!--                                            <div style="text-align: left;">-->
 
-                                                <img
-                                                        t-att-src="image_data_uri(image.image_1920)"
-                                                        style="max-width: 100%;max-height: 800px; padding-top: 10px;"
-                                                />
-                                                <div t-field="image.name"/>
-                                            </div>
-                                        </div>
-                                </t>
+<!--                                                <img-->
+<!--                                                        t-att-src="image_data_uri(image.image_1920)"-->
+<!--                                                        style="max-width: 100%;max-height: 800px; padding-top: 10px;"-->
+<!--                                                />-->
+<!--                                                <div t-field="image.name"/>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                </t>-->
 
-                            </t>
-                        </div>
-                        </div>
+<!--                            </t>-->
+<!--                        </div>-->
+<!--                        </div>-->
     </template>
 </odoo>

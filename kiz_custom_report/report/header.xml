@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="common_header_layout">
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+        <div>
+            <div class="row">
+                <div class="col-3 mb4">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;"
+                         alt="Logo"/>
+                </div>
+                <div class="col-5 text-center" style="font-size:48px;text-align:center">
+                    <t t-if="type == 'type_purchase'">
+                        <span>purchase</span>
+                    </t>
+                    <t t-if="type == 'type_purchase_quotation'">
+                        <span>見積依頼</span>
+                    </t>
+                </div>
+                <div class="col-4 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto">
+                    管理番号：
+                    <t t-foreach="o.account_id" t-as="item">
+                        <span t-field="item.name"/>
+                    </t>
+                    <br/>
+                    注文書番号：
+                    <span t-field="o.name"/>
+                </div>
+            </div>
+            <div t-if="company.logo or company.report_header" class="row zero_min_height">
+                <div class="col-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+            <div class="row" style="margin-top:10px;">
+
+                <div class="col-8 text-left">
+                    <span style="font-size:24px;">
+                        <t t-if="o.partner_id.parent_id">
+
+                            <span t-field="o.partner_id.parent_id.name"/>
+                            ,
+                            <span t-field="o.partner_id.name"/>
+                        </t>
+                        <t t-if="not o.partner_id.parent_id">
+                            <span t-field="o.partner_id.name"/>
+                        </t>
+                        <t t-if="o.partner_id.lang == 'ja_JP'">
+                            <span
+                                    style="position:relative; left:20px;"
+                                    t-field="o.partner_id.title"
+                            />
+                        </t>
+                    </span>
+                    <div>
+                        <!--                        <t t-if="type == 'purchase'">-->
+                        <t>
+<!--                            平素より格別のお引き立てを賜り厚く御礼申し上げます。-->
+<!--                            <br/>-->
+                            <t t-if="type == 'type_purchase'">下記の通り手配依頼いたします。</t>
+                            <t t-if="type == 'type_purchase_quotation'">下記の通り見積もり依頼いたします。</t>
+<!--                            ご査収の程よろしくお願いいたします-->
+                            <br/>引当：
+
+                            <br/>商社.
+                            <span t-field="o.trading_company"/>
+                            <br/>造船所.
+                            <span t-field="o.shipyard_full"/>
+                            <br/>建造所.
+                            <span t-field="o.shipyard_full"/>
+                            <br/>SNo.
+                            <span t-field="o.s_no"/>　品名（図番）.
+                            <span t-field="o.product_name"/>
+                            <t t-if="o.drawing_number">
+                                （<span t-field="o.drawing_number"/>）
+                            </t>
+                        </t>
+
+
+                    </div>
+                </div>
+                <div class="col-4" name="company_address">
+
+
+                    <img
+                            t-if="o.company_id.chop"
+                            t-attf-src="data:image/*;base64,{{o.company_id.chop}}"
+                            style="position: absolute;max-height: 100px;left:180px;top:45px"
+                            align="right"
+
+                    />
+                    発注日 :
+                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y年%m月%d日')"/>
+                    <br/>
+                    納期.
+                    <t t-esc="context_timestamp(o.date_planned).strftime('%Y年%m月%d日')"/>
+                    <br/>
+                    <br/>
+                    <span>〒</span>
+                    <span t-field="company.partner_id.zip"/>
+<!--                    <div t-field="company.partner_id"-->
+<!--                         t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'-->
+<!--                    />-->
+                    <span t-field="company.partner_id.state_id.name"/>
+                    <span t-field="company.partner_id.city"/>
+                    <div t-field="company.partner_id.street"/>
+                    <div t-field="company.partner_id.name"/>
+                    <div>担当 ：
+                        <span t-field="o.material_input_person"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

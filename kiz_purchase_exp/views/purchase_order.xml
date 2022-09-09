@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="kiz_purchase_exp.form">
+            <field name="name">kiz_purchase_exp form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar"  states="purchase" statusbar_visible="draft,sent,purchase," readonly="1"/>
+
+                </xpath>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+        <!--
+            <record model="ir.actions.act_window" id="kiz_purchase_exp.action_window">
+              <field name="name">kiz_purchase_exp window</field>
+              <field name="res_model">kiz_purchase_exp.kiz_purchase_exp</field>
+              <field name="view_mode">tree,form</field>
+            </record>
+        -->
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="kiz_purchase_exp.action_server">
+              <field name="name">kiz_purchase_exp server</field>
+              <field name="model_id" ref="model_kiz_purchase_exp_kiz_purchase_exp"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+        <!-- Top menu item -->
+        <!--
+            <menuitem name="kiz_purchase_exp" id="kiz_purchase_exp.menu_root"/>
+        -->
+        <!-- menu categories -->
+        <!--
+            <menuitem name="Menu 1" id="kiz_purchase_exp.menu_1" parent="kiz_purchase_exp.menu_root"/>
+            <menuitem name="Menu 2" id="kiz_purchase_exp.menu_2" parent="kiz_purchase_exp.menu_root"/>
+        -->
+        <!-- actions -->
+        <!--
+            <menuitem name="List" id="kiz_purchase_exp.menu_1_list" parent="kiz_purchase_exp.menu_1"
+                      action="kiz_purchase_exp.action_window"/>
+            <menuitem name="Server to list" id="kiz_purchase_exp" parent="kiz_purchase_exp.menu_2"
+                      action="kiz_purchase_exp.action_server"/>
+        -->
+    </data>
+</odoo>

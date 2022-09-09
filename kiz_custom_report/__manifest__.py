@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "kiz_report",
+    'name': "kiz_custom_report",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -20,24 +20,16 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'purchase_request', 'kiz_purchase_request', 'kiz_construction'],
+    'depends': ['base'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'report/header.xml',
+        'report/purchase_order.xml',
+        'report/report.xml',
         'views/views.xml',
         'views/templates.xml',
-        'views/res_company_view.xml',
-        'views/product_attribute.xml',
-
-        'report/header_footer.xml',
-        'report/header_footer_check.xml',
-        'report/purchase.xml',
-        'report/check.xml',
-        'report/report.xml',
-        'report/external_layout.xml',
-        'report/cover.xml'
-        # 'report/report_action.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

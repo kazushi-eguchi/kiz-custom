@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="paperformat_invoice_sales_dot_matrix" model="report.paperformat">
+        <field name="name">Sales Invoice Dot Matrix</field>
+        <field name="default" eval="False"/>
+        <field name="format">custom</field>
+        <field name="page_width">210</field>
+        <field name="page_height">297</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">65</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">60</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <report
+            string="注文書"
+            id="purchase.action_report_purchase_order_custom"
+            model="purchase.order"
+            report_type="qweb-pdf"
+            name="kiz_custom_report.sales_invoice_dot_matrix_report"
+            file="kiz_custom_report.sales_invoice_dot_matrix_report"
+            print_report_name = " (object.state in ('draft', 'sent') and '注文書 - %s' % (object.name) or
+                '注文書 - %s' % (object.name))"
+           paperformat="paperformat_invoice_sales_dot_matrix"
+    />
+</odoo>

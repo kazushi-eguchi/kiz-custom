@@ -158,6 +158,27 @@
                     /
                     <span class="topage"/>
                 </div>
+                <div class="text-center" style="margin-top:12px;">
+
+                    <span>　</span>
+                    注文書番号： <span t-field="o.name"/>
+                    <span>　</span>
+                    納期： <t t-esc="context_timestamp(o.date_planned).strftime('%Y年%m月%d日')"/>
+                    <span>　</span>
+                    発注日：  <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y年%m月%d日')"/>
+                    <span>　</span><br/>
+                    管理番号：
+                    <t t-foreach="o.account_id" t-as="item">
+                                <span t-field="item.name"/>
+                    </t>
+                    <span>　</span>
+                    品名（図番）.
+                            <span t-field="o.product_name"/>
+                            <t t-if="o.drawing_number">
+                            （<span t-field="o.drawing_number"/>）
+                                </t>
+                    </div>
+
             </div>
         </div>
     </template>

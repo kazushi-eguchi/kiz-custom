@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--    addons/web/views/report_templates.xml-->
+    <template
+            id="external_layout_standard_override_check"
+            inherit_id="web.external_layout_standard"
+    >
+        <xpath expr="//div[@name='company_address']" position="replace">
+            <div class="col-9" name="space"/>
+            <div class="col-3" name="company_address">
+                <div t-field="company.partner_id"
+                     t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
+                />
+            </div>
+
+        </xpath>
+
+    </template>
+    <template id="common_header_layout_check">
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+        <div>
+            <div class="row">
+                <div class="col-3 mb4">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;"
+                         alt="Logo"/>
+                </div>
+                <div class="col-5 text-center" style="font-size:48px;text-align:center">
+                    <t t-if="type == 'type_purchase'">
+                        <span>purchase</span>
+                    </t>
+                    <t t-if="type == 'type_purchase_quotation'">
+                        <span>チェック表</span>
+                    </t>
+                </div>
+                <div class="col-4 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto">
+                    管理番号：
+                    <t t-foreach="o.account_id" t-as="item">
+                        <span t-field="item.name"/>
+                    </t>
+                    <br/>
+                    注文書番号：
+                    <span t-field="o.name"/>
+                </div>
+            </div>
+            <div t-if="company.logo or company.report_header" class="row zero_min_height">
+                <div class="col-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="text-left">
+                    <div>
+                        <t>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th width="16%">納期.</th>
+                                        <td width="16%">
+                                            <t t-esc="context_timestamp(o.date_planned).strftime('%Y年%m月%d日')"/>
+                                        </td>
+                                        <th width="16%">Sno</th>
+                                        <td width="16%">
+                                            <span t-field="o.s_no"/>
+                                        </td>
+                                        <th width="16%">品名</th>
+                                        <td width="16%">
+                                            <span t-field="o.product_name"/>
+                                            <t t-if="o.drawing_number">
+                                                （<span t-field="o.drawing_number"/>）
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>商社</th>
+                                        <td><span t-field="o.trading_company"/></td>
+                                        <th>造船所</th>
+                                        <td><span t-field="o.shipyard_full"/></td>
+                                        <th>建造所</th>
+                                        <td><span t-field="o.shipyard_full"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="common_footer_layout">
+        <div t-attf-class="footer">
+            <div class="text-center" style="border-top: 1px solid black;">
+                <div name="financial_infos">
+                    <span t-field="company.report_footer"/>
+                </div>
+
+                <div t-if="report_type == 'pdf'" class="text-muted">
+                    Page:
+                    <span class="page"/>
+                    /
+                    <span class="topage"/>
+                </div>
+                <div class="text-center" style="margin-top:12px;">
+
+                    <span>　</span>
+                    発注日：
+                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y年%m月%d日')"/>
+                    <span>　</span>
+                    管理番号：
+                    <t t-foreach="o.account_id" t-as="item">
+                        <span t-field="item.name"/>
+                    </t>
+                    <span>　</span>
+                    品名（図番）.
+                    <span t-field="o.product_name"/>
+                    <t t-if="o.drawing_number">
+                        （<span t-field="o.drawing_number"/>）
+                    </t>
+                </div>
+
+            </div>
+        </div>
+    </template>
+</odoo>

@@ -10,10 +10,10 @@ from odoo import models, fields, api
 class KizPurchaseOrder(models.Model):
     _inherit = 'purchase.order'
     #
-    account_id = fields.Many2one(
-        comodel_name="account.analytic.account", string="production management slip no"
-    )
 
+    def print_quotation(self):
+        # self.write({'state': "sent"})
+        return self.env.ref('purchase.report_purchase_quotation').report_action(self)
     # def _compute_account_id(self):
     #
     #     a = self.env["purchase.order.line"].search_read([], [])

@@ -67,12 +67,15 @@
 
                                     </tr>
                                 </thead>
-                                <t t-foreach="o.order_line" t-as="l">
-                                    <tr>
-                                        <td class="text-center">
+                                <tr t-foreach="o.order_line" t-as="l">
+                                    <t
+                                            t-set="images"
+                                            t-value="l.mapped('item_purchase_image_ids')"
+                                    />
+                                    <td class="text-center">
                                         <span t-field="l.product_template_id" />
-                                        </td>
-                                        <td class="text-left" colspan="5">
+                                    </td>
+                                    <td class="text-left">
                                         <t t-foreach="l.product_id.product_template_attribute_value_ids"
                                            t-as="string_line">
                                             ●
@@ -82,23 +85,14 @@
                                             <t t-else="">
                                             <span t-esc=" '%s: %s' % (string_line.attribute_id.name, string_line.name)"/>
                                             </t>
-
+                                            <br/>
                                         </t>
                                         <t t-foreach="l.config_session_id.custom_value_ids" t-as="string_line">
                                             ●<span t-esc="string_line.attribute_id.product_name"/>:
                                             <span t-esc="string_line.value"/>
-
+                                            <br/>
                                         </t>
                                     </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td><td></td>
-                                    <t
-                                            t-set="images"
-                                            t-value="l.mapped('item_purchase_image_ids')"
-                                    />
-
-
 
                                     <td class="text-center">
                                         <div id="quote_qty">
@@ -120,8 +114,7 @@
                                     <td class="text-left" >
                                         <span t-field="l.note"/>
                                     </td>
-                                    </tr>
-                                </t>
+                                </tr>
                             </tbody>
                         </table>
                         <hr/>
