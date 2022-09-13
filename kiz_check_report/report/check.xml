@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="check_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="header">
+                    <t t-call="kiz_check_report.check_header_layout"/>
+                </div>
+                <div class="article">
+                    <div class="page">
+                        <div class="row justify-content-end">
+                            <t t-call="kiz_check_report.table"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer" style="font-size:12px;">
+                    <div t-if="report_type == 'pdf'" class="text-muted">
+                    Page:
+                    <span class="page"/>
+                    /
+                    <span class="topage"/>
+                </div>
+                </div>
+            </t>
+        </t>
+    </template>
+    <template id="table">
+        <div class="order_info">
+        </div>
+        <table class="table table-condensed" style="table-layout: fixed">
+            <tbody class="invoice_tbody">
+
+                <thead style="background-color:#F8F9FA">
+
+                    <tr>
+                        <!--                                        <th>summary</th>-->
+                        <th class="text-center">品名</th>
+                        <th class="text-center" width="50%">仕様</th>
+                        <th class="text-center" width="8%">数量</th>
+                        <th class="text-center" width="12%">納品場所</th>
+                        <th class="text-center" width="8%">画像</th>
+                        <th class="text-center" width="10%">備考</th>
+
+                    </tr>
+                </thead>
+                <t t-foreach="o.order_line" t-as="l">
+                    <tr>
+                        <td class="text-center">
+                            <span t-field="l.product_template_id"/>
+                        </td>
+                        <td class="text-left">
+                            <t t-foreach="l.product_id.product_template_attribute_value_ids"
+                               t-as="string_line">
+                                ●
+                                <t t-if="string_line.attribute_id.product_name">
+                                    <span t-esc=" '%s: %s' % (string_line.attribute_id.product_name, string_line.name)"/>
+                                </t>
+                                <t t-else="">
+                                    <span t-esc=" '%s: %s' % (string_line.attribute_id.name, string_line.name)"/>
+                                </t>
+
+                            </t>
+                            <t t-foreach="l.config_session_id.custom_value_ids" t-as="string_line">
+                                ●<span t-esc="string_line.attribute_id.product_name"/>:
+                                <span t-esc="string_line.value"/>
+
+                            </t>
+                        </td>
+
+                        <t
+                                t-set="images"
+                                t-value="l.mapped('item_purchase_image_ids')"
+                        />
+
+
+                        <td class="text-center">
+                            <div id="quote_qty">
+                                <span t-esc="'{0:,.0f}'.format(l.product_uom_qty)"/>
+
+                            </div>
+                        </td>
+
+                        <td class="text-center">
+                            <span t-field="l.delivery_spot"/>
+                        </td>
+                        <td class="text-left">
+                            <t t-if="images">
+                                <t t-foreach="images" t-as="image">
+                                    <div t-field="image.name"/>
+                                </t>
+                            </t>
+                        </td>
+                        <td class="text-left">
+                            <span t-field="l.note"/>
+                        </td>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+        <hr/>
+        <!--                        <div>Attached image</div>-->
+<!--        <div style="text-align:left;">-->
+<!--            <div style="display:inline-block;max-width:49%" t-foreach="o.order_line" t-as="l">-->
+<!--                <t-->
+<!--                        t-set="images"-->
+<!--                        t-value="l.mapped('item_purchase_image_ids')"-->
+<!--                />-->
+<!--                <t t-if="images">-->
+<!--                    <t t-foreach="images" t-as="image">-->
+<!--                        <div colspan="99" style="border: 0;">-->
+<!--                            <div style="text-align: left;">-->
+
+<!--                                <img-->
+<!--                                        t-att-src="image_data_uri(image.image_1920)"-->
+<!--                                        style="max-width: 100%;max-height: 800px; padding-top: 10px;"-->
+<!--                                />-->
+<!--                                <div t-field="image.name"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </t>-->
+
+<!--                </t>-->
+<!--            </div>-->
+<!--        </div>-->
+    </template>
+
+</odoo>

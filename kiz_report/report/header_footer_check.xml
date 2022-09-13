@@ -59,43 +59,28 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-6 mb6">
 
-                <div class="text-left">
-                    <div>
-                        <t>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <th width="16%">納期.</th>
-                                        <td width="16%">
-                                            <t t-esc="context_timestamp(o.date_planned).strftime('%Y年%m月%d日')"/>
-                                        </td>
-                                        <th width="16%">Sno</th>
-                                        <td width="16%">
-                                            <span t-field="o.s_no"/>
-                                        </td>
-                                        <th width="16%">品名</th>
-                                        <td width="16%">
-                                            <span t-field="o.product_name"/>
+                    <span>商社:</span>
+                    <span t-field="o.trading_company"/><br/>
+                    <span>造船所:</span>
+                    <span t-field="o.shipyard_full"/><br/>
+                    <span>建造所:</span>
+                    <span t-field="o.shipyard_full"/>
+                </div>
+
+                <div class="col-6 mb6">
+                     <span style="font-weight:bold">納期：</span>
+                    <span>
+                        <t t-esc="context_timestamp(o.date_planned).strftime('%Y年%m月%d日')"/>
+                    </span><br/>
+                    <span>Sno:</span>
+                    <span t-field="o.s_no"/><br/>
+                    <span>品名：</span>
+                     <span t-field="o.product_name"/>
                                             <t t-if="o.drawing_number">
                                                 （<span t-field="o.drawing_number"/>）
                                             </t>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>商社</th>
-                                        <td><span t-field="o.trading_company"/></td>
-                                        <th>造船所</th>
-                                        <td><span t-field="o.shipyard_full"/></td>
-                                        <th>建造所</th>
-                                        <td><span t-field="o.shipyard_full"/></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </t>
-
-
-                    </div>
                 </div>
             </div>
         </div>
