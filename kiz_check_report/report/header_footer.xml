@@ -19,7 +19,7 @@
                     <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;"
                          alt="Logo"/>
                 </div>
-                <div class="col-2 text-center" style="font-size:24px;text-align:center">
+                <div class="col-2 text-center" style="font-size:16px;text-align:center">
 
                         <span>購買チェックリスト</span>
                 </div>
