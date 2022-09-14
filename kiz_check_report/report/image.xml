@@ -27,8 +27,9 @@
     </template>
     <template id="images">
 
-                                <div>Attached image</div>
+
         <div style="text-align:left;">
+
             <div style="display:inline-block;max-width:49%" t-foreach="o.order_line" t-as="l">
                 <t
                         t-set="images"
@@ -37,7 +38,7 @@
                 <t t-if="images">
                     <t t-foreach="images" t-as="image">
                         <div colspan="99" style="border: 0;">
-                            <div style="text-align: left;">
+                            <div style="text-align: center;">
 
                                 <img
                                         t-att-src="image_data_uri(image.image_1920)"
