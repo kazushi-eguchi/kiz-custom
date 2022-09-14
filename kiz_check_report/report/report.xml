@@ -27,4 +27,15 @@
                 'チェックリスト - %s' % (object.name))"
            paperformat="paperformat_check_report"
     />
+    <report
+            string="チェックリスト(画像）"
+            id="purchase.action_report_check_report_image"
+            model="purchase.order"
+            report_type="qweb-pdf"
+            name="kiz_check_report.check_report_image"
+            file="kiz_check_report.check_report_image"
+            print_report_name = " (object.state in ('draft', 'sent') and 'チェックリスト（画像） - %s' % (object.name) or
+                'チェックリスト（画像） - %s' % (object.name))"
+           paperformat="paperformat_check_report"
+    />
 </odoo>

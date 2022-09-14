@@ -36,10 +36,10 @@
                     <tr>
                         <!--                                        <th>summary</th>-->
                         <th class="text-center">品名</th>
-                        <th class="text-center" width="50%">仕様</th>
-                        <th class="text-center" width="8%">数量</th>
+                        <th class="text-center" width="56%">仕様</th>
+                        <th class="text-center" width="6%">数量</th>
                         <th class="text-center" width="12%">納品場所</th>
-                        <th class="text-center" width="8%">画像</th>
+                        <th class="text-center" width="6%">画像</th>
                         <th class="text-center" width="10%">備考</th>
 
                     </tr>
@@ -49,7 +49,8 @@
                         <td class="text-center">
                             <span t-field="l.product_template_id"/>
                         </td>
-                        <td class="text-left">
+                        <td class="text-left" style="word-wrap:normal;">
+<!--                            <div class="container" style="white-space:break-spaces;width:180">-->
                             <t t-foreach="l.product_id.product_template_attribute_value_ids"
                                t-as="string_line">
                                 ●
@@ -59,13 +60,14 @@
                                 <t t-else="">
                                     <span t-esc=" '%s: %s' % (string_line.attribute_id.name, string_line.name)"/>
                                 </t>
-
+                                <span> </span>
                             </t>
                             <t t-foreach="l.config_session_id.custom_value_ids" t-as="string_line">
                                 ●<span t-esc="string_line.attribute_id.product_name"/>:
                                 <span t-esc="string_line.value"/>
-
+                                <span> </span>
                             </t>
+<!--                            </div>-->
                         </td>
 
                         <t
