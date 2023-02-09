@@ -260,9 +260,9 @@
                     <filter name="my_account_executive" string="私が営業担当者" domain="[('account_executive', '=', uid)]"/>
                     <filter name="my_designer" string="私が設計担当者" domain="[('designer', '=', uid)]"/>
                     <filter name="my_material_input_person" string="私が資材入力者" domain="[('material_input_person', '=', uid)]"/>
-                    <separator/>
-                    <filter name="date_of_issue" string="製作管理票発行日" date="date_of_issue"/>
-                    <filter name="deadline" string="納期" date="deadline"/>
+<!--                    <separator/>-->
+<!--                    <filter name="date_of_issue" string="製作管理票発行日" date="date_of_issue"/>-->
+<!--                    <filter name="deadline" string="納期" date="deadline"/>-->
                     <group expand="0" string="Group By">
                         <filter string="商社" name="trading_company" domain="[]" context="{'group_by': 'trading_company'}"/>
                     </group>
