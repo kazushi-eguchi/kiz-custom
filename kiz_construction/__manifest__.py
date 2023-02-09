@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'kiz_ship_base', 'purchase'],
+    'depends': ['base', 'kiz_ship_base', 'purchase', 'kiz_partner'],
 
     # always loaded
     'data': [
