@@ -9,8 +9,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='partner_id']"  position="attributes">
                 <attribute name="options">{'limit': 14, 'search_more':true}</attribute>
-                <attribute name="domain">[('for_purchase', '=', True)]</attribute>
-                <attribute name="context">{'search_default_for_purchase':1}</attribute>
+                <attribute name="domain">[('use_by_purchase', '=', True)]</attribute>
+                <attribute name="context">{'search_default_use_by_purchase':1}</attribute>
                 </xpath>
 <!--                <xpath expr="//field[@name='partner_id']" position="after">
 <!-                                                    <field name="partner_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'supplier', 'show_vat': True}" placeholder="Name, TIN, Email, or Reference"/>-->
