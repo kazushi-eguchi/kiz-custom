@@ -37,6 +37,16 @@
                     <field name="order_received_qty"/>
                     <field name="not_complete"/>
                 </xpath>
+                <xpath expr="//field[@name='origin']" position="before">
+                    <label for="arrival_date" />
+                    <div class="o_row">
+                    <field name="arrival_date"/>
+                    <button string="Date Update" name="date_update" type="object"
+                            class="btn-link mb-1 px-0" icon="fa-refresh"
+                            confirm="請求書納品日を更新しますか？入荷日が空欄の場合は削除されます。"
+                    />
+                    </div>
+                </xpath>
                 <xpath
                         expr="//field[@name='order_line']/tree//field[@name='price_subtotal']"
                         position="after"

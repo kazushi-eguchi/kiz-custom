@@ -47,6 +47,7 @@ class KizPurchaseOrder(models.Model):
     order_qty = fields.Integer(compute="_get_order_qty_count", string="発注数量")
     order_received_qty = fields.Integer(compute="_get_order_received_qty_count", string="完了数量")
     not_complete = fields.Boolean(compute="_check_complete", search='_value_search', string="未入荷あり")
+    arrival_date = fields.Date("入荷日")
 
     def _value_search(self, operator, value):
         recs = self.search([]).filtered(lambda x: x.not_complete is True)
@@ -75,7 +76,15 @@ class KizPurchaseOrder(models.Model):
                 qty += l.qty_received
             rec.order_received_qty = qty
 
-
+    def date_update(self):
+        self.ensure_one()
+        lines_to_update = []
+        for line in self.order_line:
+            lines_to_update.append((1, line.id, {'invoice_deliver_date': self.arrival_date}))
+            print(lines_to_update)
+        self.update({'order_line': lines_to_update})
+            # l.invoice_deliver_date = self.arrival_date
+        # return l
     # def clear(self):
     #     for rec in self:
     #         # rec.write({'partner_id': [(5, 0, 0)]})

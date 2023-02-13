@@ -19,16 +19,7 @@
             file="kiz_report.purchase_quotation"
     />
 
-        <report
-            string="チェック表"
-            id="purchase.action_report_purchase_order_check"
-            model="purchase.order"
-            report_type="qweb-pdf"
-            name="kiz_report.check"
-            file="kiz_report.check"
-            print_report_name = " (object.state in ('draft', 'sent') and 'チェック表 - %s' % (object.name) or
-                '注文書 - %s' % (object.name))"
-    />
+
     <report
             id="action_report_cover"
             string="Cover"
