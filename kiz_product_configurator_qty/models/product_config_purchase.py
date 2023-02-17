@@ -2,15 +2,21 @@ from odoo import _, api, fields, models
 
 
 class ProductConfiguratorPurchaseQty(models.TransientModel):
-    _name = "product.configurator.purchase.qty"
+    # _name = "product.configurator.purchase.qty"
     _inherit = "product.configurator.purchase"
     _description = "Product Configurator Purchase Qty"
 
     qty = fields.Float()
 
     def _get_order_line_vals(self, product_id):
-        print("test")
-        return super(ProductConfiguratorPurchaseQty, self)._get_order_line_vals(product_id)
+        res = super()._get_order_line_vals(product_id)
+        res.update(
+            {
+                "product_qty": self.qty,
+            }
+        )
+
+        return res
 
     # """Hook to allow custom line values to be put on the newly
     #         created or edited lines."""
