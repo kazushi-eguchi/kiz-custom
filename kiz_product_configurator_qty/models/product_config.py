@@ -6,3 +6,5 @@ class ProductConfigQty(models.TransientModel):
     qty = fields.Float('QTY')
 
 
+
+
