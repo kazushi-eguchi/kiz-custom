@@ -2,6 +2,20 @@
 <!-- Copyright 2020 Manuel Regidor <manuel.regidor@sygel.es>
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
+    <record id="view_lead_form_sf" model="ir.ui.view">
+            <field name="name">product.template.product.tree sequence</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='sequence']" position="replace">
+                    <field name="sequence" widget="handle"
+                    />
+                </xpath>
+                 <xpath expr="//tree" position="attributes">
+                    <attribute name="default_order">sequence</attribute>
+                </xpath>
+            </field>
+    </record>
     <menuitem
         id="config_product_category"
         name="Product Categories"
