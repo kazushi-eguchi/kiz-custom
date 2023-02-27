@@ -79,7 +79,7 @@
                                         </td>
                                         <td rowspan="2"><span t-field="l.note"/></td>
                                     </tr>
-                                    <tr>
+                                    <tr style="font-size:0.8rem">
 <!--                                    <tr t-if="l.product_id.product_template_attribute_value_ids">-->
                                         <t t-set="count" t-value="0"/>
                                         <td class="text-left" style="border-top: 1px dotted !important;">
