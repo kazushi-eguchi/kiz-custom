@@ -51,7 +51,7 @@
         <style>
             th{border:1px solid gray !important;padding: 0.2rem !important;}
             td{border:1px solid gray !important;line-height:1.1em;height:1.1em;1.5em;padding: 0.2rem !important;
-              border-bottom:1px dotted gray !important}
+              border-bottom:1px dotted gray !important;}
         </style>
         <table class="table table-condensed" style="table-layout: fixed;border:2px solid #000 !important">
                             <tbody class="invoice_tbody">
