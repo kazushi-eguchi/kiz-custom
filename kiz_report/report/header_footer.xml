@@ -114,7 +114,7 @@
                         <span t-field="o.company_id.street"/>
                         <span t-field="o.company_id.street2"/><br/>
                         TEL:<span t-field="o.company_id.phone"/><br/>
-                        FAX:<span t-field="o.company_id.fax"/>
+<!--                        FAX:<span t-field="o.company_id.fax"/>-->
                     </div>
                     <div>担当 ：
                         <span t-field="o.material_input_person"/>
