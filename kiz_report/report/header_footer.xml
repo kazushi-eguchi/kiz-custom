@@ -161,7 +161,7 @@
                     <t t-foreach="o.account_id" t-as="item">
                         <span t-field="item.name"/>
                     </t>
-                    <span>　</span>
+                    <br/>
                     品名（図番）.
                     <span t-field="o.product_name"/>
                     <t t-if="o.drawing_number">

@@ -20,7 +20,7 @@
             string="注文書"
             id="purchase.action_report_purchase_order"
             model="purchase.order"
-            report_type="qweb-pdf"
+            report_type="qweb-html"
             name="kiz_report.purchase"
             file="kiz_report.purchase"
             print_report_name=" (object.state in ('draft', 'sent') and '注文書 - %s' % (object.name) or
