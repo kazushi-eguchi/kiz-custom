@@ -50,7 +50,7 @@
         </div>
         <style>
             th{border:1px solid gray !important;padding: 0.2rem !important;}
-            td{border:1px solid gray !important;line-height:1.2em;padding: 0.2rem !important;
+            td{border:1px solid gray !important;line-height:1.1em;height:1.1em;1.5em;padding: 0.2rem !important;
               }
         </style>
         <table class="table table-condensed" style="table-layout: fixed;border:2px solid #000 !important">
@@ -79,7 +79,8 @@
                                         </td>
                                         <td rowspan="2"><span t-field="l.note"/></td>
                                     </tr>
-                                    <tr t-if="l.product_id.product_template_attribute_value_ids">
+                                    <tr>
+<!--                                    <tr t-if="l.product_id.product_template_attribute_value_ids">-->
                                         <td class="text-left" style="border-top: 1px dotted !important;">
                                         <t t-foreach="l.product_id.product_template_attribute_value_ids"
                                            t-as="string_line">
