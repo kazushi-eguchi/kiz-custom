@@ -84,7 +84,7 @@
                         <t>
 
                             注文納期.
-                            <t t-esc="context_timestamp(o.date_planned).strftime('%Y年%m月%d日')"/>
+                            <t t-if="o.date_planned"  t-esc="context_timestamp(o.date_planned).strftime('%Y年%m月%d日')"/>
                             <br/>商社.
                             <span t-field="o.trading_company"/>
                             <br/>造船所.
@@ -151,7 +151,7 @@
                     <span t-field="o.name"/>
                     <span>　</span>
                     納期：
-                    <t t-esc="context_timestamp(o.date_planned).strftime('%Y年%m月%d日')"/>
+                    <t t-if="o.date_planned" t-esc="context_timestamp(o.date_planned).strftime('%Y年%m月%d日')"/>
                     <span>　</span>
                     注文日：
                     <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y年%m月%d日')"/>
