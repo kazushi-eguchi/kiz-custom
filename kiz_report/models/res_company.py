@@ -5,3 +5,4 @@ class Company(models.Model):
     _inherit = "res.company"
 
     chop = fields.Binary("Company Chop Image", attachment=True,)
+    fax = fields.Char("fax")

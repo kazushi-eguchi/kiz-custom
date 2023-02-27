@@ -29,13 +29,13 @@
                 <t t-set="company" t-value="res_company"/>
             </t>
         </t>
-        <div >
+        <div>
             <div class="row">
                 <div class="col-3 mb4">
                     <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;"
                          alt="Logo"/>
                 </div>
-                <div class="col-5 text-center" style="font-size:48px;text-align:center">
+                <div class="col-5 text-center" style="font-size:24px;text-align:center">
                     <t t-if="type == 'type_purchase'">
                         <span>purchase</span>
                     </t>
@@ -43,22 +43,27 @@
                         <span>見積依頼</span>
                     </t>
                 </div>
-                <div class="col-4 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto">
-                      管理番号：
+
+                <div class="col-4 text-left" t-field="company.report_header" name="moto">
+                    発注日 :
+                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y年%m月%d日')"/>
+                    <br/>
+                    管理番号：
                     <t t-foreach="o.account_id" t-as="item">
-                                <span t-field="item.name"/>
-                            </t><br/>
-                    注文書番号：<span t-field="o.name"/>
-                    </div>
+                        <span t-field="item.name"/>
+                    </t>
+                    <br/>
+                    注文番号：
+                    <span t-field="o.name"/>
                 </div>
+            </div>
             <div t-if="company.logo or company.report_header" class="row zero_min_height">
                 <div class="col-12">
-                    <div style="border-bottom: 1px solid black;"/>
+                    <div style="border-bottom: 1px solid black;margin-top:5px;margin-bottom:5px"/>
                 </div>
             </div>
             <div class="row">
-
-                <div class="col-8 text-left">
+                <div class="col-7 text-left">
                     <t t-if="o.partner_id.parent_id">
 
                         <span t-field="o.partner_id.parent_id.name"/>
@@ -75,79 +80,60 @@
                         />
                     </t>
                     <div>
-<!--                        <t t-if="type == 'purchase'">-->
+                        <!--                        <t t-if="type == 'purchase'">-->
                         <t>
-                            平素より格別のお引き立てを賜り厚く御礼申し上げます。
-                            <br/>
-                            <t t-if="type == 'type_purchase'">下記の通り手配依頼いたします。</t>
-                            <t t-if="type == 'type_purchase_quotation'">下記の通り見積もり依頼いたします。</t>
-                                ご査収の程よろしくお願いいたします
-                            <br/>
-                            納期.
+
+                            注文納期.
                             <t t-esc="context_timestamp(o.date_planned).strftime('%Y年%m月%d日')"/>
-<!--                            <span t-field="o.date_planned" t-options='{"widget": "date","format": "dd-MM-yyyy"}'/>-->
-<!--                            管理番号：-->
-<!--                            <t t-foreach="o.account_id" t-as="item">-->
-<!--                                <span t-field="item.name"/>-->
-<!--                            </t>-->
-                            <br/>SNo.
-                            <span t-field="o.s_no"/>
                             <br/>商社.
                             <span t-field="o.trading_company"/>
                             <br/>造船所.
                             <span t-field="o.shipyard_full"/>
                             <br/>建造所.
                             <span t-field="o.shipyard_full"/>
-                            <br/>品名（図番）.
-                            <span t-field="o.product_name"/>
-                            <t t-if="o.drawing_number">
-                            （<span t-field="o.drawing_number"/>）
-                                </t>
+                            <br/>SNo.
+                            <span t-field="o.s_no"/>
+
                         </t>
 
 
                     </div>
                 </div>
-                <div class="col-4" name="company_address">
-
-
+                <div class="col-5" name="company_address">
                     <img
                             t-if="o.company_id.chop"
                             t-attf-src="data:image/*;base64,{{o.company_id.chop}}"
-                            style="position: absolute;max-height: 100px;left:180px;top:45px"
+                            style="position: absolute;max-height: 100px;right:10px;top:45px"
                             align="right"
-
                     />
-                    発注日 : <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y年%m月%d日')"/>
-                    <div t-field="company.partner_id"
-                         t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
-                    />
-                    <div>担当 ： <span t-field="o.material_input_person"/></div>
+                    <div>〒<span t-field="o.company_id.zip"/></div>
+                    <div>
+                        <span t-field="o.company_id.name"/><br/>
+                        <span t-field="o.company_id.state_id.name"/>
+                        <span t-field="o.company_id.city"/>
+                        <span t-field="o.company_id.street"/>
+                        <span t-field="o.company_id.street2"/><br/>
+                        TEL:<span t-field="o.company_id.phone"/><br/>
+                        FAX:<span t-field="o.company_id.fax"/>
+                    </div>
+                    <div>担当 ：
+                        <span t-field="o.material_input_person"/>
+                    </div>
                 </div>
+
             </div>
+            <div>
+                    製品名（図番）.
+                            <span t-field="o.product_name"/>
+                            <t t-if="o.drawing_number">
+                                （<span t-field="o.drawing_number"/>）
+                            </t>
+                </div>
         </div>
     </template>
     <template id="common_footer_layout">
         <div t-attf-class="footer">
             <div class="text-center" style="border-top: 1px solid black;">
-                <!--                <ul class="list-inline mb4">-->
-                <!--                    &lt;!&ndash; using the list-inline-item class from bootstrap causes weird behaviours in pdf report-->
-                <!--                         adding d-inline class fixes the problem&ndash;&gt;-->
-                <!--                    <li t-if="company.phone" class="list-inline-item d-inline">-->
-                <!--                        <span class="o_force_ltr" t-field="company.phone"/>-->
-                <!--                    </li>-->
-                <!--                    <li t-if="company.email" class="list-inline-item d-inline">-->
-                <!--                        <span t-field="company.email"/>-->
-                <!--                    </li>-->
-                <!--                    <li t-if="company.website" class="list-inline-item d-inline">-->
-                <!--                        <span t-field="company.website"/>-->
-                <!--                    </li>-->
-                <!--                    <li t-if="company.vat" class="list-inline-item d-inline"><t-->
-                <!--                            t-esc="company.country_id.vat_label or 'Tax ID'"/>:-->
-                <!--                        <span t-field="company.vat"/>-->
-                <!--                    </li>-->
-                <!--                </ul>-->
-
                 <div name="financial_infos">
                     <span t-field="company.report_footer"/>
                 </div>
@@ -161,23 +147,27 @@
                 <div class="text-center" style="margin-top:12px;">
 
                     <span>　</span>
-                    注文書番号： <span t-field="o.name"/>
+                    注文書番号：
+                    <span t-field="o.name"/>
                     <span>　</span>
-                    納期： <t t-esc="context_timestamp(o.date_planned).strftime('%Y年%m月%d日')"/>
+                    納期：
+                    <t t-esc="context_timestamp(o.date_planned).strftime('%Y年%m月%d日')"/>
                     <span>　</span>
-                    発注日：  <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y年%m月%d日')"/>
-                    <span>　</span><br/>
+                    注文日：
+                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y年%m月%d日')"/>
+                    <span>　</span>
+                    <br/>
                     管理番号：
                     <t t-foreach="o.account_id" t-as="item">
-                                <span t-field="item.name"/>
+                        <span t-field="item.name"/>
                     </t>
                     <span>　</span>
                     品名（図番）.
-                            <span t-field="o.product_name"/>
-                            <t t-if="o.drawing_number">
-                            （<span t-field="o.drawing_number"/>）
-                                </t>
-                    </div>
+                    <span t-field="o.product_name"/>
+                    <t t-if="o.drawing_number">
+                        （<span t-field="o.drawing_number"/>）
+                    </t>
+                </div>
 
             </div>
         </div>

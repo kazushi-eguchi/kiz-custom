@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <record id="paperformat_purchase_report" model="report.paperformat">
+        <field name="name">Purchase Report</field>
+        <field name="default" eval="False"/>
+        <field name="format">custom</field>
+        <field name="page_width">210</field>
+        <field name="page_height">297</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+
     <report
             string="注文書"
             id="purchase.action_report_purchase_order"
@@ -7,8 +23,9 @@
             report_type="qweb-pdf"
             name="kiz_report.purchase"
             file="kiz_report.purchase"
-            print_report_name = " (object.state in ('draft', 'sent') and '注文書 - %s' % (object.name) or
+            print_report_name=" (object.state in ('draft', 'sent') and '注文書 - %s' % (object.name) or
                 '注文書 - %s' % (object.name))"
+            paperformat="paperformat_purchase_report"
     />
     <report
             string="見積依頼"
@@ -28,6 +45,6 @@
             file="kiz_report.cover"
             name="kiz_report.cover"
             print_report_name="'%s-%s' % (object.name, object.id)"
-        />
+    />
 
 </odoo>

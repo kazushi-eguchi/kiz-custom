@@ -9,6 +9,9 @@
                 <xpath expr="//field[@name='favicon']" position="after">
                     <field name="chop" widget='image' class="oe_avatar" />
                 </xpath>
+                 <xpath expr="//field[@name='phone']" position="after">
+                     <field name="fax"/>
+                </xpath>
             </field>
         </record>
     </data>

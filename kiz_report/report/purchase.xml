@@ -15,10 +15,7 @@
                             </p>
                         </t>
                         <t t-call="kiz_report.common_header_layout"/>
-                        <t t-call="kiz_report.purchase_table"/>
-                        <!--                        <t t-call="kiz_report.purchase_table" />-->
-
-                    </div>
+                        <t t-call="kiz_report.purchase_table"/>                    </div>
                 </t>
             </t>
         </t>
@@ -51,28 +48,39 @@
     <template id="purchase_table">
         <div class="order_info">
         </div>
-        <table class="table table-condensed" style="table-layout: fixed">
+        <style>
+            th{border:1px solid gray !important;padding: 0.2rem !important;}
+            td{border:1px solid gray !important;line-height:1.2em;padding: 0.2rem !important;
+              }
+        </style>
+        <table class="table table-condensed" style="table-layout: fixed;border:2px solid #000 !important">
                             <tbody class="invoice_tbody">
-
                                 <thead style="background-color:#F8F9FA" >
-
-                                    <tr>
-                                        <!--                                        <th>summary</th>-->
-                                        <th class="text-center">品名</th>
-                                        <th class="text-center" width="30%">仕様</th>
-                                        <th class="text-center" width="8%">数量</th>
+                                    <tr >
+                                        <th class="text-center" width="55%">品名・仕様</th>
+                                        <th class="text-center" width="7%">数量</th>
                                         <th class="text-center" width="12%">納品場所</th>
-                                        <th class="text-center" width="8%%">画像</th>
-                                        <th class="text-center" width="25%">備考</th>
-
+                                        <th class="text-center" width="7%">図</th>
+                                        <th class="text-center" width="19%">備考</th>
                                     </tr>
                                 </thead>
                                 <t t-foreach="o.order_line" t-as="l">
                                     <tr>
-                                        <td class="text-center">
-                                        <span t-field="l.product_template_id" />
+                                        <td><span t-field="l.product_template_id" /></td>
+                                        <td rowspan="2"><div id="quote_qty"><span t-esc="'{0:,.0f}'.format(l.product_uom_qty)"/></div></td>
+                                        <td rowspan="2"><span t-field="l.delivery_spot"/></td>
+                                        <td rowspan="2">
+                                            <t t-set="images" t-value="l.mapped('item_purchase_image_ids')" />
+                                            <t t-if="images">
+                                            <t t-foreach="images" t-as="image">
+                                                <div t-field="image.name"/>
+                                            </t>
+                                        </t>
                                         </td>
-                                        <td class="text-left" colspan="5">
+                                        <td rowspan="2"><span t-field="l.note"/></td>
+                                    </tr>
+                                    <tr t-if="l.product_id.product_template_attribute_value_ids">
+                                        <td class="text-left" style="border-top: 1px dotted !important;">
                                         <t t-foreach="l.product_id.product_template_attribute_value_ids"
                                            t-as="string_line">
                                             ●
@@ -89,38 +97,9 @@
                                             <span t-esc="string_line.value"/>
 
                                         </t>
-                                    </td>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td></td><td></td>
-                                    <t
-                                            t-set="images"
-                                            t-value="l.mapped('item_purchase_image_ids')"
-                                    />
 
-
-
-                                    <td class="text-center">
-                                        <div id="quote_qty">
-                                            <span t-esc="'{0:,.0f}'.format(l.product_uom_qty)"/>
-
-                                        </div>
-                                    </td>
-
-                                    <td class="text-center">
-                                        <span t-field="l.delivery_spot"/>
-                                    </td>
-                                    <td class="text-left">
-                                        <t t-if="images">
-                                            <t t-foreach="images" t-as="image">
-                                                <div t-field="image.name"/>
-                                            </t>
-                                        </t>
-                                    </td>
-                                    <td class="text-left" >
-                                        <span t-field="l.note"/>
-                                    </td>
-                                    </tr>
                                 </t>
                             </tbody>
                         </table>
