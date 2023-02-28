@@ -14,7 +14,7 @@ class product_attribute_check(models.Model):
         string="確認",
         tracking=True)
 
-    def write(self, values):
+    def update(self, values):
         flg = self._origin.att_check
         if self._origin.att_check == 'no' and values.get("att_check") == 'yes':
             values['att_check'] = 'yes'
