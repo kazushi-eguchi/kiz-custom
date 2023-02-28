@@ -108,20 +108,20 @@
                         </table>
                         <hr/>
 <!--                        <div>Attached image</div>-->
-                        <div style="text-align:left;">
-                        <div style="display:inline-block;max-width:49%" t-foreach="o.order_line" t-as="l">
+
+                        <t t-foreach="o.order_line" t-as="l">
                             <t
                                     t-set="images"
                                     t-value="l.mapped('item_purchase_image_ids')"
                             />
                             <t t-if="images">
                                 <t t-foreach="images" t-as="image">
-                                        <div colspan="99" style="border: 0;">
+                                        <div colspan="99" style="border: 0;display:inline-block;width: 49%;">
                                             <div style="text-align: left;">
 
                                                 <img
                                                         t-att-src="image_data_uri(image.image_1920)"
-                                                        style="max-width: 100%;max-height: 800px; padding-top: 10px;"
+                                                        style="max-width: 100%;max-height: 800px; padding-top: 20px;"
                                                 />
                                                 <div t-field="image.name"/>
                                             </div>
@@ -129,7 +129,30 @@
                                 </t>
 
                             </t>
-                        </div>
-                        </div>
+                        </t>
+<!--                        <div style="text-align:left;">-->
+
+<!--                        <div style="display:inline-block;max-width:45%;" t-foreach="o.order_line" t-as="l">-->
+<!--                            <t-->
+<!--                                    t-set="images"-->
+<!--                                    t-value="l.mapped('item_purchase_image_ids')"-->
+<!--                            />-->
+<!--                            <t t-if="images">-->
+<!--                                <t t-foreach="images" t-as="image">-->
+<!--                                        <div colspan="99" style="border: 0;">-->
+<!--                                            <div style="text-align: left;">-->
+
+<!--                                                <img-->
+<!--                                                        t-att-src="image_data_uri(image.image_1920)"-->
+<!--                                                        style="max-width: 100%;max-height: 800px; padding-top: 10px;"-->
+<!--                                                />-->
+<!--                                                <div t-field="image.name"/>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                </t>-->
+
+<!--                            </t>-->
+<!--                        </div>-->
+<!--                        </div>-->
     </template>
 </odoo>

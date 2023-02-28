@@ -14,7 +14,7 @@ class product_configurator_check(models.Model):
         string="確認",
         tracking=True)
 
-    def update(self, values):
+    def write(self, values):
         flg = self._origin.check
         if self._origin.check == 'no' and values.get("check") == 'yes':
             values['check'] = 'yes'
