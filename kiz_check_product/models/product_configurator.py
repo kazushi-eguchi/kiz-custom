@@ -19,6 +19,9 @@ class product_configurator_check(models.Model):
         if self._origin.check == 'no' and values.get("check") == 'yes':
             values['check'] = 'yes'
         else:
-            values['check'] = 'no'
+            if 'taxes_id' in values or 'image_1920' in values:
+                values['check'] = 'yes'
+            else:
+                values['check'] = 'no'
         res = super(product_configurator_check, self).write(values)
         return res
