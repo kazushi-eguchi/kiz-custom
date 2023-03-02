@@ -79,7 +79,7 @@
                     <field name="trading_company" string="商社"/>
                     <field name="shipyard_full" string="造船所"/>
                     <field name="s_no" string="船番"/>
-                    <field name="product_name" string="品名"/>
+                    <field name="production_name" string="制作名称"/>
                 </xpath>
 
             </field>

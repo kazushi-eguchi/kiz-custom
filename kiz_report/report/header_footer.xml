@@ -124,7 +124,7 @@
             </div>
             <div>
                     製品名（図番）.
-                            <span t-field="o.product_name"/>
+                            <span t-field="o.production_name"/>
                             <t t-if="o.drawing_number">
                                 （<span t-field="o.drawing_number"/>）
                             </t>
@@ -163,7 +163,7 @@
                     </t>
                     <br/>
                     品名（図番）.
-                    <span t-field="o.product_name"/>
+                    <span t-field="o.production_name"/>
                     <t t-if="o.drawing_number">
                         （<span t-field="o.drawing_number"/>）
                     </t>
