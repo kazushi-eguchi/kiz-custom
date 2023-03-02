@@ -6,7 +6,7 @@ from odoo import api, fields, models
 class ShipsShip(models.Model):
     _name = "ships.ship"
     _description = "ship"
-    _rec_name = "combination"
+    _rec_name = "sno"
     name = fields.Char("ship")
     sno = fields.Char("sno")
     note = fields.Text(string="Description")
