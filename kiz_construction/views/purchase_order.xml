@@ -28,6 +28,7 @@
                     <field name="building"/>
                     <field name="s_no"/>
                     <field name="product_name"/>
+                    <field name="production_name"/>
                     <field name="trading_company"/>
                     <field name="shipyard_full"/>
 
