@@ -90,7 +90,7 @@
                             <br/>造船所.
                             <span t-field="o.shipyard_full"/>
                             <br/>建造所.
-                            <span t-field="o.shipyard_full"/>
+                            <span t-field="o.building"/>
                             <br/>SNo.
                             <span t-field="o.s_no"/>
 

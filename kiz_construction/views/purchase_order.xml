@@ -23,14 +23,13 @@
                     <field name="account_id"/>
                     <field name="deadline"/>
                     <field name="construction_id"/>
-                    <field name="production_management_ticket_period"/>
-                    <field name="drawing_number"/>
-                    <field name="building"/>
-                    <field name="s_no"/>
+                    <field name="production_management_ticket_period"/>      
                     <field name="product_name"/>
                     <field name="production_name"/>
+                    <field name="drawing_number"/>
                     <field name="trading_company"/>
                     <field name="shipyard_full"/>
+                    <field name="building"/>
 
                 </xpath>
                 <xpath expr="//field[@name='date_order']" position="before">
