@@ -20,6 +20,7 @@
             <field name="model">purchase.delivery_spot</field>
             <field name="arch" type="xml">
                 <tree editable="bottom">
+                    <field name="sequence" widget="handle"/>
                     <field name="name"/>
 <!--                    <field name="active"/>-->
                 </tree>

@@ -23,7 +23,7 @@
                     <field name="account_id"/>
                     <field name="deadline"/>
                     <field name="construction_id"/>
-                    <field name="production_management_ticket_period"/>      
+                    <field name="production_management_ticket_period"/>
                     <field name="product_name"/>
                     <field name="production_name"/>
                     <field name="drawing_number"/>
